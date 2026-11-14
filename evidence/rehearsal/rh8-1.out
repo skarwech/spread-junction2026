@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/skarwech/spread-junction2026/spread/tools/rehearse.py", line 115, in <module>
+    main()
+    ~~~~^^
+  File "/Users/skarwech/spread-junction2026/spread/tools/rehearse.py", line 104, in main
+    desk.wait(timeout=120)
+    ~~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/subprocess.py", line 1280, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/subprocess.py", line 2058, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/Users/skarwech/spread-junction2026/spread/.venv/bin/python', '-u', '-m', 'desk.live', '--world', 'wfe15af4fc63548624f3e', '--level', '8', '--policy', 'priced', '--param', 'price_mult=1.5', '--param', 'fee_mode=deadline', '--param', 'fee_open=0.9', '--param', 'fee_cap=2.0', '--param', 'fee_lead_h=2', '--param', 'trust_markup=0.01', '--param', 'target_win=0.4', '--param', 'cost_floor=1.15', '--param', 'intake_cap=80', '--param', 'm_min=1.0', '--param', 'options=safe', '--param', 'max_drive_h=6', '--param', 'min_slack_h=8', '--param', 'night_hold=1']' timed out after 120 seconds

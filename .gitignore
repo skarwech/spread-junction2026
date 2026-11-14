@@ -8,3 +8,4 @@ __pycache__/
 proof/_dummy_preview.html
 reveal-*/
 runs/
+.claude/

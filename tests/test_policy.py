@@ -202,3 +202,111 @@ def test_a_refused_post_with_an_ended_window_is_posted_again_without_its_windows
     desk.read_results([{**post, "stops": [{k: v for k, v in s.items() if k != "window"} for s in post["stops"]]}],
                       [{"ok": False, "reason": "refused again"}])
     assert desk.outbox == []  # no windows left to drop: no loop
+
+
+# Option choice (test final 2: 138 of 337 declines had a next_day option with enough slack).
+TIGHT = {**REQUEST, "options": [{"kind": "same_day", "deadline": 1000, "listPriceCents": 10001},   # 6.4 h slack
+                                {"kind": "next_day", "deadline": 2640, "listPriceCents": 8000}]}   # 33.75 h slack
+
+
+def test_safe_quotes_the_slower_option_when_the_first_is_too_tight():
+    assert quote_prices(TIGHT, Params(price_mult=1.5, min_slack_h=8, options="safe")) == {"next_day": 12000}
+    assert quote_prices(TIGHT, Params(price_mult=1.5, min_slack_h=8, options="safe1")) == {"next_day": 12000}
+    assert quote_prices(TIGHT, Params(price_mult=1.5, min_slack_h=8)) == {"same_day": 40004}  # "first" still declines
+
+
+def test_safe_quotes_every_option_that_passes_and_safe1_only_the_fastest():
+    assert quote_prices(TIGHT, Params(price_mult=1.5, min_slack_h=6, options="safe")) == {"same_day": 15002, "next_day": 12000}
+    assert quote_prices(TIGHT, Params(price_mult=1.5, min_slack_h=6, options="safe1")) == {"same_day": 15002}
+
+
+def test_safe_declines_on_the_first_option_when_no_option_passes():
+    from desk.policy import declined
+    p = Params(price_mult=1.5, min_slack_h=40, options="safe")
+    assert declined(TIGHT, p)
+    assert quote_prices(TIGHT, p) == {"same_day": 40004}
+
+
+def test_long_drive_is_quoted_only_on_an_option_with_long_slack():
+    far = {**TIGHT, "legs": [{"pickup": {"placeId": "helsinki", "window": {"from": 600, "to": 1200}}, "delivery": {"placeId": "tampere"}}]}
+    from desk.policy import risk
+    s0, drive = risk(far, far["options"][0])
+    s1, _ = risk(far, far["options"][1])
+    assert drive > 1.5 and s0 < 24 <= s1
+    p = Params(price_mult=1.5, min_slack_h=2, max_drive_h=1.5, options="safe")
+    assert quote_prices(far, p) == {"same_day": 40004}                                   # long drive: declined
+    assert quote_prices(far, Params(**{**p.as_dict(), "long_slack_h": 24})) == {"next_day": 12000}
+
+
+def test_a_fallback_quote_is_a_real_quote_and_rejoin_agrees():
+    from desk.policy import PricedDesk
+    p = Params(price_mult=1.5, min_slack_h=8, options="safe", cost_floor=1.0)
+    desk = PricedDesk(None, 8, 0, p)
+    req = {**TIGHT, "id": "t1", "arrivedAt": 600, "dealerId": "D", "referenceFeeCents": 5000}
+    desk.quote(req)
+    assert desk.outbox[-1]["prices"] == {"next_day": 12000}
+    assert "t1" in desk.learning.quoted and desk.real_quote(req)
+
+
+def test_options_param_rejects_unknown_modes():
+    with pytest.raises(ValueError):
+        Params.parse(["options=most"])
+    assert Params.parse(["options=safe", "long_slack_h=24"]).long_slack_h == 24
+
+
+# Overnight hold (test final 2: 45 bookings between 00:00 and 08:00 at 1.42× the typical fee, after raises no one read).
+def test_night_hold_places_every_raise_between_07_and_22_and_reaches_the_cap_on_time():
+    from desk.policy import deadline_schedule
+    plain = deadline_schedule(1080, 10000, 2520, Params(fee_mode="deadline", fee_open=0.9, fee_cap=2.0, fee_lead_h=2, fee_steps=6))
+    held = deadline_schedule(1080, 10000, 2520, Params(fee_mode="deadline", fee_open=0.9, fee_cap=2.0, fee_lead_h=2, fee_steps=6, night_hold=1))
+    assert [s["at"] for s in held] == [1080, 1236, 1932, 2088, 2244, 2400]       # 18:00, 20:36, then 08:12 ... 16:00 next day
+    assert [s["feeCents"] for s in held] == [s["feeCents"] for s in plain]
+    assert all(not (22 * 60 <= s["at"] % 1440 or s["at"] % 1440 < 7 * 60) for s in held[1:])
+
+
+def test_night_hold_never_passes_the_target_and_falls_back_when_the_whole_window_is_night():
+    from desk.policy import deadline_schedule
+    p = Params(fee_mode="deadline", fee_open=0.9, fee_cap=2.0, fee_lead_h=2, fee_steps=6, night_hold=1)
+    # posted 21:00, last pickup 06:00 next day -> target 04:00: one active hour, the cap at 22:00 at the latest
+    sched = deadline_schedule(1260, 10000, 1440 + 360, p)
+    assert sched[-1]["at"] <= 1440 + 240 and sched[-1]["feeCents"] == 20000
+    assert all(b["at"] > a["at"] and b["feeCents"] >= a["feeCents"] for a, b in zip(sched, sched[1:]))
+    # posted 23:00, target 04:00: no active minute, so the plain schedule
+    night = deadline_schedule(1380, 10000, 1440 + 360, p)
+    assert night == deadline_schedule(1380, 10000, 1440 + 360, Params(**{**p.as_dict(), "night_hold": 0}))
+
+
+# Bulk batches (test final 2: B0088, 15 of 21 won, €7 an order, 2 late).
+def test_batch_cap_declines_real_quotes_beyond_the_cap_and_rejoin_agrees():
+    from desk.policy import PricedDesk
+    p = Params(price_mult=1.5, options="safe", batch_cap=2)
+    def req(i, batch):
+        return {**TIGHT, "id": f"b{i}", "arrivedAt": 600 + i, "respondBy": 615 + i, "dealerId": "D", "referenceFeeCents": 5000, "batchId": batch}
+    live = PricedDesk(None, 8, 0, p)
+    reqs = [req(0, "B1"), req(1, "B1"), req(2, None), req(3, "B1"), req(4, "B2")]
+    for r in reqs:
+        live.quote(r)
+    prices = [a["prices"] for a in live.outbox]
+    assert prices[3] == {"same_day": 40004}                          # the third real quote of B1: declined
+    assert all(v == {"same_day": 15002, "next_day": 12000} for i, v in enumerate(prices) if i != 3)
+    assert live.learning.quoted == {"b0", "b1", "b2", "b4"}
+    live.quote(reqs[3])                                              # a re-quote keeps the first decision
+    assert live.outbox[-1]["prices"] == {"same_day": 40004}
+    again = PricedDesk(None, 8, 0, p)
+    assert [again.real_quote(r) for r in reqs] == [True, True, True, False, True]
+    assert [again.real_quote(r) for r in reqs] == [True, True, True, False, True]   # idempotent
+
+
+# Long drives (step 8: 5-7 h drives earn €52 an order but 9-14% are late, 60% of them booked after lastPickupAt).
+def test_long_drives_reach_their_cap_earlier_and_short_ones_do_not_change():
+    from desk.policy import PricedDesk, deadline_schedule
+    p = Params(fee_mode="deadline", fee_open=0.9, fee_cap=2.0, fee_lead_h=2, fee_steps=6, long_drive_h=4, long_lead_h=8, long_cap=2.5)
+    desk = PricedDesk(None, 8, 600, p)
+    near = {**_order("n"), "lastPickupAt": 3000}
+    far = {**_order("f"), "lastPickupAt": 3000, "legs": [{**_order()["legs"][0], "delivery": {**_order()["legs"][0]["delivery"], "placeId": "rovaniemi"}}]}
+    for o in (near, far):
+        desk.requests[o["id"]] = {"referenceFeeCents": 10000}
+    assert desk.fees_for(near, 1) == deadline_schedule(600, 10000, 3000, p)
+    long_sched = desk.fees_for(far, 1)
+    assert long_sched[-1] == {"at": 3000 - 8 * 60, "feeCents": 25000}
+    assert long_sched[0]["feeCents"] == 9000

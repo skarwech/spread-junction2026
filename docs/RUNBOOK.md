@@ -6,7 +6,8 @@ The desk runs on this Mac (team decision, 14 Nov). Submissions close at **10:00*
 ## The night before
 
 - Freeze the code. No sweeps, no edits to `desk/` or `tools/start_final.sh` after the last green test run.
-- Check the policy in `tools/start_final.sh`: C with opening fee 0.9× (decision log, 14 Nov). Expected: `fee_open=0.9`, `target_win=0.4`, `intake_cap=80`, `trust_markup=0.01`, `min_slack_h=6`, `max_drive_h=5`.
+- Check the policy in `tools/start_final.sh`: the step 8 policy (decision log, 14 Nov evening). Expected: `fee_open=0.9`, `target_win=0.4`, `intake_cap=80`, `trust_markup=0.01`, `options=safe`, `max_drive_h=6`, `min_slack_h=8`, `night_hold=1`. Once the desk has joined, `runs/<world>/live_meta.json` shows the params it actually loaded.
+- Fallback (only if the step 8 desk misbehaves): the step 7 policy is `options=first min_slack_h=6 max_drive_h=5` without `night_hold` (git history of `tools/start_final.sh`, commit 104ef90).
 - Plug the Mac into power. Note the Wi-Fi or use a wired connection.
 
 ## 07:00 pre-flight

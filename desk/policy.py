@@ -9,7 +9,7 @@ Every decision is a pure function of what the world said, so a desk replays exac
 from __future__ import annotations
 
 import math
-from dataclasses import asdict, dataclass, fields
+from dataclasses import asdict, dataclass, fields, replace
 from typing import Any
 
 from spread.starter import Desk
@@ -18,17 +18,22 @@ from spread.types import PriceRequest
 from desk import actions as A
 
 
+OPTION_MODES = ("first", "all", "safe", "safe1")
+
+
 @dataclass(frozen=True)
 class Params:
     price_mult: float = 1.0      # quote = round(list price × price_mult)
-    options: str = "first"       # "first": quote the dealer's first option only (as the starter); "all": every offered option
+    options: str = "first"       # "first": the dealer's first option only (as the starter); "all": every offered option;
+                                 # "safe": every option that passes the risk test; "safe1": the fastest option that passes
     fee_mode: str = "starter"    # "starter": +10%/h up to 1.5× typical; "deadline": reach fee_cap before lastPickupAt
     fee_open: float = 1.0        # opening fee, × the typical fee
     fee_cap: float = 2.0         # fee reached fee_lead_h hours before lastPickupAt
     fee_lead_h: float = 2.0
     fee_steps: float = 6
     min_slack_h: float = -999.0  # decline when deadline − ready time − driving time is shorter than this
-    max_drive_h: float = 999.0   # decline when the car's driving time is longer than this
+    max_drive_h: float = 999.0   # decline when the car's driving time is longer than this ...
+    long_slack_h: float = 999.0  # ... unless the option's slack is at least this (a long drive on a slow option)
     decline_mult: float = 4.0    # a decline is a quote this far above list (RULES.md:47: losing quotes cost nothing)
     trust_markup: float = 0.0    # × (1 + trust_markup × the dealer's on-time count, ≤ 25) (RULES.md:163-165)
     ladder_step: float = 0.15    # price rungs: price_mult + {0, 1, 2} × ladder_step
@@ -47,6 +52,11 @@ class Params:
     intake_cap: float = 999.0    # orders won in the last 24 h at which the price goes up instead (a leading load signal)
     cost_floor: float = 0.0      # every real quote ≥ the request's typical fee × this
     start_minute: float = 0      # no quote before this minute (emulates a final that starts on Thursday)
+    night_hold: float = 0        # 1: fee raises only between 07:00 and 22:00 (no driver reads the app at night)
+    batch_cap: float = 999       # at most this many real quotes per bulk batch (batchId); the rest are declined
+    long_drive_h: float = 999    # an order whose cars drive at least this long ...
+    long_lead_h: float = 2.0     # ... reaches its fee cap this many hours before lastPickupAt ...
+    long_cap: float = 0          # ... and that cap is this × the typical fee (0: fee_cap)
 
     @classmethod
     def parse(cls, pairs: list[str]) -> "Params":
@@ -57,8 +67,8 @@ class Params:
             if key not in types:
                 raise ValueError(f"unknown parameter {key!r}; known: {', '.join(types)}")
             values[key] = float(raw) if types[key] in ("float", float) else raw
-        if values.get("fee_mode", "starter") not in ("starter", "deadline") or values.get("options", "first") not in ("first", "all"):
-            raise ValueError("fee_mode is starter|deadline, options is first|all")
+        if values.get("fee_mode", "starter") not in ("starter", "deadline") or values.get("options", "first") not in OPTION_MODES:
+            raise ValueError("fee_mode is starter|deadline, options is first|all|safe|safe1")
         return cls(**values)
 
     def as_dict(self) -> dict:
@@ -86,18 +96,38 @@ def risk(request: PriceRequest, option: dict) -> tuple[float, float]:
     return (option["deadline"] - ready - drive) / 60, drive / 60
 
 
+def passes(request: PriceRequest, option: dict, params: Params) -> bool:
+    """An option the desk can carry: enough slack, and a drive that is short or has a long slack."""
+    slack, drive = risk(request, option)
+    return slack >= params.min_slack_h and (drive <= params.max_drive_h or slack >= params.long_slack_h)
+
+
+def quoted_options(request: PriceRequest, params: Params) -> list[dict]:
+    """The options the desk quotes at a real price; none means a decline. "first" and "all" judge the first
+    option only (as before); "safe" quotes every option that passes, "safe1" the fastest one that passes."""
+    options = request["options"]
+    if params.options in ("first", "all"):
+        if not passes(request, options[0], params):
+            return []
+        return options if params.options == "all" else options[:1]
+    good = [o for o in options if passes(request, o, params)]
+    return good[:1] if params.options == "safe1" else good
+
+
 def declined(request: PriceRequest, params: Params) -> bool:
-    options = request["options"] if params.options == "all" else request["options"][:1]
-    slack, drive = risk(request, options[0])
-    return slack < params.min_slack_h or drive > params.max_drive_h
+    return not quoted_options(request, params)
+
+
+def decline_prices(request: PriceRequest, params: Params) -> dict[str, int]:
+    first = request["options"][0]
+    return {first["kind"]: max(1, int(first["listPriceCents"] * params.decline_mult + 0.5))}
 
 
 def quote_prices(request: PriceRequest, params: Params, mult: float | None = None) -> dict[str, int]:
     """The quote: `mult` × list (default price_mult) on the quoted options, or a decline far above list."""
-    options = request["options"] if params.options == "all" else request["options"][:1]
-    if declined(request, params):
-        first = request["options"][0]
-        return {first["kind"]: max(1, int(first["listPriceCents"] * params.decline_mult + 0.5))}
+    options = quoted_options(request, params)
+    if not options:
+        return decline_prices(request, params)
     m = params.price_mult if mult is None else mult
     return {o["kind"]: max(1, int(o["listPriceCents"] * m + 0.5)) for o in options}
 
@@ -196,18 +226,45 @@ class Learning:
         return base * (1 + self.p.trust_markup * self.trust.get(dealer, 0))
 
 
+DAY_FROM, DAY_TO = 7 * 60, 22 * 60  # the hours drivers read the app (HANDBOOK.md: no notification 23:00-07:00)
+ACTIVE_PER_DAY = DAY_TO - DAY_FROM
+
+
+def active_until(minute: int) -> int:
+    """Active (07:00-22:00) minutes from minute 0 to `minute`."""
+    return minute // 1440 * ACTIVE_PER_DAY + min(ACTIVE_PER_DAY, max(0, minute % 1440 - DAY_FROM))
+
+
+def at_active(count: int, latest: int) -> int:
+    """The wall minute at which `count` active minutes have passed: in the morning, or at 22:00 the evening
+    before when the morning would be after `latest`."""
+    day, rest = divmod(count, ACTIVE_PER_DAY)
+    morning = day * 1440 + DAY_FROM + rest
+    return (day - 1) * 1440 + DAY_TO if rest == 0 and day > 0 and morning > latest else morning
+
+
+def step_times(now: int, target: int, steps: int, night_hold: bool) -> list[int]:
+    """When each of the steps applies: evenly in wall time, or evenly in active time (night_hold), the first now
+    and none after target. With no active minute before target, wall time."""
+    span = active_until(target) - active_until(now)
+    if not night_hold or span <= 0:
+        return [now + (target - now) * k // (steps - 1) for k in range(steps)]
+    start = active_until(now)
+    return [now] + [max(now, min(target, at_active(start + span * k // (steps - 1), target))) for k in range(1, steps)]
+
+
 def deadline_schedule(now: int, base: float, last_pickup: int, params: Params) -> list[dict]:
     """Opens at fee_open × base and rises in even steps to fee_cap × base by lastPickupAt − fee_lead_h, so a car
     that no driver has taken is at its highest fee while a driver can still collect it in time. When that moment
-    has passed already, the cap applies at once. Times strictly rise, fees never fall, whole cents."""
+    has passed already, the cap applies at once. With night_hold, the raises fall between 07:00 and 22:00, as no
+    driver reads the app at night. Times strictly rise, fees never fall, whole cents."""
     opening, cap = base * params.fee_open, base * max(params.fee_open, params.fee_cap)
     target = last_pickup - int(params.fee_lead_h * 60)
     steps = max(1, int(params.fee_steps))
     if target <= now or steps == 1:
         return [A.fee_step(now, max(1, int(cap + 0.5)))]
     schedule: list[dict] = []
-    for k in range(steps):
-        at = now + (target - now) * k // (steps - 1)
+    for k, at in enumerate(step_times(now, target, steps, params.night_hold >= 1)):
         fee = max(1, int(opening + (cap - opening) * k / (steps - 1) + 0.5))
         if schedule and at <= schedule[-1]["at"]:
             schedule[-1] = A.fee_step(schedule[-1]["at"], max(fee, schedule[-1]["feeCents"]))
@@ -223,6 +280,8 @@ class PricedDesk(Desk):
         super().__init__(world, level, now)
         self.params = params
         self.learning = Learning(params)
+        self.decided: dict[str, bool] = {}      # request id -> quoted at a real price (decided once, in arrival order)
+        self.batch_real: dict[str, int] = {}    # batchId -> real quotes so far
 
     def handle(self, event: dict) -> None:
         self.learning.see(event)
@@ -259,7 +318,17 @@ class PricedDesk(Desk):
             self.outbox.append({**action, "stops": [{k: v for k, v in s.items() if k != "window"} for s in action["stops"]]})
 
     def real_quote(self, request: PriceRequest) -> bool:
-        return request["arrivedAt"] >= self.params.start_minute and not declined(request, self.params)
+        """Whether the request gets a real price. Decided once per request, in arrival order, so a rejoin that
+        replays the history decides exactly as the live desk did (the batch cap counts earlier requests)."""
+        rid = request["id"]
+        if rid not in self.decided:
+            real = request["arrivedAt"] >= self.params.start_minute and not declined(request, self.params)
+            batch = request.get("batchId")
+            if real and batch:
+                real = self.batch_real.get(batch, 0) < self.params.batch_cap
+                self.batch_real[batch] = self.batch_real.get(batch, 0) + (1 if real else 0)
+            self.decided[rid] = real
+        return self.decided[rid]
 
     def quote(self, request: PriceRequest) -> None:
         self.requests[request["id"]] = request
@@ -267,18 +336,28 @@ class PricedDesk(Desk):
         if request["arrivedAt"] < self.params.start_minute:
             return  # emulates a final that starts later: requests before it go unquoted, as in the test final
         mult = self.learning.multiplier(request["dealerId"], max(self.now, request["arrivedAt"]))
-        prices = quote_prices(request, self.params, mult)
         if self.real_quote(request):
             self.learning.quoted.add(request["id"])
             floor = int(request["referenceFeeCents"] * self.params.cost_floor + 0.999)
-            prices = {kind: max(cents, floor) for kind, cents in prices.items()}
+            prices = {kind: max(cents, floor) for kind, cents in quote_prices(request, self.params, mult).items()}
+        else:
+            prices = decline_prices(request, self.params)
         self.outbox.append(A.quote(request["id"], prices))
 
     def fees_for(self, order: dict, cars: int) -> list:
         if self.params.fee_mode != "deadline" or order["id"] in self.urgent:
             return super().fees_for(order, cars)  # after the deadline warning: the starter's steep fees
         base = self.requests[order["id"]]["referenceFeeCents"] * cars / len(order["legs"])
-        return deadline_schedule(self.now, base, order["lastPickupAt"], self.params)
+        return deadline_schedule(self.now, base, order["lastPickupAt"], self.fee_params(order))
+
+    def fee_params(self, order: dict) -> Params:
+        """Long drives get their cap earlier (and optionally higher): most of their lateness is a booking that
+        came after lastPickupAt (step 8 analysis), as few drivers are near and the trip home is long."""
+        p = self.params
+        drive = sum(road_minutes(l["pickup"]["placeId"], l["delivery"]["placeId"]) for l in order["legs"]) / 60
+        if drive < p.long_drive_h:
+            return p
+        return replace(p, fee_lead_h=max(p.fee_lead_h, p.long_lead_h), fee_cap=p.long_cap or p.fee_cap)
 
 
 def make_desk(policy: str, world: Any, level: int, now: int, params: Params) -> Desk:
