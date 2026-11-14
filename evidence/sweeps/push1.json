@@ -1,0 +1,2090 @@
+{
+ "name": "push1",
+ "level": 8,
+ "seeds": [
+  "dev-1",
+  "dev-3",
+  "hold-2",
+  "hold-5",
+  "v4-1",
+  "v4-3",
+  "v4-5",
+  "v4-8"
+ ],
+ "settings": [
+  "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+  "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+  "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+  "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+  "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5"
+ ],
+ "rows": [
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "dev-1",
+   "level": 8,
+   "worldId": "wfb922b96b594ff14dcd6",
+   "exit": 0,
+   "seconds": 51.1,
+   "score": {
+    "marginCents": 913046,
+    "revenueCents": 3189160,
+    "marginShare": 0.28629670508848726,
+    "wonOrders": 303,
+    "onTimeShare": 0.9702970297029703,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 913046,
+    "lateCauses": {
+     "booked in time, still late": 5,
+     "booked after lastPickupAt": 4
+    },
+    "requestIdsDigest": "19f2ed01ad16",
+    "requests": 1034,
+    "won": 303,
+    "winRate": 0.293036750483559,
+    "outcomes": {
+     "on time": 294,
+     "late 2\u201324 h (25%)": 8,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.15,
+     "p75": 1.3166666666666667,
+     "p90": 14.633333333333333
+    },
+    "lateOrdersThatGotDeadlineWarning": "4/9",
+    "ordersWithExpiredGig": 8,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.0
+    },
+    "priceOverList": {
+     "p50": 1.5,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "dev-3",
+   "level": 8,
+   "worldId": "wb9e428043aae436aecc0",
+   "exit": 0,
+   "seconds": 50.1,
+   "score": {
+    "marginCents": 803392,
+    "revenueCents": 3134889,
+    "marginShare": 0.25627446458231856,
+    "wonOrders": 283,
+    "onTimeShare": 0.9540636042402827,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 803392,
+    "lateCauses": {
+     "booked after lastPickupAt": 6,
+     "booked in time, still late": 3,
+     "failed visit": 2,
+     "gig expired first": 2
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 283,
+    "winRate": 0.27342995169082124,
+    "outcomes": {
+     "on time": 270,
+     "late 2\u201324 h (25%)": 9,
+     "late \u22642 h (10%)": 2,
+     "late \u22642 bd (50%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.15,
+     "p75": 1.9833333333333334,
+     "p90": 14.4
+    },
+    "lateOrdersThatGotDeadlineWarning": "9/13",
+    "ordersWithExpiredGig": 14,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5999435347261435
+    },
+    "priceOverList": {
+     "p50": 1.5136666666666667,
+     "max": 2.3751020408163264
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "hold-2",
+   "level": 8,
+   "worldId": "w3e573bda742d1f4d243d",
+   "exit": 0,
+   "seconds": 44.9,
+   "score": {
+    "marginCents": 1025862,
+    "revenueCents": 2994083,
+    "marginShare": 0.3426297801363556,
+    "wonOrders": 278,
+    "onTimeShare": 0.9748201438848921,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1025862,
+    "lateCauses": {
+     "booked after lastPickupAt": 3,
+     "failed visit": 2,
+     "booked in time, still late": 1,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "fa52ae6a7104",
+    "requests": 1036,
+    "won": 278,
+    "winRate": 0.26833976833976836,
+    "outcomes": {
+     "on time": 271,
+     "late 2\u201324 h (25%)": 5,
+     "late \u22642 h (10%)": 1,
+     "late \u22642 bd (50%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.06666666666666667,
+     "p75": 0.6833333333333333,
+     "p90": 8.45
+    },
+    "lateOrdersThatGotDeadlineWarning": "6/7",
+    "ordersWithExpiredGig": 10,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.4002021222839818
+    },
+    "priceOverList": {
+     "p50": 1.7195652173913043,
+     "max": 2.248375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "hold-5",
+   "level": 8,
+   "worldId": "w7710d31f73f4e69aaf9d",
+   "exit": 0,
+   "seconds": 45.7,
+   "score": {
+    "marginCents": 672062,
+    "revenueCents": 2438379,
+    "marginShare": 0.27561835137195656,
+    "wonOrders": 268,
+    "onTimeShare": 0.9477611940298507,
+    "undeliveredShare": 0.0037313432835820895,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 672062,
+    "lateCauses": {
+     "booked after lastPickupAt": 8,
+     "failed visit": 3,
+     "booked in time, still late": 2,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "183e8c39c9af",
+    "requests": 1030,
+    "won": 268,
+    "winRate": 0.26019417475728157,
+    "outcomes": {
+     "on time": 254,
+     "late 2\u201324 h (25%)": 8,
+     "late \u22642 bd (50%)": 3,
+     "late \u22642 h (10%)": 2,
+     "undelivered": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.06666666666666667,
+     "p75": 0.6833333333333333,
+     "p90": 7.633333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "11/13",
+    "ordersWithExpiredGig": 14,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.4001175088131608
+    },
+    "priceOverList": {
+     "p50": 1.5442105263157895,
+     "max": 2.026666666666667
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "v4-1",
+   "level": 8,
+   "worldId": "w321809bbcc5c20801f47",
+   "exit": 0,
+   "seconds": 44.6,
+   "score": {
+    "marginCents": 991677,
+    "revenueCents": 2845056,
+    "marginShare": 0.34856150458901336,
+    "wonOrders": 277,
+    "onTimeShare": 0.9855595667870036,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 991677,
+    "lateCauses": {
+     "booked after lastPickupAt": 2,
+     "failed visit": 1,
+     "booked in time, still late": 1
+    },
+    "requestIdsDigest": "309fae42c877",
+    "requests": 1039,
+    "won": 277,
+    "winRate": 0.2666025024061598,
+    "outcomes": {
+     "on time": 273,
+     "late 2\u201324 h (25%)": 3,
+     "late \u22642 bd (50%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.06666666666666667,
+     "p75": 0.4166666666666667,
+     "p90": 4.083333333333333
+    },
+    "lateOrdersThatGotDeadlineWarning": "3/4",
+    "ordersWithExpiredGig": 5,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.0
+    },
+    "priceOverList": {
+     "p50": 1.546896551724138,
+     "max": 2.375142857142857
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "v4-3",
+   "level": 8,
+   "worldId": "wf22117185587c9816d9b",
+   "exit": 0,
+   "seconds": 52.0,
+   "score": {
+    "marginCents": 923340,
+    "revenueCents": 2611642,
+    "marginShare": 0.35354769145235065,
+    "wonOrders": 291,
+    "onTimeShare": 0.9725085910652921,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 923340,
+    "lateCauses": {
+     "booked after lastPickupAt": 6,
+     "failed visit": 1,
+     "booked in time, still late": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 291,
+    "winRate": 0.2811594202898551,
+    "outcomes": {
+     "on time": 283,
+     "late 2\u201324 h (25%)": 6,
+     "late \u22642 bd (50%)": 1,
+     "late >2 bd (100%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.03333333333333333,
+     "p75": 0.38333333333333336,
+     "p90": 13.216666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "7/8",
+    "ordersWithExpiredGig": 10,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.1999431979551263
+    },
+    "priceOverList": {
+     "p50": 1.56125,
+     "max": 2.1606666666666667
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "v4-5",
+   "level": 8,
+   "worldId": "w32d0130416eb7c7d50a8",
+   "exit": 0,
+   "seconds": 48.4,
+   "score": {
+    "marginCents": 617512,
+    "revenueCents": 2528306,
+    "marginShare": 0.24423942355078856,
+    "wonOrders": 269,
+    "onTimeShare": 0.9553903345724907,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 617512,
+    "lateCauses": {
+     "failed visit": 5,
+     "booked after lastPickupAt": 4,
+     "gig expired first": 2,
+     "booked in time, still late": 1
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 269,
+    "winRate": 0.26040658276863504,
+    "outcomes": {
+     "on time": 257,
+     "late 2\u201324 h (25%)": 6,
+     "late \u22642 bd (50%)": 6
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.05,
+     "p75": 0.7666666666666667,
+     "p90": 9.083333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "11/12",
+    "ordersWithExpiredGig": 13,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.599965940054496
+    },
+    "priceOverList": {
+     "p50": 1.4323595505617976,
+     "max": 2.1021666666666667
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.4",
+   "seed": "v4-8",
+   "level": 8,
+   "worldId": "w5c5789fdb96ebfbaea88",
+   "exit": 0,
+   "seconds": 53.9,
+   "score": {
+    "marginCents": 871447,
+    "revenueCents": 2642304,
+    "marginShare": 0.3298057301506564,
+    "wonOrders": 287,
+    "onTimeShare": 0.9616724738675958,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 871447,
+    "lateCauses": {
+     "booked in time, still late": 4,
+     "failed visit": 3,
+     "booked after lastPickupAt": 3,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 287,
+    "winRate": 0.27783155856727976,
+    "outcomes": {
+     "on time": 276,
+     "late 2\u201324 h (25%)": 6,
+     "late \u22642 bd (50%)": 4,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.05,
+     "p75": 0.4666666666666667,
+     "p90": 5.133333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "7/11",
+    "ordersWithExpiredGig": 8,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.0
+    },
+    "priceOverList": {
+     "p50": 1.5904545454545456,
+     "max": 2.3751351351351353
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "dev-1",
+   "level": 8,
+   "worldId": "w3d30b0283684bcd0acb8",
+   "exit": 0,
+   "seconds": 52.0,
+   "score": {
+    "marginCents": 943693,
+    "revenueCents": 3152553,
+    "marginShare": 0.29934246942081544,
+    "wonOrders": 298,
+    "onTimeShare": 0.9765100671140939,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 943693,
+    "lateCauses": {
+     "booked in time, still late": 5,
+     "booked after lastPickupAt": 2
+    },
+    "requestIdsDigest": "19f2ed01ad16",
+    "requests": 1034,
+    "won": 298,
+    "winRate": 0.28820116054158607,
+    "outcomes": {
+     "on time": 291,
+     "late 2\u201324 h (25%)": 4,
+     "late \u22642 h (10%)": 3
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.4,
+     "p75": 4.85,
+     "p90": 15.716666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "2/7",
+    "ordersWithExpiredGig": 6,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000705716302047,
+     "p90": 2.239924134660977
+    },
+    "priceOverList": {
+     "p50": 1.4821782178217822,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "dev-3",
+   "level": 8,
+   "worldId": "wd0af04cc1de49c71ba23",
+   "exit": 0,
+   "seconds": 53.8,
+   "score": {
+    "marginCents": 964514,
+    "revenueCents": 3186294,
+    "marginShare": 0.3027071575943714,
+    "wonOrders": 287,
+    "onTimeShare": 0.9442508710801394,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 964514,
+    "lateCauses": {
+     "booked after lastPickupAt": 7,
+     "booked in time, still late": 6,
+     "failed visit": 2,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 287,
+    "winRate": 0.2772946859903382,
+    "outcomes": {
+     "on time": 271,
+     "late 2\u201324 h (25%)": 10,
+     "late \u22642 bd (50%)": 4,
+     "late \u22642 h (10%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.7666666666666667,
+     "p75": 9.25,
+     "p90": 15.866666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "11/16",
+    "ordersWithExpiredGig": 16,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9001414427157002,
+     "p90": 2.4600278336168238
+    },
+    "priceOverList": {
+     "p50": 1.5496666666666667,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "hold-2",
+   "level": 8,
+   "worldId": "w19e89127ab67d9ed3ee6",
+   "exit": 0,
+   "seconds": 46.6,
+   "score": {
+    "marginCents": 1151200,
+    "revenueCents": 2991352,
+    "marginShare": 0.38484270657548825,
+    "wonOrders": 277,
+    "onTimeShare": 0.9638989169675091,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1151200,
+    "lateCauses": {
+     "booked in time, still late": 5,
+     "failed visit": 3,
+     "gig expired first": 1,
+     "booked after lastPickupAt": 1
+    },
+    "requestIdsDigest": "fa52ae6a7104",
+    "requests": 1036,
+    "won": 277,
+    "winRate": 0.2673745173745174,
+    "outcomes": {
+     "on time": 267,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 bd (50%)": 3
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.16666666666666666,
+     "p75": 1.6333333333333333,
+     "p90": 14.183333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "5/10",
+    "ordersWithExpiredGig": 9,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000567214974475,
+     "p90": 2.2399817256232866
+    },
+    "priceOverList": {
+     "p50": 1.7211538461538463,
+     "max": 2.2388461538461537
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "hold-5",
+   "level": 8,
+   "worldId": "we52087ea1db3eaf7e406",
+   "exit": 0,
+   "seconds": 42.4,
+   "score": {
+    "marginCents": 768895,
+    "revenueCents": 2467330,
+    "marginShare": 0.3116303858827153,
+    "wonOrders": 268,
+    "onTimeShare": 0.9440298507462687,
+    "undeliveredShare": 0.0037313432835820895,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 768895,
+    "lateCauses": {
+     "booked after lastPickupAt": 6,
+     "gig expired first": 3,
+     "booked in time, still late": 3,
+     "failed visit": 3
+    },
+    "requestIdsDigest": "183e8c39c9af",
+    "requests": 1030,
+    "won": 268,
+    "winRate": 0.26019417475728157,
+    "outcomes": {
+     "on time": 253,
+     "late 2\u201324 h (25%)": 8,
+     "late \u22642 bd (50%)": 4,
+     "late \u22642 h (10%)": 2,
+     "undelivered": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.25,
+     "p75": 1.8,
+     "p90": 12.683333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "10/14",
+    "ordersWithExpiredGig": 13,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000668002672011,
+     "p90": 2.4
+    },
+    "priceOverList": {
+     "p50": 1.527843137254902,
+     "max": 2.0609302325581393
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "v4-1",
+   "level": 8,
+   "worldId": "w32f6da570ba88c4ad533",
+   "exit": 0,
+   "seconds": 50.4,
+   "score": {
+    "marginCents": 1113601,
+    "revenueCents": 2862844,
+    "marginShare": 0.3889841709852161,
+    "wonOrders": 277,
+    "onTimeShare": 0.9783393501805054,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1113601,
+    "lateCauses": {
+     "booked after lastPickupAt": 4,
+     "failed visit": 1,
+     "booked in time, still late": 1
+    },
+    "requestIdsDigest": "309fae42c877",
+    "requests": 1039,
+    "won": 277,
+    "winRate": 0.2666025024061598,
+    "outcomes": {
+     "on time": 271,
+     "late 2\u201324 h (25%)": 4,
+     "late \u22642 bd (50%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.15,
+     "p75": 1.6,
+     "p90": 13.25
+    },
+    "lateOrdersThatGotDeadlineWarning": "6/6",
+    "ordersWithExpiredGig": 7,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000491561527117,
+     "p90": 1.8002329644729178
+    },
+    "priceOverList": {
+     "p50": 1.5469230769230768,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "v4-3",
+   "level": 8,
+   "worldId": "w513caf6d626043a4ae09",
+   "exit": 0,
+   "seconds": 41.7,
+   "score": {
+    "marginCents": 949935,
+    "revenueCents": 2583513,
+    "marginShare": 0.3676912018635091,
+    "wonOrders": 297,
+    "onTimeShare": 0.9629629629629629,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 949935,
+    "lateCauses": {
+     "booked after lastPickupAt": 6,
+     "failed visit": 3,
+     "booked in time, still late": 1,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 297,
+    "winRate": 0.28695652173913044,
+    "outcomes": {
+     "on time": 286,
+     "late 2\u201324 h (25%)": 6,
+     "late \u22642 bd (50%)": 3,
+     "late >2 bd (100%)": 1,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.1,
+     "p75": 1.1166666666666667,
+     "p90": 13.766666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "10/11",
+    "ordersWithExpiredGig": 14,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000642673521851,
+     "p90": 2.2400684280555025
+    },
+    "priceOverList": {
+     "p50": 1.5557575757575757,
+     "max": 2.120833333333333
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "v4-5",
+   "level": 8,
+   "worldId": "w03fd9968d0d859008342",
+   "exit": 0,
+   "seconds": 48.1,
+   "score": {
+    "marginCents": 607982,
+    "revenueCents": 2555551,
+    "marginShare": 0.23790642409406035,
+    "wonOrders": 267,
+    "onTimeShare": 0.9250936329588015,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 607982,
+    "lateCauses": {
+     "booked after lastPickupAt": 9,
+     "failed visit": 5,
+     "gig expired first": 3,
+     "booked in time, still late": 3
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 267,
+    "winRate": 0.2584704743465634,
+    "outcomes": {
+     "on time": 247,
+     "late \u22642 bd (50%)": 10,
+     "late 2\u201324 h (25%)": 9,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.11666666666666667,
+     "p75": 1.95,
+     "p90": 14.033333333333333
+    },
+    "lateOrdersThatGotDeadlineWarning": "17/20",
+    "ordersWithExpiredGig": 19,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000742390497402,
+     "p90": 2.460171568627451
+    },
+    "priceOverList": {
+     "p50": 1.4448571428571428,
+     "max": 2.1021666666666667
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.4",
+   "seed": "v4-8",
+   "level": 8,
+   "worldId": "we4819fccc2d9c6082693",
+   "exit": 0,
+   "seconds": 38.7,
+   "score": {
+    "marginCents": 901115,
+    "revenueCents": 2657556,
+    "marginShare": 0.33907658013603476,
+    "wonOrders": 297,
+    "onTimeShare": 0.9562289562289562,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 901115,
+    "lateCauses": {
+     "failed visit": 5,
+     "booked in time, still late": 4,
+     "gig expired first": 2,
+     "booked after lastPickupAt": 2
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 297,
+    "winRate": 0.28751210067763794,
+    "outcomes": {
+     "on time": 284,
+     "late 2\u201324 h (25%)": 9,
+     "late \u22642 bd (50%)": 4
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.2,
+     "p75": 2.283333333333333,
+     "p90": 11.35
+    },
+    "lateOrdersThatGotDeadlineWarning": "9/13",
+    "ordersWithExpiredGig": 13,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000807102502018,
+     "p90": 2.019963702359347
+    },
+    "priceOverList": {
+     "p50": 1.5641379310344827,
+     "max": 2.3751351351351353
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "dev-1",
+   "level": 8,
+   "worldId": "w08dc60a198a0e926bc0a",
+   "exit": 0,
+   "seconds": 44.4,
+   "score": {
+    "marginCents": 889410,
+    "revenueCents": 3160888,
+    "marginShare": 0.2813797894768812,
+    "wonOrders": 300,
+    "onTimeShare": 0.97,
+    "undeliveredShare": 0.0033333333333333335,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 889410,
+    "lateCauses": {
+     "booked after lastPickupAt": 4,
+     "booked in time, still late": 4,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "19f2ed01ad16",
+    "requests": 1034,
+    "won": 300,
+    "winRate": 0.2901353965183752,
+    "outcomes": {
+     "on time": 291,
+     "late 2\u201324 h (25%)": 8,
+     "undelivered": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 2.5833333333333335,
+     "p75": 14.633333333333333,
+     "p90": 19.0
+    },
+    "lateOrdersThatGotDeadlineWarning": "5/8",
+    "ordersWithExpiredGig": 10,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0400072247809988,
+     "p90": 2.0801660811242413
+    },
+    "priceOverList": {
+     "p50": 1.5,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "dev-3",
+   "level": 8,
+   "worldId": "w7b1b8567e2ee6b98e013",
+   "exit": 0,
+   "seconds": 50.3,
+   "score": {
+    "marginCents": 828008,
+    "revenueCents": 3161093,
+    "marginShare": 0.26193724765452964,
+    "wonOrders": 287,
+    "onTimeShare": 0.9303135888501742,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 828008,
+    "lateCauses": {
+     "booked after lastPickupAt": 12,
+     "booked in time, still late": 5,
+     "failed visit": 2,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 287,
+    "winRate": 0.2772946859903382,
+    "outcomes": {
+     "on time": 267,
+     "late 2\u201324 h (25%)": 12,
+     "late \u22642 bd (50%)": 5,
+     "late \u22642 h (10%)": 3
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 4.633333333333334,
+     "p75": 14.883333333333333,
+     "p90": 19.7
+    },
+    "lateOrdersThatGotDeadlineWarning": "15/20",
+    "ordersWithExpiredGig": 20,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0400576830636117,
+     "p90": 2.320086593474563
+    },
+    "priceOverList": {
+     "p50": 1.513688524590164,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "hold-2",
+   "level": 8,
+   "worldId": "wee30457a06495bf2c031",
+   "exit": 0,
+   "seconds": 41.7,
+   "score": {
+    "marginCents": 1186849,
+    "revenueCents": 2923297,
+    "marginShare": 0.40599672219415267,
+    "wonOrders": 278,
+    "onTimeShare": 0.960431654676259,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1186849,
+    "lateCauses": {
+     "booked in time, still late": 6,
+     "booked after lastPickupAt": 3,
+     "gig expired first": 2
+    },
+    "requestIdsDigest": "fa52ae6a7104",
+    "requests": 1036,
+    "won": 278,
+    "winRate": 0.26833976833976836,
+    "outcomes": {
+     "on time": 267,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 h (10%)": 2,
+     "late \u22642 bd (50%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 1.2833333333333334,
+     "p75": 9.266666666666667,
+     "p90": 18.966666666666665
+    },
+    "lateOrdersThatGotDeadlineWarning": "5/11",
+    "ordersWithExpiredGig": 7,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.8001355013550135,
+     "p90": 2.080054274084125
+    },
+    "priceOverList": {
+     "p50": 1.7172,
+     "max": 2.206883116883117
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "hold-5",
+   "level": 8,
+   "worldId": "w0ebb625ffacdce5168e9",
+   "exit": 0,
+   "seconds": 50.3,
+   "score": {
+    "marginCents": 706253,
+    "revenueCents": 2417681,
+    "marginShare": 0.2921200108699204,
+    "wonOrders": 265,
+    "onTimeShare": 0.9320754716981132,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 706253,
+    "lateCauses": {
+     "booked after lastPickupAt": 11,
+     "failed visit": 4,
+     "gig expired first": 2,
+     "booked in time, still late": 1
+    },
+    "requestIdsDigest": "183e8c39c9af",
+    "requests": 1030,
+    "won": 265,
+    "winRate": 0.25728155339805825,
+    "outcomes": {
+     "on time": 247,
+     "late 2\u201324 h (25%)": 11,
+     "late \u22642 bd (50%)": 6,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 1.45,
+     "p75": 5.933333333333334,
+     "p90": 14.95
+    },
+    "lateOrdersThatGotDeadlineWarning": "17/18",
+    "ordersWithExpiredGig": 19,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0399652476107732,
+     "p90": 2.5
+    },
+    "priceOverList": {
+     "p50": 1.5376,
+     "max": 2.0355263157894736
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "v4-1",
+   "level": 8,
+   "worldId": "w9d757f184dbf10a62ba7",
+   "exit": 0,
+   "seconds": 42.8,
+   "score": {
+    "marginCents": 943285,
+    "revenueCents": 2747628,
+    "marginShare": 0.3433088467580036,
+    "wonOrders": 270,
+    "onTimeShare": 0.9555555555555556,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 943285,
+    "lateCauses": {
+     "booked after lastPickupAt": 5,
+     "booked in time, still late": 4,
+     "gig expired first": 2,
+     "failed visit": 1
+    },
+    "requestIdsDigest": "309fae42c877",
+    "requests": 1039,
+    "won": 270,
+    "winRate": 0.2598652550529355,
+    "outcomes": {
+     "on time": 258,
+     "late 2\u201324 h (25%)": 8,
+     "late \u22642 bd (50%)": 2,
+     "late \u22642 h (10%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 1.5333333333333334,
+     "p75": 7.083333333333333,
+     "p90": 14.966666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "7/12",
+    "ordersWithExpiredGig": 11,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.039918946301925,
+     "p90": 2.319965576592083
+    },
+    "priceOverList": {
+     "p50": 1.546142857142857,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "v4-3",
+   "level": 8,
+   "worldId": "w6e07dceeaf8698c211b4",
+   "exit": 0,
+   "seconds": 40.8,
+   "score": {
+    "marginCents": 1018320,
+    "revenueCents": 2600480,
+    "marginShare": 0.39158924506245,
+    "wonOrders": 295,
+    "onTimeShare": 0.9694915254237289,
+    "undeliveredShare": 0.003389830508474576,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1018320,
+    "lateCauses": {
+     "booked in time, still late": 4,
+     "booked after lastPickupAt": 4,
+     "failed visit": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 295,
+    "winRate": 0.28502415458937197,
+    "outcomes": {
+     "on time": 286,
+     "late 2\u201324 h (25%)": 7,
+     "undelivered": 1,
+     "late \u22642 bd (50%)": 1
+    },
+    "neverBooked": 1,
+    "hoursPostToBooking": {
+     "p50": 0.7666666666666667,
+     "p75": 8.05,
+     "p90": 15.316666666666666
+    },
+    "lateOrdersThatGotDeadlineWarning": "4/8",
+    "ordersWithExpiredGig": 8,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0398613518197575,
+     "p90": 1.8400516425190072
+    },
+    "priceOverList": {
+     "p50": 1.5536363636363637,
+     "max": 2.052888888888889
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "v4-5",
+   "level": 8,
+   "worldId": "w422f9e8fe65260c56645",
+   "exit": 0,
+   "seconds": 53.5,
+   "score": {
+    "marginCents": 752343,
+    "revenueCents": 2649503,
+    "marginShare": 0.2839562740634753,
+    "wonOrders": 275,
+    "onTimeShare": 0.9527272727272728,
+    "undeliveredShare": 0.0036363636363636364,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 752343,
+    "lateCauses": {
+     "booked in time, still late": 5,
+     "booked after lastPickupAt": 4,
+     "failed visit": 3,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 275,
+    "winRate": 0.26621490803484993,
+    "outcomes": {
+     "on time": 262,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 bd (50%)": 3,
+     "late \u22642 h (10%)": 2,
+     "undelivered": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 1.7833333333333334,
+     "p75": 11.433333333333334,
+     "p90": 17.1
+    },
+    "lateOrdersThatGotDeadlineWarning": "7/12",
+    "ordersWithExpiredGig": 10,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0399610136452242,
+     "p90": 2.320151679306609
+    },
+    "priceOverList": {
+     "p50": 1.4714285714285715,
+     "max": 2.1021666666666667
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.8 target_win=0.4",
+   "seed": "v4-8",
+   "level": 8,
+   "worldId": "w0f5c915c0f87efcdef9f",
+   "exit": 0,
+   "seconds": 51.4,
+   "score": {
+    "marginCents": 977276,
+    "revenueCents": 2703010,
+    "marginShare": 0.3615510116499754,
+    "wonOrders": 292,
+    "onTimeShare": 0.9657534246575342,
+    "undeliveredShare": 0.003424657534246575,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 977276,
+    "lateCauses": {
+     "booked in time, still late": 4,
+     "failed visit": 3,
+     "booked after lastPickupAt": 3
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 292,
+    "winRate": 0.28267182962245885,
+    "outcomes": {
+     "on time": 282,
+     "late 2\u201324 h (25%)": 4,
+     "late \u22642 bd (50%)": 3,
+     "late >2 bd (100%)": 1,
+     "undelivered": 1,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 1,
+    "hoursPostToBooking": {
+     "p50": 1.2166666666666666,
+     "p75": 5.933333333333334,
+     "p90": 14.85
+    },
+    "lateOrdersThatGotDeadlineWarning": "6/9",
+    "ordersWithExpiredGig": 8,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0399300495482366,
+     "p90": 1.8400490271181247
+    },
+    "priceOverList": {
+     "p50": 1.5863157894736841,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "dev-1",
+   "level": 8,
+   "worldId": "wb2103f2828f700f757ec",
+   "exit": 0,
+   "seconds": 43.0,
+   "score": {
+    "marginCents": 726042,
+    "revenueCents": 3366565,
+    "marginShare": 0.21566255218598185,
+    "wonOrders": 330,
+    "onTimeShare": 0.9515151515151515,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 726042,
+    "lateCauses": {
+     "booked after lastPickupAt": 7,
+     "booked in time, still late": 4,
+     "failed visit": 3,
+     "gig expired first": 2
+    },
+    "requestIdsDigest": "19f2ed01ad16",
+    "requests": 1034,
+    "won": 330,
+    "winRate": 0.3191489361702128,
+    "outcomes": {
+     "on time": 314,
+     "late 2\u201324 h (25%)": 15,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.15,
+     "p75": 1.5166666666666666,
+     "p90": 14.433333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "12/16",
+    "ordersWithExpiredGig": 20,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5999377819256493
+    },
+    "priceOverList": {
+     "p50": 1.4442424242424243,
+     "max": 2.281875
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "dev-3",
+   "level": 8,
+   "worldId": "w0101e104546abbd9af2b",
+   "exit": 0,
+   "seconds": 41.0,
+   "score": {
+    "marginCents": 866297,
+    "revenueCents": 3336965,
+    "marginShare": 0.2596062589808404,
+    "wonOrders": 304,
+    "onTimeShare": 0.930921052631579,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 866297,
+    "lateCauses": {
+     "booked after lastPickupAt": 11,
+     "booked in time, still late": 8,
+     "failed visit": 1,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 304,
+    "winRate": 0.293719806763285,
+    "outcomes": {
+     "on time": 283,
+     "late 2\u201324 h (25%)": 16,
+     "late \u22642 bd (50%)": 3,
+     "late \u22642 h (10%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.18333333333333332,
+     "p75": 2.783333333333333,
+     "p90": 14.916666666666666
+    },
+    "lateOrdersThatGotDeadlineWarning": "13/21",
+    "ordersWithExpiredGig": 18,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5999371957921182
+    },
+    "priceOverList": {
+     "p50": 1.5070588235294118,
+     "max": 2.281282051282051
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "hold-2",
+   "level": 8,
+   "worldId": "w60c27840bee385ad20db",
+   "exit": 0,
+   "seconds": 62.2,
+   "score": {
+    "marginCents": 1054207,
+    "revenueCents": 3246282,
+    "marginShare": 0.32474289048209615,
+    "wonOrders": 309,
+    "onTimeShare": 0.9644012944983819,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1054207,
+    "lateCauses": {
+     "booked after lastPickupAt": 4,
+     "booked in time, still late": 3,
+     "failed visit": 3,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "fa52ae6a7104",
+    "requests": 1036,
+    "won": 309,
+    "winRate": 0.2982625482625483,
+    "outcomes": {
+     "on time": 298,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 bd (50%)": 3,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.06666666666666667,
+     "p75": 0.6166666666666667,
+     "p90": 9.2
+    },
+    "lateOrdersThatGotDeadlineWarning": "8/11",
+    "ordersWithExpiredGig": 12,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5
+    },
+    "priceOverList": {
+     "p50": 1.7038297872340427,
+     "max": 2.261875
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "hold-5",
+   "level": 8,
+   "worldId": "wf04e5bcc2ea7081d168d",
+   "exit": 0,
+   "seconds": 36.6,
+   "score": {
+    "marginCents": 684374,
+    "revenueCents": 2769068,
+    "marginShare": 0.24714958245879118,
+    "wonOrders": 310,
+    "onTimeShare": 0.9387096774193548,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 684374,
+    "lateCauses": {
+     "booked after lastPickupAt": 9,
+     "booked in time, still late": 4,
+     "failed visit": 3,
+     "gig expired first": 3
+    },
+    "requestIdsDigest": "183e8c39c9af",
+    "requests": 1030,
+    "won": 310,
+    "winRate": 0.30097087378640774,
+    "outcomes": {
+     "on time": 291,
+     "late 2\u201324 h (25%)": 10,
+     "late \u22642 bd (50%)": 7,
+     "late \u22642 h (10%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.1,
+     "p75": 1.0333333333333334,
+     "p90": 8.916666666666666
+    },
+    "lateOrdersThatGotDeadlineWarning": "15/19",
+    "ordersWithExpiredGig": 17,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5999626133283487
+    },
+    "priceOverList": {
+     "p50": 1.485,
+     "max": 2.007
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "v4-1",
+   "level": 8,
+   "worldId": "w86715295670cf9e3b710",
+   "exit": 0,
+   "seconds": 42.2,
+   "score": {
+    "marginCents": 1044304,
+    "revenueCents": 3257493,
+    "marginShare": 0.32058518621528886,
+    "wonOrders": 330,
+    "onTimeShare": 0.9727272727272728,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1044304,
+    "lateCauses": {
+     "booked in time, still late": 5,
+     "booked after lastPickupAt": 4
+    },
+    "requestIdsDigest": "309fae42c877",
+    "requests": 1039,
+    "won": 330,
+    "winRate": 0.3176130895091434,
+    "outcomes": {
+     "on time": 321,
+     "late 2\u201324 h (25%)": 5,
+     "late \u22642 bd (50%)": 2,
+     "late \u22642 h (10%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.06666666666666667,
+     "p75": 0.6,
+     "p90": 5.85
+    },
+    "lateOrdersThatGotDeadlineWarning": "4/9",
+    "ordersWithExpiredGig": 6,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.1999394122993032
+    },
+    "priceOverList": {
+     "p50": 1.4802380952380951,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "v4-3",
+   "level": 8,
+   "worldId": "w19e7a1409b4b0c90849f",
+   "exit": 0,
+   "seconds": 35.0,
+   "score": {
+    "marginCents": 865377,
+    "revenueCents": 2702818,
+    "marginShare": 0.32017583129903676,
+    "wonOrders": 309,
+    "onTimeShare": 0.970873786407767,
+    "undeliveredShare": 0.003236245954692557,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 865377,
+    "lateCauses": {
+     "booked after lastPickupAt": 7,
+     "booked in time, still late": 2
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 309,
+    "winRate": 0.2985507246376812,
+    "outcomes": {
+     "on time": 300,
+     "late 2\u201324 h (25%)": 7,
+     "undelivered": 1,
+     "late \u22642 bd (50%)": 1
+    },
+    "neverBooked": 1,
+    "hoursPostToBooking": {
+     "p50": 0.05,
+     "p75": 0.4666666666666667,
+     "p90": 13.433333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "6/8",
+    "ordersWithExpiredGig": 10,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.200054288816504
+    },
+    "priceOverList": {
+     "p50": 1.5125,
+     "max": 2.0433333333333334
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "v4-5",
+   "level": 8,
+   "worldId": "w41f442d7fd36d94005d1",
+   "exit": 0,
+   "seconds": 40.4,
+   "score": {
+    "marginCents": 708750,
+    "revenueCents": 2670848,
+    "marginShare": 0.2653651574331448,
+    "wonOrders": 298,
+    "onTimeShare": 0.9530201342281879,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 708750,
+    "lateCauses": {
+     "booked after lastPickupAt": 9,
+     "failed visit": 3,
+     "gig expired first": 2
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 298,
+    "winRate": 0.2884801548886738,
+    "outcomes": {
+     "on time": 284,
+     "late 2\u201324 h (25%)": 9,
+     "late \u22642 bd (50%)": 5
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.08333333333333333,
+     "p75": 1.35,
+     "p90": 9.116666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "14/14",
+    "ordersWithExpiredGig": 16,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5001735508503993
+    },
+    "priceOverList": {
+     "p50": 1.3737254901960785,
+     "max": 1.9361940298507463
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=1.0 target_win=0.5",
+   "seed": "v4-8",
+   "level": 8,
+   "worldId": "w9fab5d2566ea02ce8877",
+   "exit": 0,
+   "seconds": 43.8,
+   "score": {
+    "marginCents": 840720,
+    "revenueCents": 2861526,
+    "marginShare": 0.2938012794571847,
+    "wonOrders": 327,
+    "onTimeShare": 0.944954128440367,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 840720,
+    "lateCauses": {
+     "booked after lastPickupAt": 7,
+     "booked in time, still late": 6,
+     "failed visit": 4,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 327,
+    "winRate": 0.3165537270087125,
+    "outcomes": {
+     "on time": 309,
+     "late \u22642 bd (50%)": 8,
+     "late 2\u201324 h (25%)": 6,
+     "late \u22642 h (10%)": 4
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.06666666666666667,
+     "p75": 0.8833333333333333,
+     "p90": 7.85
+    },
+    "lateOrdersThatGotDeadlineWarning": "12/18",
+    "ordersWithExpiredGig": 19,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.4002293577981653
+    },
+    "priceOverList": {
+     "p50": 1.5132911392405064,
+     "max": 2.3751351351351353
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "dev-1",
+   "level": 8,
+   "worldId": "w7f175d3d13842c09813d",
+   "exit": 0,
+   "seconds": 64.3,
+   "score": {
+    "marginCents": 757585,
+    "revenueCents": 3278519,
+    "marginShare": 0.23107537275214815,
+    "wonOrders": 322,
+    "onTimeShare": 0.9503105590062112,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 757585,
+    "lateCauses": {
+     "booked after lastPickupAt": 9,
+     "booked in time, still late": 5,
+     "failed visit": 2
+    },
+    "requestIdsDigest": "19f2ed01ad16",
+    "requests": 1034,
+    "won": 322,
+    "winRate": 0.3114119922630561,
+    "outcomes": {
+     "on time": 306,
+     "late 2\u201324 h (25%)": 13,
+     "late \u22642 h (10%)": 2,
+     "late \u22642 bd (50%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.6666666666666666,
+     "p75": 11.666666666666666,
+     "p90": 16.45
+    },
+    "lateOrdersThatGotDeadlineWarning": "12/16",
+    "ordersWithExpiredGig": 18,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000951474785919,
+     "p90": 2.240024554941682
+    },
+    "priceOverList": {
+     "p50": 1.4415,
+     "max": 2.281875
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "dev-3",
+   "level": 8,
+   "worldId": "wbea0737fa8791d119f16",
+   "exit": 0,
+   "seconds": 31.2,
+   "score": {
+    "marginCents": 931884,
+    "revenueCents": 3331372,
+    "marginShare": 0.27972979301020723,
+    "wonOrders": 303,
+    "onTimeShare": 0.9141914191419142,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 931884,
+    "lateCauses": {
+     "booked after lastPickupAt": 16,
+     "booked in time, still late": 7,
+     "failed visit": 2,
+     "gig expired first": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 303,
+    "winRate": 0.2927536231884058,
+    "outcomes": {
+     "on time": 277,
+     "late 2\u201324 h (25%)": 17,
+     "late \u22642 h (10%)": 4,
+     "late \u22642 bd (50%)": 4,
+     "late >2 bd (100%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.5,
+     "p75": 7.3,
+     "p90": 15.516666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "18/26",
+    "ordersWithExpiredGig": 25,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9001360544217687,
+     "p90": 2.459814905017048
+    },
+    "priceOverList": {
+     "p50": 1.5132967032967033,
+     "max": 2.2819230769230767
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "hold-2",
+   "level": 8,
+   "worldId": "w78d1640ebbe80f68d36e",
+   "exit": 0,
+   "seconds": 41.5,
+   "score": {
+    "marginCents": 1191623,
+    "revenueCents": 3265263,
+    "marginShare": 0.36493936323046566,
+    "wonOrders": 312,
+    "onTimeShare": 0.9615384615384616,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1191623,
+    "lateCauses": {
+     "booked in time, still late": 6,
+     "booked after lastPickupAt": 4,
+     "failed visit": 2
+    },
+    "requestIdsDigest": "fa52ae6a7104",
+    "requests": 1036,
+    "won": 312,
+    "winRate": 0.30115830115830117,
+    "outcomes": {
+     "on time": 300,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 bd (50%)": 3,
+     "late \u22642 h (10%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.18333333333333332,
+     "p75": 2.3,
+     "p90": 14.333333333333334
+    },
+    "lateOrdersThatGotDeadlineWarning": "6/12",
+    "ordersWithExpiredGig": 10,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000584453535944,
+     "p90": 2.23989033584647
+    },
+    "priceOverList": {
+     "p50": 1.6946376811594204,
+     "max": 2.238125
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "hold-5",
+   "level": 8,
+   "worldId": "w621a5c0da15111c4d98e",
+   "exit": 0,
+   "seconds": 42.1,
+   "score": {
+    "marginCents": 743741,
+    "revenueCents": 2721877,
+    "marginShare": 0.27324563159907667,
+    "wonOrders": 306,
+    "onTimeShare": 0.9444444444444444,
+    "undeliveredShare": 0.0032679738562091504,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 743741,
+    "lateCauses": {
+     "booked after lastPickupAt": 14,
+     "failed visit": 2,
+     "booked in time, still late": 1
+    },
+    "requestIdsDigest": "183e8c39c9af",
+    "requests": 1030,
+    "won": 306,
+    "winRate": 0.2970873786407767,
+    "outcomes": {
+     "on time": 289,
+     "late \u22642 bd (50%)": 8,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 h (10%)": 1,
+     "undelivered": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.3333333333333333,
+     "p75": 2.95,
+     "p90": 13.7
+    },
+    "lateOrdersThatGotDeadlineWarning": "15/16",
+    "ordersWithExpiredGig": 17,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9001011122345803,
+     "p90": 2.4600132187706545
+    },
+    "priceOverList": {
+     "p50": 1.48825,
+     "max": 2.020857142857143
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "v4-1",
+   "level": 8,
+   "worldId": "w8b294d68ea07181a0d99",
+   "exit": 0,
+   "seconds": 35.0,
+   "score": {
+    "marginCents": 1142166,
+    "revenueCents": 3277397,
+    "marginShare": 0.34849790855364793,
+    "wonOrders": 332,
+    "onTimeShare": 0.963855421686747,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 1142166,
+    "lateCauses": {
+     "booked after lastPickupAt": 5,
+     "booked in time, still late": 5,
+     "failed visit": 2
+    },
+    "requestIdsDigest": "309fae42c877",
+    "requests": 1039,
+    "won": 332,
+    "winRate": 0.31953801732435033,
+    "outcomes": {
+     "on time": 320,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 h (10%)": 3,
+     "late \u22642 bd (50%)": 2
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.23333333333333334,
+     "p75": 2.2333333333333334,
+     "p90": 13.216666666666667
+    },
+    "lateOrdersThatGotDeadlineWarning": "7/12",
+    "ordersWithExpiredGig": 9,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000616903146206,
+     "p90": 2.0199623352165723
+    },
+    "priceOverList": {
+     "p50": 1.4803658536585367,
+     "max": 2.375
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "v4-3",
+   "level": 8,
+   "worldId": "wa013bc8f975c54e587bc",
+   "exit": 0,
+   "seconds": 35.4,
+   "score": {
+    "marginCents": 873462,
+    "revenueCents": 2732622,
+    "marginShare": 0.3196424532921128,
+    "wonOrders": 316,
+    "onTimeShare": 0.9525316455696202,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 873462,
+    "lateCauses": {
+     "booked after lastPickupAt": 10,
+     "booked in time, still late": 4,
+     "failed visit": 1
+    },
+    "requestIdsDigest": "1d0e195d43e4",
+    "requests": 1035,
+    "won": 316,
+    "winRate": 0.30531400966183575,
+    "outcomes": {
+     "on time": 301,
+     "late 2\u201324 h (25%)": 12,
+     "late \u22642 bd (50%)": 2,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.15,
+     "p75": 2.3,
+     "p90": 14.383333333333333
+    },
+    "lateOrdersThatGotDeadlineWarning": "11/15",
+    "ordersWithExpiredGig": 16,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000780640124902,
+     "p90": 2.4598456701914833
+    },
+    "priceOverList": {
+     "p50": 1.50725,
+     "max": 2.016785714285714
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "v4-5",
+   "level": 8,
+   "worldId": "w9725a0f474c0f7a24886",
+   "exit": 0,
+   "seconds": 34.7,
+   "score": {
+    "marginCents": 714599,
+    "revenueCents": 2621652,
+    "marginShare": 0.27257584149231096,
+    "wonOrders": 286,
+    "onTimeShare": 0.9475524475524476,
+    "undeliveredShare": 0,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 714599,
+    "lateCauses": {
+     "booked after lastPickupAt": 6,
+     "failed visit": 4,
+     "booked in time, still late": 3,
+     "gig expired first": 2
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 286,
+    "winRate": 0.27686350435624396,
+    "outcomes": {
+     "on time": 271,
+     "late \u22642 bd (50%)": 7,
+     "late 2\u201324 h (25%)": 7,
+     "late \u22642 h (10%)": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.25,
+     "p75": 2.716666666666667,
+     "p90": 13.416666666666666
+    },
+    "lateOrdersThatGotDeadlineWarning": "12/15",
+    "ordersWithExpiredGig": 15,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000772598506309,
+     "p90": 2.459878516624041
+    },
+    "priceOverList": {
+     "p50": 1.3833333333333333,
+     "max": 2.1659550561797754
+    }
+   }
+  },
+  {
+   "setting": "priced price_mult=1.5 fee_mode=deadline fee_cap=2.0 fee_lead_h=2 min_slack_h=6 max_drive_h=5 trust_markup=0.01 cost_floor=1.15 intake_cap=80 m_min=1.0 fee_open=0.9 target_win=0.5",
+   "seed": "v4-8",
+   "level": 8,
+   "worldId": "w9ba6e43ae4004fcb9218",
+   "exit": 0,
+   "seconds": 35.4,
+   "score": {
+    "marginCents": 927065,
+    "revenueCents": 2840714,
+    "marginShare": 0.32634929105851557,
+    "wonOrders": 323,
+    "onTimeShare": 0.9597523219814241,
+    "undeliveredShare": 0.0030959752321981426,
+    "ranked": true
+   },
+   "diag": {
+    "marginCents": 927065,
+    "lateCauses": {
+     "failed visit": 4,
+     "booked after lastPickupAt": 4,
+     "gig expired first": 3,
+     "booked in time, still late": 2
+    },
+    "requestIdsDigest": "928bf86c675e",
+    "requests": 1033,
+    "won": 323,
+    "winRate": 0.31268151016456924,
+    "outcomes": {
+     "on time": 310,
+     "late \u22642 bd (50%)": 7,
+     "late 2\u201324 h (25%)": 3,
+     "late \u22642 h (10%)": 2,
+     "undelivered": 1
+    },
+    "neverBooked": 1,
+    "hoursPostToBooking": {
+     "p50": 0.21666666666666667,
+     "p75": 2.3333333333333335,
+     "p90": 13.533333333333333
+    },
+    "lateOrdersThatGotDeadlineWarning": "9/12",
+    "ordersWithExpiredGig": 16,
+    "bookedFeeOverTypicalFee": {
+     "p50": 0.9000805801772764,
+     "p90": 2.400144543483498
+    },
+    "priceOverList": {
+     "p50": 1.5269620253164558,
+     "max": 2.3513888888888888
+    }
+   }
+  }
+ ],
+ "seconds": 318.7,
+ "deletedUnended": [],
+ "canary": {
+  "exit": 0,
+  "match": true,
+  "endMarginCents": -7261251,
+  "worldId": "wdb567437fd3a064d3059"
+ },
+ "serverClean": true
+}

@@ -1,0 +1,10 @@
+*.log
+*.pyc
+.env
+.env.*
+.pytest_cache/
+.venv/
+__pycache__/
+proof/_dummy_preview.html
+reveal-*/
+runs/

@@ -1,0 +1,4 @@
+Practice world w386dc33dd0674b7ef514, level 8. Ctrl-C or an error stops the run and deletes the world.
+Stopped by the error below. Practice world w386dc33dd0674b7ef514 is deleted.
+REQUESTS 282 {"DELETE /v1/worlds/{id}": 1, "GET /v1/worlds/{id}": 1, "POST /v1/worlds": 1, "POST /v1/worlds/{id}/actions": 6, "POST /v1/worlds/{id}/advance": 273}
+spread: Cannot reach https://spread.bahnexpress.com: The read operation timed out. Check SPREAD_URL, and that the server runs

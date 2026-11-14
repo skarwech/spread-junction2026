@@ -1,0 +1,158 @@
+# v4 proposal evidence: 64 pinned runs
+
+## P1 the three regime-R settings per seed, server score: margin EUR | on-time | won
+  seed                    unfiltered          slack>=4 drive<=5     slack>=6 drive<=5 (v3)
+  dev-1         -576 | 0.818 | 439        6,719 | 0.919 | 397        6,572 | 0.948 | 364
+  dev-2        4,886 | 0.966 | 145        3,696 | 0.973 | 113        3,927 | 1.000 | 122
+  dev-3       -6,159 | 0.773 | 444        5,694 | 0.901 | 373        5,266 | 0.912 | 340
+  dev-4        4,131 | 0.913 | 208        4,390 | 0.962 | 186        3,428 | 0.977 | 133
+  hold-1      -9,341 | 0.663 | 496        7,968 | 0.829 | 421        8,994 | 0.912 | 365
+  hold-2     -16,721 | 0.624 | 590        6,296 | 0.768 | 487        8,132 | 0.890 | 427
+  hold-3       7,631 | 0.878 | 329        8,034 | 0.953 | 274        7,792 | 0.972 | 254
+  hold-4       2,905 | 0.873 | 267        5,888 | 0.963 | 245        5,387 | 0.968 | 222
+  hold-5       1,790 | 0.739 | 345        4,560 | 0.763 | 334        4,616 | 0.867 | 278
+  hold-6       7,034 | 0.907 | 258        6,096 | 0.960 | 199        4,923 | 0.976 | 167
+  x1.5 deadline                      total EUR -4,421, weeks >= 0.90: 3 of 10, worst 0.624, margin of ranked weeks EUR 16,051
+  x1.5 deadline slack>=4 drive<=5    total EUR 59,342, weeks >= 0.90: 7 of 10, worst 0.763, margin of ranked weeks EUR 40,518
+  x1.5 deadline slack>=6 drive<=5    total EUR 59,037, weeks >= 0.90: 8 of 10, worst 0.867, margin of ranked weeks EUR 46,289
+
+## P2 fixed multipliers, unfiltered, dev seeds: win rate over quoted requests | won | margin EUR | on-time
+  dev-1 x1 starter       0.96 | 978 |  -90,253 | 0.417
+  dev-1 x1.2 starter     0.74 | 759 |  -52,163 | 0.567
+  dev-1 x1.35 deadline   0.62 | 626 |  -23,486 | 0.712
+  dev-1 x1.35 starter    0.59 | 607 |  -24,904 | 0.685
+  dev-1 x1.5 deadline    0.43 | 439 |     -576 | 0.818
+  dev-1 x1.5 starter     0.43 | 436 |   -3,894 | 0.775
+  dev-1 x1.65 deadline   0.29 | 300 |    4,474 | 0.840
+  dev-1 x1.65 starter    0.28 | 287 |    4,294 | 0.836
+  dev-1 x1.8 starter     0.14 | 146 |    6,772 | 0.911
+  dev-2 x1 starter       0.78 | 799 |  -41,488 | 0.720
+  dev-2 x1.2 starter     0.52 | 533 |   -9,045 | 0.859
+  dev-2 x1.35 deadline   0.34 | 343 |    4,090 | 0.918
+  dev-2 x1.35 starter    0.34 | 342 |    2,891 | 0.930
+  dev-2 x1.5 deadline    0.14 | 145 |    4,886 | 0.966
+  dev-2 x1.5 starter     0.14 | 145 |    4,636 | 0.972
+  dev-2 x1.65 deadline   0.06 |  61 |    2,829 | 1.000
+  dev-2 x1.65 starter    0.06 |  61 |    2,931 | 1.000
+  dev-2 x1.8 starter     0.02 |  15 |      867 | 1.000
+  dev-3 x1.35 deadline   0.59 | 601 |  -24,760 | 0.664
+  dev-3 x1.35 starter    0.59 | 609 |  -25,802 | 0.670
+  dev-3 x1.5 deadline    0.43 | 444 |   -6,159 | 0.773
+  dev-3 x1.5 starter     0.44 | 455 |   -8,083 | 0.743
+  dev-3 x1.65 deadline   0.30 | 311 |      112 | 0.785
+  dev-3 x1.65 starter    0.31 | 315 |   -1,775 | 0.775
+  dev-4 x1.35 deadline   0.36 | 364 |    2,934 | 0.868
+  dev-4 x1.35 starter    0.36 | 365 |   -1,553 | 0.838
+  dev-4 x1.5 deadline    0.20 | 208 |    4,131 | 0.913
+  dev-4 x1.5 starter     0.19 | 190 |    3,359 | 0.921
+  dev-4 x1.65 deadline   0.07 |  70 |    1,797 | 0.929
+  dev-4 x1.65 starter    0.07 |  70 |    1,623 | 0.943
+  paired (deadline fees): 1.5 vs 1.35 and 1.5 vs 1.65, margin EUR
+  dev-1: 1.35 -23,486  1.5 -576  1.65 4,474
+  dev-2: 1.35 4,090  1.5 4,886  1.65 2,829
+  dev-3: 1.35 -24,760  1.5 -6,159  1.65 112
+  dev-4: 1.35 2,934  1.5 4,131  1.65 1,797
+  1.5 beats 1.35 in 4 of 4 seeds, beats 1.65 in 2 of 4
+  best fixed multiplier per dev seed (setting, weekly win rate, margin, on-time): [('dev-1', 'x1.8 starter', 0.14, '6,772', 0.910958904109589), ('dev-2', 'x1.5 deadline', 0.14, '4,886', 0.9655172413793104), ('dev-3', 'x1.65 deadline', 0.3, '112', 0.7845659163987139), ('dev-4', 'x1.5 deadline', 0.2, '4,131', 0.9134615384615384)]
+
+## P3 world level: weekly win rate over quoted requests at 1.5x (unfiltered run) vs the v3 week
+  dev-1   win rate unfiltered 0.43  v3 0.49 | unfiltered on-time 0.818 | v3 on-time 0.948, max warnings in 24 h 19
+  dev-2   win rate unfiltered 0.14  v3 0.16 | unfiltered on-time 0.966 | v3 on-time 1.000, max warnings in 24 h 0
+  dev-3   win rate unfiltered 0.43  v3 0.48 | unfiltered on-time 0.773 | v3 on-time 0.912, max warnings in 24 h 20
+  dev-4   win rate unfiltered 0.20  v3 0.19 | unfiltered on-time 0.913 | v3 on-time 0.977, max warnings in 24 h 3
+  hold-1  win rate unfiltered 0.49  v3 0.55 | unfiltered on-time 0.663 | v3 on-time 0.912, max warnings in 24 h 28
+  hold-2  win rate unfiltered 0.57  v3 0.62 | unfiltered on-time 0.624 | v3 on-time 0.890, max warnings in 24 h 39
+  hold-3  win rate unfiltered 0.32  v3 0.36 | unfiltered on-time 0.878 | v3 on-time 0.972, max warnings in 24 h 5
+  hold-4  win rate unfiltered 0.26  v3 0.32 | unfiltered on-time 0.873 | v3 on-time 0.968, max warnings in 24 h 2
+  hold-5  win rate unfiltered 0.34  v3 0.40 | unfiltered on-time 0.739 | v3 on-time 0.867, max warnings in 24 h 46
+  hold-6  win rate unfiltered 0.25  v3 0.23 | unfiltered on-time 0.907 | v3 on-time 0.976, max warnings in 24 h 2
+  Spearman(weekly win rate, v3 on-time) = -0.85; Spearman(weekly win rate, v3 max warnings) = +0.84
+  daily win rate over quoted requests, v3 runs (Mon..Fri); * = at or above level_win 0.40
+  dev-1   0.34  0.13  0.78* 0.62* 0.70*
+  dev-2   0.09  0.06  0.26  0.07  0.31 
+  dev-3   0.44* 0.09  0.68* 0.50* 0.79*
+  dev-4   0.12  0.14  0.02  0.24  0.59*
+  hold-1  0.58* 0.10  0.64* 0.75* 0.76*
+  hold-2  0.06  0.78* 0.86* 0.80* 0.72*
+  hold-3  0.21  0.36  0.75* 0.22  0.35 
+  hold-4  0.35  0.22  0.44* 0.15  0.59*
+  hold-5  0.02  0.40* 0.56* 0.50* 0.57*
+  hold-6  0.01  0.18  0.23  0.18  0.73*
+  lowest daily win rate per v3 week (the price-war day shows as a collapse): {'dev-1': (0.13, 'Tue'), 'dev-2': (0.06, 'Tue'), 'dev-3': (0.09, 'Tue'), 'dev-4': (0.02, 'Wed'), 'hold-1': (0.1, 'Tue'), 'hold-2': (0.06, 'Mon'), 'hold-3': (0.21, 'Mon'), 'hold-4': (0.15, 'Thu'), 'hold-5': (0.02, 'Mon'), 'hold-6': (0.01, 'Mon')}
+  quoted (not declined) requests per hour, 09-18 Mon-Fri, v3 runs: min 14.1, max 16.3 (so a window of 40 answers spans about 2.4-2.8 hours)
+
+## P4 dealer trust (RULES.md:163-165), counted from our own ledger
+  all 1.5x runs, quoted requests by the dealer's count at arrival: n | win rate | observed / run-day mean
+  count >=  0:  15235 | 0.213 | 0.80
+  count >=  1:   6885 | 0.317 | 0.83
+  count >=  3:   4311 | 0.354 | 0.92
+  count >=  6:   3454 | 0.471 | 1.12
+  count >= 11:   6789 | 0.627 | 1.39
+  v3 runs: mean count of won orders at arrival, revenue-weighted, and the markup's value if wins stay the same
+  dev-1   mean count 11.35  price-weighted 10.64  +1%/count on net revenue: EUR 3,778 (v3 margin EUR 6,572)
+  dev-2   mean count  9.47  price-weighted  9.15  +1%/count on net revenue: EUR 1,129 (v3 margin EUR 3,927)
+  dev-3   mean count  8.01  price-weighted  7.88  +1%/count on net revenue: EUR 2,628 (v3 margin EUR 5,266)
+  dev-4   mean count  9.11  price-weighted  9.62  +1%/count on net revenue: EUR 1,283 (v3 margin EUR 3,428)
+  hold-1  mean count 11.98  price-weighted 11.30  +1%/count on net revenue: EUR 3,496 (v3 margin EUR 8,994)
+  hold-2  mean count  7.04  price-weighted  7.18  +1%/count on net revenue: EUR 2,681 (v3 margin EUR 8,132)
+  hold-3  mean count  7.28  price-weighted  7.82  +1%/count on net revenue: EUR 2,115 (v3 margin EUR 7,792)
+  hold-4  mean count 11.21  price-weighted 11.28  +1%/count on net revenue: EUR 2,471 (v3 margin EUR 5,387)
+  hold-5  mean count  5.91  price-weighted  6.19  +1%/count on net revenue: EUR 1,467 (v3 margin EUR 4,616)
+  hold-6  mean count  7.66  price-weighted  7.73  +1%/count on net revenue: EUR 1,364 (v3 margin EUR 4,923)
+  total over 10 v3 weeks: EUR 22,413
+  largest dealer's share of our won orders per v3 week: [0.45, 0.6, 0.43, 0.47, 0.48, 0.27, 0.32, 0.38, 0.3, 0.41]
+  check of the count: per v3 week, revenue lines that raised a count / that halved one (late, delivered) vs late orders that were delivered (late minus undelivered):
+  dev-1: 345/18 vs 18  dev-2: 121/0 vs 0  dev-3: 310/29 vs 30  dev-4: 129/2 vs 3  hold-1: 333/30 vs 30  hold-2: 379/47 vs 47  hold-3: 247/6 vs 6  hold-4: 215/6 vs 7  hold-5: 241/36 vs 37  hold-6: 163/3 vs 4
+
+## P5 governor signal: deadline_close warnings on our orders in the trailing 24 h (brake_dc = 10)
+  dev-1   v3 on-time 0.948 max 19 first >= 10: Fri 08:14  | before: 276 orders, 15 late (0.05) | after: 88 orders after, 4 late (0.05)
+  dev-2   v3 on-time 1.000 max  0 first >= 10: never      | before: 122 orders, 0 late (0.00) | after: -
+  dev-3   v3 on-time 0.912 max 20 first >= 10: Thu 15:07  | before: 230 orders, 20 late (0.09) | after: 110 orders after, 10 late (0.09)
+  dev-4   v3 on-time 0.977 max  3 first >= 10: never      | before: 133 orders, 3 late (0.02) | after: -
+  hold-1  v3 on-time 0.912 max 28 first >= 10: Fri 10:01  | before: 306 orders, 17 late (0.06) | after: 58 orders after, 14 late (0.24)
+  hold-2  v3 on-time 0.890 max 39 first >= 10: Wed 20:55  | before: 250 orders, 19 late (0.08) | after: 177 orders after, 28 late (0.16)
+  hold-3  v3 on-time 0.972 max  5 first >= 10: never      | before: 253 orders, 6 late (0.02) | after: -
+  hold-4  v3 on-time 0.968 max  2 first >= 10: never      | before: 222 orders, 7 late (0.03) | after: -
+  hold-5  v3 on-time 0.867 max 46 first >= 10: Thu 14:34  | before: 182 orders, 26 late (0.14) | after: 96 orders after, 11 late (0.11)
+  hold-6  v3 on-time 0.976 max  2 first >= 10: never      | before: 167 orders, 4 late (0.02) | after: -
+  late share of v3-regime orders by warnings in the 24 h before arrival (all 1.5x deadline runs):
+  >=0: 2757 orders, late 0.042  >=1: 2860 orders, late 0.074  >=5: 2096 orders, late 0.128  >=10: 1410 orders, late 0.195  >=20: 2382 orders, late 0.316
+  state-blind replay of the v3 weeks (drop orders that arrived while the signal was on; keep every other outcome). It cannot show the drivers a governor frees, so it is shown only as a floor:
+  brake_dc  5 (decline while on): weeks >= 0.90 9 of 10, worst 0.869
+  brake_dc 10 (decline while on): weeks >= 0.90 8 of 10, worst 0.857
+  brake_dc 20 (decline while on): weeks >= 0.90 8 of 10, worst 0.865
+  open orders at arrival vs lateness (all 1.5x deadline runs): open-order band | orders | late share
+  >=0: 1232 0.029  >=20: 1899 0.047  >=40: 1989 0.083  >=60: 1403 0.098  >=80: 1360 0.139  >=100: 2434 0.225  >=130: 1188 0.387
+
+## P6 fees
+  starter vs deadline fees, same seed and multiplier (unfiltered): margin EUR | on-time
+  dev-1 x1.35: starter  -24,904 | 0.685   deadline  -23,486 | 0.712   delta EUR  1,418, on-time +0.027
+  dev-1 x1.5 : starter   -3,894 | 0.775   deadline     -576 | 0.818   delta EUR  3,317, on-time +0.043
+  dev-1 x1.65: starter    4,294 | 0.836   deadline    4,474 | 0.840   delta EUR    181, on-time +0.004
+  dev-2 x1.35: starter    2,891 | 0.930   deadline    4,090 | 0.918   delta EUR  1,199, on-time -0.011
+  dev-2 x1.5 : starter    4,636 | 0.972   deadline    4,886 | 0.966   delta EUR    250, on-time -0.007
+  dev-2 x1.65: starter    2,931 | 1.000   deadline    2,829 | 1.000   delta EUR   -101, on-time +0.000
+  dev-3 x1.35: starter  -25,802 | 0.670   deadline  -24,760 | 0.664   delta EUR  1,043, on-time -0.006
+  dev-3 x1.5 : starter   -8,083 | 0.743   deadline   -6,159 | 0.773   delta EUR  1,924, on-time +0.030
+  dev-3 x1.65: starter   -1,775 | 0.775   deadline      112 | 0.785   delta EUR  1,886, on-time +0.010
+  dev-4 x1.35: starter   -1,553 | 0.838   deadline    2,934 | 0.868   delta EUR  4,487, on-time +0.030
+  dev-4 x1.5 : starter    3,359 | 0.921   deadline    4,131 | 0.913   delta EUR    771, on-time -0.008
+  dev-4 x1.65: starter    1,623 | 0.943   deadline    1,797 | 0.929   delta EUR    174, on-time -0.014
+  deadline better on margin in 11 of 12 pairs, on on-time in 6 of 12; mean delta EUR 1,379, median EUR 1,121
+  v3 runs: bookings | share booked at the schedule's opening fee | share under the post-warning steep schedule | booked fee / typical fee p50, p90 | driver+release fees / revenue
+  dev-1    451 | 0.71 | 0.06 | 1.00, 1.60 | 0.79
+  dev-2    135 | 0.90 | 0.00 | 1.00, 1.00 | 0.67
+  dev-3    431 | 0.64 | 0.07 | 1.00, 1.60 | 0.81
+  dev-4    149 | 0.88 | 0.03 | 1.00, 1.20 | 0.73
+  hold-1   431 | 0.76 | 0.08 | 1.00, 1.60 | 0.68
+  hold-2   502 | 0.67 | 0.09 | 1.00, 1.60 | 0.75
+  hold-3   303 | 0.82 | 0.01 | 1.00, 1.40 | 0.69
+  hold-4   267 | 0.77 | 0.01 | 1.00, 1.40 | 0.73
+  hold-5   340 | 0.67 | 0.13 | 1.00, 1.60 | 0.78
+  hold-6   197 | 0.83 | 0.02 | 1.00, 1.20 | 0.71
+  late causes over the 10 v3 weeks (tools.diagnose in the sweep files): {'booked after lastPickupAt': 104, 'booked in time, still late': 44, 'gig expired first': 23, 'failed visit': 13}
+
+## P7 decline_mult = 4: declined quotes (>= 3x list) in all 64 runs: 6666, won: 0
+
+## P8 cross-check of risk.md figures used here
+  v3 played over 10 weeks: server margin EUR 59,037, per-order P&L sum EUR 60,565 (risk.md quotes the latter, 60,490)

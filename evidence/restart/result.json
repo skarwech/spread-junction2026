@@ -1,0 +1,282 @@
+{
+ "level": 8,
+ "seed": "spread-1",
+ "seconds": 288.4,
+ "runs": [
+  {
+   "run": 0,
+   "worldId": "w7abcf7bcecdb38b3804c",
+   "exit": 0,
+   "kills": [],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 0,
+    "live": 2489,
+    "recovered_applied": 0,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 0,
+   "sameMargin": true,
+   "sameBooks": true
+  },
+  {
+   "run": 1,
+   "worldId": "w380128b89821c3b670b4",
+   "exit": 0,
+   "kills": [
+    {
+     "after_s": 14.5,
+     "calls": 126,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 772
+    },
+    {
+     "after_s": 10.1,
+     "calls": 212,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 973
+    },
+    {
+     "after_s": 9.6,
+     "calls": 295,
+     "lastOp": "act",
+     "inFlight": true,
+     "minute": 1080
+    }
+   ],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 294,
+    "live": 2194,
+    "recovered_applied": 1,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 3,
+   "sameMargin": true,
+   "sameBooks": true
+  },
+  {
+   "run": 2,
+   "worldId": "wa8ea848545bae516c05e",
+   "exit": 0,
+   "kills": [
+    {
+     "after_s": 12.3,
+     "calls": 107,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 743
+    },
+    {
+     "after_s": 5.0,
+     "calls": 149,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 815
+    },
+    {
+     "after_s": 16.2,
+     "calls": 292,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 1078
+    }
+   ],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 291,
+    "live": 2197,
+    "recovered_applied": 1,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 3,
+   "sameMargin": true,
+   "sameBooks": true
+  },
+  {
+   "run": 3,
+   "worldId": "wd01768141a8174e41deb",
+   "exit": 0,
+   "kills": [
+    {
+     "after_s": 6.5,
+     "calls": 54,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 623
+    },
+    {
+     "after_s": 11.6,
+     "calls": 155,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 829
+    },
+    {
+     "after_s": 8.3,
+     "calls": 227,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 996
+    }
+   ],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 226,
+    "live": 2262,
+    "recovered_applied": 1,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 3,
+   "sameMargin": true,
+   "sameBooks": true
+  },
+  {
+   "run": 4,
+   "worldId": "w481d189fcbac84e3ac42",
+   "exit": 0,
+   "kills": [
+    {
+     "after_s": 16.1,
+     "calls": 138,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 797
+    },
+    {
+     "after_s": 5.4,
+     "calls": 184,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 916
+    },
+    {
+     "after_s": 8.9,
+     "calls": 261,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 1042
+    }
+   ],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 260,
+    "live": 2228,
+    "recovered_applied": 1,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 3,
+   "sameMargin": true,
+   "sameBooks": true
+  },
+  {
+   "run": 5,
+   "worldId": "w4634ddaa565c2889f214",
+   "exit": 0,
+   "kills": [
+    {
+     "after_s": 14.5,
+     "calls": 126,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 772
+    },
+    {
+     "after_s": 15.3,
+     "calls": 261,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 1042
+    },
+    {
+     "after_s": 11.4,
+     "calls": 357,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 1440
+    }
+   ],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 356,
+    "live": 2132,
+    "recovered_applied": 1,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 3,
+   "sameMargin": true,
+   "sameBooks": true
+  },
+  {
+   "run": 6,
+   "worldId": "wa0c24c31e60f7b379087",
+   "exit": 0,
+   "kills": [
+    {
+     "after_s": 10.6,
+     "calls": 91,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 690
+    },
+    {
+     "after_s": 9.1,
+     "calls": 171,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 882
+    },
+    {
+     "after_s": 15.7,
+     "calls": 308,
+     "lastOp": "advance",
+     "inFlight": true,
+     "minute": 1094
+    }
+   ],
+   "endMarginCents": -7261251,
+   "fingerprint": "3bc363b1941a75b5",
+   "lastStats": {
+    "replayed": 307,
+    "live": 2181,
+    "recovered_applied": 1,
+    "recovered_resent": 0,
+    "recovered_read": 0,
+    "gaps_filled": 0
+   },
+   "resumes": 3,
+   "sameMargin": true,
+   "sameBooks": true
+  }
+ ],
+ "kills": 18,
+ "inFlightKills": 18,
+ "allSame": true,
+ "canary": {
+  "exit": 0,
+  "match": true,
+  "endMarginCents": -7261251,
+  "worldId": "w3568084e9a46827a6ffa"
+ },
+ "serverClean": true
+}

@@ -1,0 +1,3 @@
+Practice world wd914195b61a1f33f0dd1, level 7. Ctrl-C or an error stops the run and deletes the world.
+Stopped by the error below. Practice world wd914195b61a1f33f0dd1 is deleted.
+spread: Cannot reach https://spread.bahnexpress.com: The read operation timed out. Check SPREAD_URL, and that the server runs

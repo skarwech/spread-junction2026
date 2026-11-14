@@ -1,0 +1,12 @@
+Practice world wd10b38ea14bf155c6acd, level 7. Ctrl-C or an error stops the run and deletes the world.
+Monday     margin €    -262.37  revenue €   2,081.00   217 orders   75.0% on time   0.0% not delivered
+Tuesday    margin €  -2,020.56  revenue €  10,959.00   408 orders   61.7% on time   0.0% not delivered
+Wednesday  margin €  -6,061.86  revenue €  19,065.00   561 orders   56.6% on time   0.0% not delivered
+Thursday   margin € -14,362.74  revenue €  29,847.00   730 orders   54.4% on time   0.0% not delivered
+Friday     margin € -22,128.65  revenue €  40,582.00   818 orders   50.3% on time   0.0% not delivered
+Saturday   margin € -26,579.13  revenue €  45,768.00   817 orders   51.7% on time   0.0% not delivered
+Sunday     margin € -26,579.13  revenue €  45,768.00   817 orders   51.7% on time   0.0% not delivered
+Monday     margin € -39,870.34  revenue €  54,791.00   817 orders   52.3% on time   0.0% not delivered
+Tuesday    margin € -47,270.52  revenue €  58,742.00   817 orders   52.3% on time   0.0% not delivered
+End        margin € -50,442.49  revenue €  60,079.00   817 orders   52.3% on time   0.1% not delivered
+Not ranked: the delivery minimum is 90% of the orders on time.

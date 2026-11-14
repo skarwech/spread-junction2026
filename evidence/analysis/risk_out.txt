@@ -1,0 +1,613 @@
+
+## S1 data
+dev: runs kept 46, duplicates dropped 5, unresolved orders dropped 12 {'w1fcfa35cc90b05b5f1c2': 1, 'w443baa74100a4ec8250e': 1, 'w4d8473c66bf47b0aa6e9': 9, 'w6d27b004ff2ea1ea3d8b': 1}, within_3_days dropped 1
+dev: orders 15325, late 3240 (0.211), undelivered 141
+  dev-1: runs 13 orders 6182 late 0.281 | regime R runs 5 orders 2046 late 0.130 | R unfiltered orders 439 late 0.182
+  dev-2: runs 13 orders 2942 late 0.125 | regime R runs 5 orders 654 late 0.024 | R unfiltered orders 145 late 0.034
+  dev-3: runs 10 orders 4255 late 0.224 | regime R runs 5 orders 1964 late 0.151 | R unfiltered orders 444 late 0.227
+  dev-4: runs 10 orders 1946 late 0.092 | regime R runs 5 orders 887 late 0.055 | R unfiltered orders 208 late 0.087
+hold: runs kept 18, duplicates dropped 0, unresolved orders dropped 1 {'w879a3d155f64e646d7d1': 1}, within_3_days dropped 1
+hold: orders 5951, late 999 (0.168), undelivered 4
+  hold-1: runs 3 orders 1280 late 0.210 | regime R runs 3 orders 1280 late 0.210 | R unfiltered orders 495 late 0.335
+  hold-2: runs 3 orders 1501 late 0.253 | regime R runs 3 orders 1501 late 0.253 | R unfiltered orders 588 late 0.376
+  hold-3: runs 3 orders 856 late 0.069 | regime R runs 3 orders 856 late 0.069 | R unfiltered orders 329 late 0.122
+  hold-4: runs 3 orders 733 late 0.067 | regime R runs 3 orders 733 late 0.067 | R unfiltered orders 267 late 0.127
+  hold-5: runs 3 orders 957 late 0.215 | regime R runs 3 orders 957 late 0.215 | R unfiltered orders 345 late 0.261
+  hold-6: runs 3 orders 624 late 0.058 | regime R runs 3 orders 624 late 0.058 | R unfiltered orders 258 late 0.093
+
+## S1b won orders by price_mult, unfiltered runs, per seed and fee mode
+  dev-1 deadline x1.35: 626
+  dev-1 deadline x1.50: 439
+  dev-1 deadline x1.65: 300
+  dev-1  starter x1.00: 976
+  dev-1  starter x1.20: 758
+  dev-1  starter x1.35: 607
+  dev-1  starter x1.50: 436
+  dev-1  starter x1.65: 287
+  dev-1  starter x1.80: 146
+  dev-2 deadline x1.35: 343
+  dev-2 deadline x1.50: 145
+  dev-2 deadline x1.65: 61
+  dev-2  starter x1.00: 797
+  dev-2  starter x1.20: 524
+  dev-2  starter x1.35: 342
+  dev-2  starter x1.50: 145
+  dev-2  starter x1.65: 61
+  dev-2  starter x1.80: 15
+  dev-3 deadline x1.35: 601
+  dev-3 deadline x1.50: 444
+  dev-3 deadline x1.65: 311
+  dev-3  starter x1.35: 609
+  dev-3  starter x1.50: 455
+  dev-3  starter x1.65: 315
+  dev-4 deadline x1.35: 364
+  dev-4 deadline x1.50: 208
+  dev-4 deadline x1.65: 70
+  dev-4  starter x1.35: 365
+  dev-4  starter x1.50: 190
+  dev-4  starter x1.65: 70
+
+## S1c label check: on-time share from our labels equals the server's in 53 of 64 runs; max abs difference 0.0039
+  per-order margin sum minus server margin, EUR: mean +151, median +87, min +0, max +778 (lines not attributable to a kept order: unmatched gigs, dropped orders)
+
+## S2 late share by feature level (dev). cols: level | n all | late all | n R | late R | late per seed dev-1..4 (all regimes)
+- slack h (task def.)
+                      <2 |   143 | 0.846 |   14 | 0.929 | 0.95 0.56 0.97 0.71
+                     2-4 |   810 | 0.568 |  103 | 0.456 | 0.75 0.51 0.60 0.25
+                     4-6 |  1333 | 0.389 |  400 | 0.290 | 0.58 0.34 0.41 0.14
+                     6-8 |  1632 | 0.237 |  647 | 0.150 | 0.31 0.18 0.29 0.05
+                    8-12 |  2682 | 0.102 | 1068 | 0.040 | 0.17 0.06 0.10 0.02
+                   12-24 |  1099 | 0.303 |  403 | 0.211 | 0.46 0.19 0.24 0.13
+                   24-36 |  3953 | 0.145 | 1389 | 0.052 | 0.18 0.08 0.16 0.02
+                    >=36 |  3673 | 0.156 | 1527 | 0.100 | 0.23 0.06 0.14 0.10
+- best-day slack h
+                      <2 |    50 | 0.940 |    8 | 0.750 | 1.00 0.80 1.00 1.00
+                     2-4 |   987 | 0.576 |  144 | 0.458 | 0.78 0.48 0.58 0.25
+                     4-6 |  1670 | 0.424 |  511 | 0.344 | 0.59 0.31 0.47 0.13
+                     6-8 |  2710 | 0.280 |  957 | 0.178 | 0.38 0.18 0.31 0.05
+                    8-10 |  3446 | 0.145 | 1377 | 0.062 | 0.20 0.11 0.13 0.03
+                    >=10 |  6462 | 0.101 | 2554 | 0.048 | 0.15 0.04 0.07 0.07
+- drive h
+                      <1 |  3431 | 0.166 | 1248 | 0.083 | 0.22 0.10 0.16 0.11
+                     1-2 |  4012 | 0.117 | 1563 | 0.058 | 0.16 0.06 0.15 0.04
+                     2-3 |  2906 | 0.148 | 1144 | 0.079 | 0.23 0.05 0.14 0.08
+                     3-4 |  1350 | 0.210 |  501 | 0.104 | 0.23 0.17 0.22 0.14
+                     4-5 |  1516 | 0.298 |  560 | 0.161 | 0.36 0.19 0.34 0.16
+                     5-6 |   824 | 0.399 |  206 | 0.238 | 0.52 0.22 0.41 0.12
+                     6-8 |   861 | 0.523 |  234 | 0.427 | 0.66 0.27 0.58 0.17
+                     >=8 |   425 | 0.605 |   95 | 0.537 | 0.75 0.51 0.60 0.31
+- kind
+                next_day |  8699 | 0.177 | 3282 | 0.097 | 0.23 0.10 0.18 0.10
+                same_day |  6626 | 0.256 | 2269 | 0.135 | 0.38 0.19 0.27 0.09
+- kind x slack
+          next_day 12-24 |   911 | 0.332 |  334 | 0.234 | 0.47 0.19 0.24 0.22
+            next_day 2-4 |    23 | 0.304 |    1 | 0.000 | 0.38 0.11 0.50   - 
+          next_day 24-36 |  3953 | 0.145 | 1389 | 0.052 | 0.18 0.08 0.16 0.02
+            next_day 4-6 |    41 | 0.488 |   10 | 0.300 | 0.50 0.57 0.38   - 
+            next_day 6-8 |    14 | 0.357 |    5 | 0.200 | 0.10 1.00 1.00   - 
+           next_day 8-12 |    16 | 0.562 |   10 | 0.700 |   -    -  0.56   - 
+             next_day <2 |    68 | 0.750 |    6 | 0.833 | 0.89 0.52 0.89 0.75
+           next_day >=36 |  3673 | 0.156 | 1527 | 0.100 | 0.23 0.06 0.14 0.10
+          same_day 12-24 |   188 | 0.165 |   69 | 0.101 | 0.35 0.17 0.00 0.10
+            same_day 2-4 |   787 | 0.576 |  102 | 0.461 | 0.76 0.55 0.60 0.25
+            same_day 4-6 |  1292 | 0.385 |  390 | 0.290 | 0.58 0.31 0.41 0.14
+            same_day 6-8 |  1618 | 0.235 |  642 | 0.150 | 0.31 0.18 0.28 0.05
+           same_day 8-12 |  2666 | 0.099 | 1058 | 0.034 | 0.17 0.06 0.09 0.02
+             same_day <2 |    75 | 0.933 |    8 | 1.000 | 1.00 0.67 1.00 0.67
+- weekday
+                     Mon |  3157 | 0.120 | 1008 | 0.051 | 0.16 0.11 0.10 0.07
+                     Tue |  1848 | 0.210 |  434 | 0.062 | 0.29 0.18 0.23 0.10
+                     Wed |  3615 | 0.206 | 1349 | 0.100 | 0.25 0.12 0.23 0.00
+                     Thu |  2749 | 0.292 | 1124 | 0.159 | 0.35 0.15 0.33 0.06
+                     Fri |  3956 | 0.234 | 1636 | 0.143 | 0.36 0.10 0.27 0.11
+- arrival hour
+                     <10 |  1547 | 0.237 |  525 | 0.128 | 0.29 0.17 0.29 0.05
+                   10-12 |  3278 | 0.215 | 1171 | 0.116 | 0.26 0.10 0.30 0.10
+                   12-14 |  2831 | 0.259 |  908 | 0.163 | 0.33 0.18 0.30 0.12
+                   14-16 |  3106 | 0.204 | 1102 | 0.095 | 0.28 0.14 0.20 0.07
+                    >=16 |  4563 | 0.176 | 1845 | 0.092 | 0.27 0.08 0.14 0.10
+- legs
+                       1 | 15076 | 0.204 | 5505 | 0.109 | 0.27 0.12 0.22 0.09
+                       2 |   249 | 0.651 |   46 | 0.543 | 0.80 0.52 0.62 0.56
+- private pickup
+                   False | 13829 | 0.198 | 5044 | 0.099 | 0.27 0.11 0.20 0.07
+                    True |  1496 | 0.338 |  507 | 0.247 | 0.40 0.28 0.41 0.18
+- private delivery
+                   False | 14567 | 0.203 | 5334 | 0.108 | 0.27 0.11 0.22 0.09
+                    True |   758 | 0.369 |  217 | 0.240 | 0.50 0.29 0.35 0.16
+- premium
+                   False | 14637 | 0.201 | 5327 | 0.106 | 0.27 0.12 0.22 0.09
+                    True |   688 | 0.426 |  224 | 0.268 | 0.56 0.33 0.34 0.24
+- EV <30%
+                   False | 14830 | 0.208 | 5388 | 0.111 | 0.28 0.12 0.22 0.09
+                    True |   495 | 0.309 |  163 | 0.160 | 0.43 0.20 0.27 0.08
+- EV <30% on >200 km
+                   False | 15021 | 0.208 | 5440 | 0.111 | 0.28 0.12 0.22 0.09
+                    True |   304 | 0.372 |  111 | 0.207 | 0.51 0.32 0.31 0.09
+- note
+                   False |  8882 | 0.195 | 3232 | 0.093 | 0.26 0.12 0.20 0.08
+                    True |  6443 | 0.234 | 2319 | 0.140 | 0.32 0.12 0.25 0.11
+- open orders at arrival
+                     <20 |  1591 | 0.045 |  770 | 0.017 | 0.09 0.03 0.04 0.03
+                   20-40 |  1826 | 0.071 | 1053 | 0.044 | 0.08 0.03 0.15 0.05
+                   40-80 |  3309 | 0.128 | 1526 | 0.105 | 0.14 0.09 0.13 0.14
+                  80-160 |  5389 | 0.209 | 2202 | 0.185 | 0.21 0.13 0.24 0.14
+                   >=160 |  3210 | 0.463 |    0 | nan | 0.54 0.28 0.45   - 
+- late share so far
+                    <0.1 |  3725 | 0.106 | 2729 | 0.095 | 0.13 0.03 0.17 0.07
+                 0.1-0.2 |  8867 | 0.175 | 2788 | 0.129 | 0.21 0.12 0.20 0.11
+                 0.2-0.3 |  1323 | 0.397 |   34 | 0.206 | 0.41 0.33 0.45   - 
+                   >=0.3 |  1410 | 0.543 |    0 | nan | 0.55   -  0.41   - 
+
+## S3 do town late shares carry over between seeds? Spearman of town late share, towns with >=40 orders in both seeds
+  pickup dev-1 vs dev-2: towns 15 rho +0.73
+  pickup dev-1 vs dev-3: towns 16 rho +0.00
+  pickup dev-1 vs dev-4: towns 10 rho +0.05
+  pickup dev-2 vs dev-3: towns 15 rho +0.12
+  pickup dev-2 vs dev-4: towns 9 rho +0.02
+  pickup dev-3 vs dev-4: towns 9 rho +0.42
+  pickup: mean rho +0.22 over 6 seed pairs
+  delivery dev-1 vs dev-2: towns 22 rho +0.18
+  delivery dev-1 vs dev-3: towns 25 rho +0.46
+  delivery dev-1 vs dev-4: towns 21 rho +0.19
+  delivery dev-2 vs dev-3: towns 21 rho +0.52
+  delivery dev-2 vs dev-4: towns 20 rho +0.39
+  delivery dev-3 vs dev-4: towns 20 rho +0.42
+  delivery: mean rho +0.36 over 6 seed pairs
+
+## S4 leave-one-seed-out (fit on 3 dev seeds, test on the 4th). Per held-out seed: all its runs, then regime R only
+- M0 base rate
+  dev-1 all: n= 6182 obs=0.281 pred=0.164 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.2159 logloss=0.6372
+  dev-1   R: n= 2046 obs=0.130 pred=0.164 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.1139 logloss=0.3901
+  dev-2 all: n= 2942 obs=0.125 pred=0.232 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.1207 logloss=0.4133
+  dev-2   R: n=  654 obs=0.024 pred=0.232 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.0669 logloss=0.2933
+  dev-3 all: n= 4255 obs=0.224 pred=0.207 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.1743 logloss=0.5331
+  dev-3   R: n= 1964 obs=0.151 pred=0.207 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.1311 logloss=0.4342
+  dev-4 all: n= 1946 obs=0.092 pred=0.229 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.1025 logloss=0.3721
+  dev-4   R: n=  887 obs=0.055 pred=0.229 AUC=nan AUC_in_run=nan cal_int=+nan cal_slope=nan brier=0.0823 logloss=0.3269
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.197 AUC=0.388 AUC_in_run=0.500 cal_int=-4.52 cal_slope=-2.23 brier=0.1717 logloss=0.5316
+  mean over seeds of within-run AUC: nan (min nan)
+- A slack only
+  dev-1 all: n= 6182 obs=0.281 pred=0.218 AUC=0.810 AUC_in_run=0.744 cal_int=+0.70 cal_slope=1.23 brier=0.1550 logloss=0.4785
+  dev-1   R: n= 2046 obs=0.130 pred=0.140 AUC=0.769 AUC_in_run=0.737 cal_int=+0.39 cal_slope=1.31 brier=0.0957 logloss=0.3250
+  dev-2 all: n= 2942 obs=0.125 pred=0.229 AUC=0.812 AUC_in_run=0.645 cal_int=-1.12 cal_slope=0.77 brier=0.1098 logloss=0.3537
+  dev-2   R: n=  654 obs=0.024 pred=0.032 AUC=0.648 AUC_in_run=0.612 cal_int=-0.84 cal_slope=0.82 brier=0.0226 logloss=0.1089
+  dev-3 all: n= 4255 obs=0.224 pred=0.196 AUC=0.773 AUC_in_run=0.739 cal_int=+0.19 cal_slope=0.98 brier=0.1395 logloss=0.4416
+  dev-3   R: n= 1964 obs=0.151 pred=0.133 AUC=0.746 AUC_in_run=0.722 cal_int=+0.19 cal_slope=1.01 brier=0.1110 logloss=0.3709
+  dev-4 all: n= 1946 obs=0.092 pred=0.123 AUC=0.757 AUC_in_run=0.726 cal_int=-0.82 cal_slope=0.71 brier=0.0817 logloss=0.2820
+  dev-4   R: n=  887 obs=0.055 pred=0.075 AUC=0.764 AUC_in_run=0.790 cal_int=-0.81 cal_slope=0.79 brier=0.0523 logloss=0.1966
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.202 AUC=0.792 AUC_in_run=0.717 cal_int=-0.01 cal_slope=0.92 brier=0.1327 logloss=0.4193
+  mean over seeds of within-run AUC: 0.714 (min 0.645)
+- B task features
+  dev-1 all: n= 6182 obs=0.281 pred=0.216 AUC=0.859 AUC_in_run=0.844 cal_int=+0.86 cal_slope=1.30 brier=0.1362 logloss=0.4247
+  dev-1   R: n= 2046 obs=0.130 pred=0.134 AUC=0.868 AUC_in_run=0.833 cal_int=+0.75 cal_slope=1.56 brier=0.0790 logloss=0.2709
+  dev-2 all: n= 2942 obs=0.125 pred=0.252 AUC=0.850 AUC_in_run=0.745 cal_int=-1.37 cal_slope=0.76 brier=0.1129 logloss=0.3590
+  dev-2   R: n=  654 obs=0.024 pred=0.039 AUC=0.763 AUC_in_run=0.736 cal_int=-1.16 cal_slope=0.75 brier=0.0241 logloss=0.1048
+  dev-3 all: n= 4255 obs=0.224 pred=0.205 AUC=0.830 AUC_in_run=0.807 cal_int=+0.08 cal_slope=0.92 brier=0.1243 logloss=0.3982
+  dev-3   R: n= 1964 obs=0.151 pred=0.137 AUC=0.812 AUC_in_run=0.793 cal_int=+0.02 cal_slope=0.92 brier=0.1006 logloss=0.3343
+  dev-4 all: n= 1946 obs=0.092 pred=0.120 AUC=0.753 AUC_in_run=0.667 cal_int=-0.94 cal_slope=0.62 brier=0.0785 logloss=0.2819
+  dev-4   R: n=  887 obs=0.055 pred=0.080 AUC=0.714 AUC_in_run=0.712 cal_int=-1.40 cal_slope=0.52 brier=0.0564 logloss=0.2133
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.208 AUC=0.834 AUC_in_run=0.772 cal_int=-0.08 cal_slope=0.89 brier=0.1211 logloss=0.3866
+  mean over seeds of within-run AUC: 0.766 (min 0.667)
+- B' best-day slack
+  dev-1 all: n= 6182 obs=0.281 pred=0.213 AUC=0.857 AUC_in_run=0.839 cal_int=+0.87 cal_slope=1.28 brier=0.1378 logloss=0.4279
+  dev-1   R: n= 2046 obs=0.130 pred=0.129 AUC=0.868 AUC_in_run=0.838 cal_int=+0.87 cal_slope=1.57 brier=0.0791 logloss=0.2707
+  dev-2 all: n= 2942 obs=0.125 pred=0.248 AUC=0.851 AUC_in_run=0.751 cal_int=-1.34 cal_slope=0.77 brier=0.1104 logloss=0.3522
+  dev-2   R: n=  654 obs=0.024 pred=0.041 AUC=0.770 AUC_in_run=0.741 cal_int=-1.40 cal_slope=0.69 brier=0.0247 logloss=0.1075
+  dev-3 all: n= 4255 obs=0.224 pred=0.210 AUC=0.833 AUC_in_run=0.810 cal_int=+0.08 cal_slope=0.97 brier=0.1242 logloss=0.3954
+  dev-3   R: n= 1964 obs=0.151 pred=0.142 AUC=0.819 AUC_in_run=0.797 cal_int=+0.06 cal_slope=0.98 brier=0.0994 logloss=0.3290
+  dev-4 all: n= 1946 obs=0.092 pred=0.118 AUC=0.754 AUC_in_run=0.666 cal_int=-0.94 cal_slope=0.61 brier=0.0782 logloss=0.2817
+  dev-4   R: n=  887 obs=0.055 pred=0.074 AUC=0.718 AUC_in_run=0.709 cal_int=-1.41 cal_slope=0.50 brier=0.0560 logloss=0.2133
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.207 AUC=0.834 AUC_in_run=0.772 cal_int=-0.06 cal_slope=0.90 brier=0.1212 logloss=0.3858
+  mean over seeds of within-run AUC: 0.766 (min 0.666)
+- C B + places
+  dev-1 all: n= 6182 obs=0.281 pred=0.219 AUC=0.860 AUC_in_run=0.844 cal_int=+0.81 cal_slope=1.30 brier=0.1347 logloss=0.4210
+  dev-1   R: n= 2046 obs=0.130 pred=0.138 AUC=0.868 AUC_in_run=0.834 cal_int=+0.65 cal_slope=1.54 brier=0.0787 logloss=0.2703
+  dev-2 all: n= 2942 obs=0.125 pred=0.252 AUC=0.851 AUC_in_run=0.740 cal_int=-1.38 cal_slope=0.74 brier=0.1148 logloss=0.3625
+  dev-2   R: n=  654 obs=0.024 pred=0.038 AUC=0.753 AUC_in_run=0.726 cal_int=-1.19 cal_slope=0.73 brier=0.0238 logloss=0.1052
+  dev-3 all: n= 4255 obs=0.224 pred=0.205 AUC=0.835 AUC_in_run=0.813 cal_int=+0.10 cal_slope=0.94 brier=0.1229 logloss=0.3933
+  dev-3   R: n= 1964 obs=0.151 pred=0.137 AUC=0.818 AUC_in_run=0.799 cal_int=+0.04 cal_slope=0.93 brier=0.0997 logloss=0.3309
+  dev-4 all: n= 1946 obs=0.092 pred=0.117 AUC=0.763 AUC_in_run=0.676 cal_int=-0.90 cal_slope=0.63 brier=0.0783 logloss=0.2789
+  dev-4   R: n=  887 obs=0.055 pred=0.076 AUC=0.721 AUC_in_run=0.711 cal_int=-1.36 cal_slope=0.53 brier=0.0563 logloss=0.2119
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.209 AUC=0.837 AUC_in_run=0.774 cal_int=-0.09 cal_slope=0.89 brier=0.1205 logloss=0.3840
+  mean over seeds of within-run AUC: 0.768 (min 0.676)
+- D B + online
+  dev-1 all: n= 6182 obs=0.281 pred=0.220 AUC=0.866 AUC_in_run=0.845 cal_int=+0.79 cal_slope=1.27 brier=0.1326 logloss=0.4142
+  dev-1   R: n= 2046 obs=0.130 pred=0.117 AUC=0.862 AUC_in_run=0.833 cal_int=+0.92 cal_slope=1.48 brier=0.0804 logloss=0.2735
+  dev-2 all: n= 2942 obs=0.125 pred=0.239 AUC=0.851 AUC_in_run=0.766 cal_int=-1.28 cal_slope=0.78 brier=0.1076 logloss=0.3438
+  dev-2   R: n=  654 obs=0.024 pred=0.039 AUC=0.795 AUC_in_run=0.768 cal_int=-1.04 cal_slope=0.80 brier=0.0242 logloss=0.1023
+  dev-3 all: n= 4255 obs=0.224 pred=0.221 AUC=0.826 AUC_in_run=0.806 cal_int=-0.06 cal_slope=0.91 brier=0.1241 logloss=0.3985
+  dev-3   R: n= 1964 obs=0.151 pred=0.151 AUC=0.813 AUC_in_run=0.797 cal_int=-0.13 cal_slope=0.91 brier=0.1004 logloss=0.3333
+  dev-4 all: n= 1946 obs=0.092 pred=0.117 AUC=0.742 AUC_in_run=0.647 cal_int=-0.93 cal_slope=0.62 brier=0.0774 logloss=0.2822
+  dev-4   R: n=  887 obs=0.055 pred=0.064 AUC=0.684 AUC_in_run=0.664 cal_int=-1.37 cal_slope=0.48 brier=0.0539 logloss=0.2143
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.211 AUC=0.839 AUC_in_run=0.772 cal_int=-0.08 cal_slope=0.91 brier=0.1184 logloss=0.3796
+  mean over seeds of within-run AUC: 0.766 (min 0.647)
+- E B' + online
+  dev-1 all: n= 6182 obs=0.281 pred=0.217 AUC=0.863 AUC_in_run=0.840 cal_int=+0.77 cal_slope=1.23 brier=0.1343 logloss=0.4178
+  dev-1   R: n= 2046 obs=0.130 pred=0.112 AUC=0.861 AUC_in_run=0.837 cal_int=+0.99 cal_slope=1.46 brier=0.0809 logloss=0.2744
+  dev-2 all: n= 2942 obs=0.125 pred=0.236 AUC=0.852 AUC_in_run=0.775 cal_int=-1.25 cal_slope=0.79 brier=0.1051 logloss=0.3375
+  dev-2   R: n=  654 obs=0.024 pred=0.041 AUC=0.802 AUC_in_run=0.777 cal_int=-1.28 cal_slope=0.73 brier=0.0246 logloss=0.1045
+  dev-3 all: n= 4255 obs=0.224 pred=0.225 AUC=0.831 AUC_in_run=0.810 cal_int=-0.04 cal_slope=0.97 brier=0.1239 logloss=0.3947
+  dev-3   R: n= 1964 obs=0.151 pred=0.155 AUC=0.821 AUC_in_run=0.801 cal_int=-0.07 cal_slope=0.98 brier=0.0992 logloss=0.3280
+  dev-4 all: n= 1946 obs=0.092 pred=0.116 AUC=0.745 AUC_in_run=0.653 cal_int=-0.94 cal_slope=0.60 brier=0.0774 logloss=0.2823
+  dev-4   R: n=  887 obs=0.055 pred=0.060 AUC=0.693 AUC_in_run=0.675 cal_int=-1.38 cal_slope=0.47 brier=0.0539 logloss=0.2152
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.210 AUC=0.839 AUC_in_run=0.774 cal_int=-0.07 cal_slope=0.92 brier=0.1186 logloss=0.3788
+  mean over seeds of within-run AUC: 0.769 (min 0.653)
+- F compact
+  dev-1 all: n= 6182 obs=0.281 pred=0.214 AUC=0.868 AUC_in_run=0.839 cal_int=+0.80 cal_slope=1.22 brier=0.1345 logloss=0.4158
+  dev-1   R: n= 2046 obs=0.130 pred=0.100 AUC=0.858 AUC_in_run=0.834 cal_int=+1.20 cal_slope=1.45 brier=0.0835 logloss=0.2809
+  dev-2 all: n= 2942 obs=0.125 pred=0.200 AUC=0.852 AUC_in_run=0.797 cal_int=-0.96 cal_slope=0.80 brier=0.0936 logloss=0.3065
+  dev-2   R: n=  654 obs=0.024 pred=0.030 AUC=0.833 AUC_in_run=0.812 cal_int=-0.82 cal_slope=0.79 brier=0.0239 logloss=0.0977
+  dev-3 all: n= 4255 obs=0.224 pred=0.215 AUC=0.836 AUC_in_run=0.815 cal_int=+0.10 cal_slope=1.03 brier=0.1243 logloss=0.3938
+  dev-3   R: n= 1964 obs=0.151 pred=0.148 AUC=0.822 AUC_in_run=0.804 cal_int=+0.06 cal_slope=1.02 brier=0.1001 logloss=0.3294
+  dev-4 all: n= 1946 obs=0.092 pred=0.118 AUC=0.757 AUC_in_run=0.681 cal_int=-0.92 cal_slope=0.62 brier=0.0783 logloss=0.2801
+  dev-4   R: n=  887 obs=0.055 pred=0.058 AUC=0.726 AUC_in_run=0.715 cal_int=-1.20 cal_slope=0.52 brier=0.0536 logloss=0.2088
+  pooled out-of-fold: n=15325 obs=0.211 pred=0.199 AUC=0.848 AUC_in_run=0.787 cal_int=+0.08 cal_slope=0.97 brier=0.1167 logloss=0.3715
+  mean over seeds of within-run AUC: 0.783 (min 0.681)
+
+## S5 calibration bins, F compact, dev out-of-fold, all regimes: bin | n | mean predicted | observed | per seed observed/predicted
+  0.00-0.05 |  4503 | 0.024 | 0.028 | dev-1:0.03/0.03(1509) dev-2:0.01/0.02(1161) dev-3:0.03/0.03(845) dev-4:0.04/0.02(988)
+  0.05-0.10 |  2824 | 0.072 | 0.068 | dev-1:0.08/0.07(1198) dev-2:0.05/0.07(340) dev-3:0.06/0.07(927) dev-4:0.07/0.07(359)
+  0.10-0.20 |  2952 | 0.144 | 0.165 | dev-1:0.21/0.14(1264) dev-2:0.09/0.15(446) dev-3:0.15/0.14(994) dev-4:0.10/0.14(248)
+  0.20-0.30 |  1499 | 0.246 | 0.294 | dev-1:0.40/0.25(657) dev-2:0.13/0.24(291) dev-3:0.27/0.24(433) dev-4:0.17/0.25(118)
+  0.30-0.50 |  1719 | 0.387 | 0.406 | dev-1:0.54/0.39(770) dev-2:0.18/0.39(304) dev-3:0.41/0.39(515) dev-4:0.12/0.39(130)
+  0.50-1.00 |  1828 | 0.701 | 0.708 | dev-1:0.84/0.70(784) dev-2:0.50/0.72(400) dev-3:0.71/0.69(541) dev-4:0.51/0.66(103)
+
+## S5 calibration bins, F compact, dev out-of-fold, regime R: bin | n | mean predicted | observed | per seed observed/predicted
+  0.00-0.05 |  2694 | 0.024 | 0.027 | dev-1:0.03/0.03(910) dev-2:0.01/0.01(566) dev-3:0.03/0.03(587) dev-4:0.04/0.02(631)
+  0.05-0.10 |  1253 | 0.071 | 0.063 | dev-1:0.07/0.07(543) dev-2:0.09/0.07(54) dev-3:0.05/0.07(541) dev-4:0.08/0.08(115)
+  0.10-0.20 |   851 | 0.140 | 0.155 | dev-1:0.17/0.14(344) dev-2:0.10/0.14(21) dev-3:0.15/0.14(402) dev-4:0.10/0.14(84)
+  0.20-0.30 |   305 | 0.243 | 0.321 | dev-1:0.43/0.24(105) dev-2:0.20/0.22(5) dev-3:0.29/0.24(168) dev-4:0.11/0.24(27)
+  0.30-0.50 |   274 | 0.382 | 0.467 | dev-1:0.61/0.38(98) dev-2:0.75/0.38(4) dev-3:0.42/0.38(152) dev-4:0.05/0.38(20)
+  0.50-1.00 |   174 | 0.659 | 0.672 | dev-1:0.87/0.63(46) dev-2:0.00/0.71(4) dev-3:0.64/0.67(114) dev-4:0.40/0.59(10)
+
+## S6 coefficients of F compact, fitted on all dev rows: log-odds per unit, odds ratio, and sign in the 4 LOSO fits
+  intercept (raw units) -7.210
+     best-day slack short of 10h (h): +0.402  OR  1.50  folds ++++  range [+0.388, +0.436]  (sd of feature 2.20)
+                             drive h: +0.138  OR  1.15  folds ++++  range [+0.105, +0.168]  (sd of feature 2.04)
+                            two legs: +2.118  OR  8.32  folds ++++  range [+1.659, +2.499]  (sd of feature 0.13)
+                      private pickup: +0.639  OR  1.89  folds ++++  range [+0.579, +0.724]  (sd of feature 0.30)
+                    private delivery: -0.556  OR  0.57  folds ----  range [-0.744, -0.515]  (sd of feature 0.22)
+                             premium: +1.354  OR  3.87  folds ++++  range [+0.732, +1.650]  (sd of feature 0.21)
+                                note: +0.314  OR  1.37  folds ++++  range [+0.264, +0.382]  (sd of feature 0.49)
+                  log(1+open orders): +1.113  OR  3.04  folds ++++  range [+0.995, +1.263]  (sd of feature 1.01)
+             logit late share so far: +0.476  OR  1.61  folds ++++  range [+0.337, +0.529]  (sd of feature 0.72)
+        logit town late share so far: +0.127  OR  1.14  folds ++++  range [+0.081, +0.241]  (sd of feature 0.56)
+
+## S6 coefficients of E B' + online, fitted on all dev rows: log-odds per unit, odds ratio, and sign in the 4 LOSO fits
+  intercept (raw units) -6.196
+     best-day slack short of 10h (h): +0.378  OR  1.46  folds ++++  range [+0.352, +0.412]  (sd of feature 2.20)
+                 ... short of 4h (h): +0.164  OR  1.18  folds ++++  range [+0.074, +0.271]  (sd of feature 0.31)
+                             drive h: +0.151  OR  1.16  folds ++++  range [+0.119, +0.192]  (sd of feature 2.04)
+                            same_day: -0.016  OR  0.98  folds +-+-  range [-0.025, +0.025]  (sd of feature 0.50)
+                            two legs: +2.159  OR  8.66  folds ++++  range [+1.618, +2.495]  (sd of feature 0.13)
+                      private pickup: +0.600  OR  1.82  folds ++++  range [+0.550, +0.648]  (sd of feature 0.30)
+                    private delivery: -0.516  OR  0.60  folds ----  range [-0.692, -0.451]  (sd of feature 0.22)
+                             premium: +1.397  OR  4.04  folds ++++  range [+0.833, +1.670]  (sd of feature 0.21)
+                             EV <30%: +0.380  OR  1.46  folds -+++  range [-0.046, +0.629]  (sd of feature 0.18)
+                                note: +0.330  OR  1.39  folds ++++  range [+0.254, +0.394]  (sd of feature 0.49)
+                                 Tue: -0.254  OR  0.78  folds -+--  range [-0.522, +0.023]  (sd of feature 0.33)
+                                 Wed: +0.144  OR  1.15  folds ++-+  range [-0.239, +0.605]  (sd of feature 0.42)
+                                 Thu: +0.425  OR  1.53  folds ++++  range [+0.232, +0.806]  (sd of feature 0.38)
+                                 Fri: +0.098  OR  1.10  folds -+-+  range [-0.087, +0.581]  (sd of feature 0.44)
+                        arrival hour: -0.062  OR  0.94  folds ----  range [-0.083, -0.038]  (sd of feature 2.88)
+                          price_mult: -0.039  OR  0.96  folds +-+-  range [-1.737, +1.018]  (sd of feature 0.19)
+                       deadline fees: -0.018  OR  0.98  folds +-++  range [-0.157, +0.014]  (sd of feature 0.50)
+                  log(1+open orders): +1.074  OR  2.93  folds ++++  range [+0.970, +1.161]  (sd of feature 1.01)
+             logit late share so far: +0.500  OR  1.65  folds ++++  range [+0.239, +0.610]  (sd of feature 0.72)
+        logit town late share so far: +0.150  OR  1.16  folds ++++  range [+0.072, +0.274]  (sd of feature 0.56)
+
+## S6 coefficients of B task features, fitted on all dev rows: log-odds per unit, odds ratio, and sign in the 4 LOSO fits
+  intercept (raw units) -8.717
+                            slack <2: +2.374  OR 10.74  folds ++++  range [+2.336, +2.800]  (sd of feature 0.10)
+                           slack 2-4: +2.113  OR  8.27  folds ++++  range [+2.004, +2.210]  (sd of feature 0.22)
+                           slack 4-6: +1.552  OR  4.72  folds ++++  range [+1.479, +1.664]  (sd of feature 0.28)
+                           slack 6-8: +0.750  OR  2.12  folds ++++  range [+0.690, +0.874]  (sd of feature 0.31)
+                         slack 12-24: +1.530  OR  4.62  folds ++++  range [+1.317, +1.672]  (sd of feature 0.26)
+                         slack 24-36: +1.122  OR  3.07  folds ++++  range [+1.035, +1.269]  (sd of feature 0.44)
+                          slack >=36: +0.318  OR  1.37  folds ++++  range [+0.143, +0.485]  (sd of feature 0.43)
+                             drive h: +0.361  OR  1.44  folds ++++  range [+0.324, +0.390]  (sd of feature 2.04)
+                            same_day: +0.881  OR  2.41  folds ++++  range [+0.819, +0.959]  (sd of feature 0.50)
+                            two legs: +0.581  OR  1.79  folds ++-+  range [-0.031, +0.913]  (sd of feature 0.13)
+                      private pickup: +0.599  OR  1.82  folds ++++  range [+0.554, +0.656]  (sd of feature 0.30)
+                    private delivery: +0.091  OR  1.10  folds -+++  range [-0.009, +0.204]  (sd of feature 0.22)
+                             premium: +1.403  OR  4.07  folds ++++  range [+0.880, +1.697]  (sd of feature 0.21)
+                             EV <30%: +0.445  OR  1.56  folds ++++  range [+0.039, +0.694]  (sd of feature 0.18)
+                                note: +0.325  OR  1.38  folds ++++  range [+0.241, +0.398]  (sd of feature 0.49)
+                                 Tue: -0.357  OR  0.70  folds -+--  range [-0.497, +0.003]  (sd of feature 0.33)
+                                 Wed: -0.133  OR  0.88  folds -+--  range [-0.446, +0.419]  (sd of feature 0.42)
+                                 Thu: +0.327  OR  1.39  folds ++++  range [+0.065, +0.809]  (sd of feature 0.38)
+                                 Fri: +0.502  OR  1.65  folds ++++  range [+0.112, +1.086]  (sd of feature 0.44)
+                        arrival hour: -0.082  OR  0.92  folds ----  range [-0.094, -0.061]  (sd of feature 2.88)
+                          price_mult: -0.377  OR  0.69  folds +---  range [-2.074, +1.120]  (sd of feature 0.19)
+                       deadline fees: -0.155  OR  0.86  folds ----  range [-0.240, -0.047]  (sd of feature 0.50)
+                  log(1+open orders): +1.365  OR  3.91  folds ++++  range [+1.114, +1.419]  (sd of feature 1.01)
+
+## S7 drop one group from B task features: change in LOSO metrics (negative AUC change = the group helps)
+  full: mean within-run AUC 0.7656, pooled logloss 0.3866
+  without    slack: dAUC_in_run -0.0322 (per seed -0.0277 -0.0396 -0.0244 -0.0372)  dlogloss +0.0202
+  without    drive: dAUC_in_run -0.0393 (per seed -0.0569 -0.1017 -0.0434 +0.0449)  dlogloss +0.0253
+  without     kind: dAUC_in_run -0.0021 (per seed -0.0013 +0.0040 +0.0013 -0.0124)  dlogloss +0.0006
+  without     legs: dAUC_in_run +0.0005 (per seed +0.0022 -0.0005 +0.0001 +0.0002)  dlogloss -0.0003
+  without  private: dAUC_in_run -0.0135 (per seed -0.0141 +0.0021 -0.0058 -0.0362)  dlogloss +0.0016
+  without  premium: dAUC_in_run -0.0014 (per seed -0.0184 +0.0020 +0.0032 +0.0077)  dlogloss +0.0032
+  without   ev_low: dAUC_in_run +0.0011 (per seed -0.0002 +0.0003 +0.0011 +0.0034)  dlogloss -0.0002
+  without     note: dAUC_in_run +0.0004 (per seed -0.0033 +0.0097 -0.0020 -0.0029)  dlogloss +0.0007
+  without  weekday: dAUC_in_run +0.0044 (per seed -0.0018 +0.0161 +0.0038 -0.0006)  dlogloss -0.0010
+  without     hour: dAUC_in_run +0.0062 (per seed -0.0005 +0.0068 -0.0053 +0.0239)  dlogloss +0.0038
+  without   policy: dAUC_in_run -0.0029 (per seed +0.0020 -0.0156 -0.0005 +0.0027)  dlogloss -0.0113
+  without     book: dAUC_in_run +0.0123 (per seed +0.0003 +0.0584 -0.0054 -0.0042)  dlogloss +0.0534
+
+## S7 drop one group from E B' + online: change in LOSO metrics (negative AUC change = the group helps)
+  full: mean within-run AUC 0.7692, pooled logloss 0.3788
+  without dayslack: dAUC_in_run -0.0436 (per seed -0.0250 -0.0567 -0.0327 -0.0598)  dlogloss +0.0210
+  without    drive: dAUC_in_run +0.0061 (per seed -0.0035 +0.0169 +0.0011 +0.0100)  dlogloss +0.0002
+  without     kind: dAUC_in_run +0.0002 (per seed -0.0001 -0.0000 +0.0002 +0.0006)  dlogloss -0.0000
+  without     legs: dAUC_in_run -0.0098 (per seed +0.0064 -0.0374 -0.0081 -0.0001)  dlogloss +0.0017
+  without  private: dAUC_in_run -0.0151 (per seed -0.0146 -0.0020 -0.0101 -0.0338)  dlogloss +0.0026
+  without  premium: dAUC_in_run -0.0015 (per seed -0.0186 +0.0014 +0.0011 +0.0102)  dlogloss +0.0035
+  without   ev_low: dAUC_in_run +0.0018 (per seed +0.0001 +0.0019 +0.0012 +0.0041)  dlogloss -0.0003
+  without     note: dAUC_in_run -0.0021 (per seed -0.0042 +0.0102 -0.0031 -0.0114)  dlogloss +0.0009
+  without  weekday: dAUC_in_run +0.0008 (per seed -0.0046 +0.0064 +0.0075 -0.0063)  dlogloss -0.0015
+  without     hour: dAUC_in_run +0.0061 (per seed +0.0014 +0.0077 -0.0033 +0.0188)  dlogloss +0.0013
+  without   policy: dAUC_in_run +0.0009 (per seed +0.0018 +0.0011 +0.0004 +0.0005)  dlogloss -0.0085
+  without     book: dAUC_in_run +0.0028 (per seed -0.0077 +0.0471 -0.0054 -0.0228)  dlogloss +0.0188
+  without   online: dAUC_in_run -0.0027 (per seed -0.0006 -0.0237 +0.0006 +0.0129)  dlogloss +0.0070
+
+## S7b compact variants compared on LOSO only (picks F): mean within-run AUC, pooled log-loss
+       one 10h hinge: AUC_in_run 0.7831  logloss 0.3760
+              +drive: AUC_in_run 0.7808  logloss 0.3723
+               +note: AUC_in_run 0.7854  logloss 0.3752
+   +drive+note (= F): AUC_in_run 0.7831  logloss 0.3715
+               +kind: AUC_in_run 0.7827  logloss 0.3748
+                 +EV: AUC_in_run 0.7819  logloss 0.3761
+
+## S8 severity: refund share of price among late orders (undelivered = 3: no price, 2x penalty)
+  dev all: late 3240 tiers 10%:0.04 25%:0.50 50%:0.35 100%:0.06 undelivered:0.04  E[share|late] 0.497  mean price EUR 115.1
+  dev R: late 626 tiers 10%:0.06 25%:0.61 50%:0.30 100%:0.01 undelivered:0.01  E[share|late] 0.366  mean price EUR 117.1
+  hold R: late 999 tiers 10%:0.06 25%:0.55 50%:0.36 100%:0.03 undelivered:0.00  E[share|late] 0.366  mean price EUR 107.9
+  E[share|late] by task slack band, regime R dev+hold:
+        <2: n   33  E[share|late] 0.564
+       2-4: n  160  E[share|late] 0.402
+       4-6: n  358  E[share|late] 0.387
+       6-8: n  337  E[share|late] 0.367
+      8-12: n  218  E[share|late] 0.322
+     12-24: n  162  E[share|late] 0.331
+     24-36: n  133  E[share|late] 0.319
+      >=36: n  224  E[share|late] 0.373
+  by kind: next_day 0.353 (n 531)  same_day 0.373 (n 1094)
+
+## S9 regime R, out-of-fold P(late) bands: realized margin per order and expected lateness cost
+  p 0.00-0.05: n  2694  late 0.027  price EUR   93.3  margin/order EUR   +24.4  of which refunds+penalty EUR   -0.6  model refund cost p*S*price EUR   0.8
+  p 0.05-0.10: n  1253  late 0.063  price EUR  113.9  margin/order EUR   +18.6  of which refunds+penalty EUR   -1.8  model refund cost p*S*price EUR   3.0
+  p 0.10-0.15: n   545  late 0.134  price EUR  128.9  margin/order EUR   +11.5  of which refunds+penalty EUR   -5.6  model refund cost p*S*price EUR   5.7
+  p 0.15-0.20: n   306  late 0.193  price EUR  143.9  margin/order EUR   +11.1  of which refunds+penalty EUR   -7.8  model refund cost p*S*price EUR   9.1
+  p 0.20-0.30: n   305  late 0.321  price EUR  160.1  margin/order EUR    -7.1  of which refunds+penalty EUR  -18.8  model refund cost p*S*price EUR  14.2
+  p 0.30-0.50: n   274  late 0.467  price EUR  194.5  margin/order EUR   -59.8  of which refunds+penalty EUR  -37.4  model refund cost p*S*price EUR  27.2
+  p 0.50-1.00: n   174  late 0.672  price EUR  226.1  margin/order EUR  -123.2  of which refunds+penalty EUR  -67.3  model refund cost p*S*price EUR  54.5
+
+## S11 external check: fit on all 4 dev seeds, predict the 6 hold seeds (never fitted on)
+- A slack only
+  hold-1: n= 1280 obs=0.210 pred=0.190 AUC=0.824 AUC_in_run=0.780 cal_int=+0.37 cal_slope=1.17 brier=0.1214 logloss=0.3907
+  hold-2: n= 1501 obs=0.253 pred=0.248 AUC=0.799 AUC_in_run=0.742 cal_int=+0.13 cal_slope=1.10 brier=0.1463 logloss=0.4516
+  hold-3: n=  856 obs=0.069 pred=0.122 AUC=0.797 AUC_in_run=0.742 cal_int=-0.68 cal_slope=1.04 brier=0.0598 logloss=0.2256
+  hold-4: n=  733 obs=0.067 pred=0.083 AUC=0.756 AUC_in_run=0.681 cal_int=-0.32 cal_slope=0.97 brier=0.0558 logloss=0.2118
+  hold-5: n=  957 obs=0.215 pred=0.157 AUC=0.743 AUC_in_run=0.706 cal_int=+0.38 cal_slope=0.96 brier=0.1467 logloss=0.4621
+  hold-6: n=  624 obs=0.058 pred=0.088 AUC=0.699 AUC_in_run=0.650 cal_int=-1.04 cal_slope=0.73 brier=0.0551 logloss=0.2120
+  pooled: n= 5951 obs=0.168 pred=0.166 AUC=0.815 AUC_in_run=0.717 cal_int=+0.13 cal_slope=1.09 brier=0.1078 logloss=0.3530
+- B task features
+  hold-1: n= 1280 obs=0.210 pred=0.180 AUC=0.858 AUC_in_run=0.817 cal_int=+0.34 cal_slope=1.05 brier=0.1143 logloss=0.3643
+  hold-2: n= 1501 obs=0.253 pred=0.218 AUC=0.831 AUC_in_run=0.796 cal_int=+0.19 cal_slope=0.92 brier=0.1365 logloss=0.4273
+  hold-3: n=  856 obs=0.069 pred=0.111 AUC=0.820 AUC_in_run=0.757 cal_int=-0.77 cal_slope=0.92 brier=0.0563 logloss=0.2111
+  hold-4: n=  733 obs=0.067 pred=0.079 AUC=0.846 AUC_in_run=0.781 cal_int=-0.37 cal_slope=0.93 brier=0.0517 logloss=0.1875
+  hold-5: n=  957 obs=0.215 pred=0.146 AUC=0.772 AUC_in_run=0.755 cal_int=+0.15 cal_slope=0.72 brier=0.1493 logloss=0.4737
+  hold-6: n=  624 obs=0.058 pred=0.094 AUC=0.759 AUC_in_run=0.676 cal_int=-1.11 cal_slope=0.71 brier=0.0548 logloss=0.2053
+  pooled: n= 5951 obs=0.168 pred=0.153 AUC=0.840 AUC_in_run=0.764 cal_int=+0.06 cal_slope=0.93 brier=0.1032 logloss=0.3373
+- B' best-day slack
+  hold-1: n= 1280 obs=0.210 pred=0.179 AUC=0.858 AUC_in_run=0.818 cal_int=+0.44 cal_slope=1.12 brier=0.1161 logloss=0.3690
+  hold-2: n= 1501 obs=0.253 pred=0.222 AUC=0.834 AUC_in_run=0.799 cal_int=+0.22 cal_slope=0.97 brier=0.1346 logloss=0.4210
+  hold-3: n=  856 obs=0.069 pred=0.106 AUC=0.830 AUC_in_run=0.794 cal_int=-0.53 cal_slope=1.03 brier=0.0538 logloss=0.2022
+  hold-4: n=  733 obs=0.067 pred=0.079 AUC=0.837 AUC_in_run=0.763 cal_int=-0.33 cal_slope=0.95 brier=0.0505 logloss=0.1860
+  hold-5: n=  957 obs=0.215 pred=0.143 AUC=0.787 AUC_in_run=0.776 cal_int=+0.34 cal_slope=0.81 brier=0.1452 logloss=0.4607
+  hold-6: n=  624 obs=0.058 pred=0.095 AUC=0.740 AUC_in_run=0.647 cal_int=-1.27 cal_slope=0.64 brier=0.0562 logloss=0.2130
+  pooled: n= 5951 obs=0.168 pred=0.152 AUC=0.844 AUC_in_run=0.766 cal_int=+0.15 cal_slope=0.99 brier=0.1021 logloss=0.3340
+- C B + places
+  hold-1: n= 1280 obs=0.210 pred=0.178 AUC=0.861 AUC_in_run=0.823 cal_int=+0.36 cal_slope=1.05 brier=0.1132 logloss=0.3609
+  hold-2: n= 1501 obs=0.253 pred=0.221 AUC=0.836 AUC_in_run=0.803 cal_int=+0.19 cal_slope=0.93 brier=0.1344 logloss=0.4203
+  hold-3: n=  856 obs=0.069 pred=0.113 AUC=0.840 AUC_in_run=0.802 cal_int=-0.73 cal_slope=0.97 brier=0.0555 logloss=0.2073
+  hold-4: n=  733 obs=0.067 pred=0.080 AUC=0.850 AUC_in_run=0.790 cal_int=-0.40 cal_slope=0.91 brier=0.0525 logloss=0.1881
+  hold-5: n=  957 obs=0.215 pred=0.149 AUC=0.775 AUC_in_run=0.759 cal_int=+0.15 cal_slope=0.72 brier=0.1471 logloss=0.4679
+  hold-6: n=  624 obs=0.058 pred=0.091 AUC=0.760 AUC_in_run=0.674 cal_int=-1.10 cal_slope=0.69 brier=0.0545 logloss=0.2044
+  pooled: n= 5951 obs=0.168 pred=0.154 AUC=0.845 AUC_in_run=0.775 cal_int=+0.07 cal_slope=0.94 brier=0.1021 logloss=0.3333
+- D B + online
+  hold-1: n= 1280 obs=0.210 pred=0.172 AUC=0.856 AUC_in_run=0.811 cal_int=+0.39 cal_slope=1.02 brier=0.1137 logloss=0.3660
+  hold-2: n= 1501 obs=0.253 pred=0.218 AUC=0.831 AUC_in_run=0.795 cal_int=+0.17 cal_slope=0.89 brier=0.1354 logloss=0.4261
+  hold-3: n=  856 obs=0.069 pred=0.115 AUC=0.823 AUC_in_run=0.744 cal_int=-0.91 cal_slope=0.86 brier=0.0577 logloss=0.2134
+  hold-4: n=  733 obs=0.067 pred=0.077 AUC=0.838 AUC_in_run=0.770 cal_int=-0.42 cal_slope=0.88 brier=0.0521 logloss=0.1900
+  hold-5: n=  957 obs=0.215 pred=0.157 AUC=0.761 AUC_in_run=0.743 cal_int=+0.07 cal_slope=0.71 brier=0.1478 logloss=0.4704
+  hold-6: n=  624 obs=0.058 pred=0.101 AUC=0.784 AUC_in_run=0.726 cal_int=-1.08 cal_slope=0.78 brier=0.0553 logloss=0.2036
+  pooled: n= 5951 obs=0.168 pred=0.154 AUC=0.838 AUC_in_run=0.765 cal_int=+0.03 cal_slope=0.91 brier=0.1029 logloss=0.3373
+- E B' + online
+  hold-1: n= 1280 obs=0.210 pred=0.170 AUC=0.857 AUC_in_run=0.812 cal_int=+0.50 cal_slope=1.09 brier=0.1160 logloss=0.3702
+  hold-2: n= 1501 obs=0.253 pred=0.221 AUC=0.833 AUC_in_run=0.797 cal_int=+0.20 cal_slope=0.94 brier=0.1337 logloss=0.4195
+  hold-3: n=  856 obs=0.069 pred=0.111 AUC=0.832 AUC_in_run=0.784 cal_int=-0.74 cal_slope=0.95 brier=0.0555 logloss=0.2048
+  hold-4: n=  733 obs=0.067 pred=0.076 AUC=0.834 AUC_in_run=0.760 cal_int=-0.39 cal_slope=0.89 brier=0.0512 logloss=0.1887
+  hold-5: n=  957 obs=0.215 pred=0.153 AUC=0.776 AUC_in_run=0.765 cal_int=+0.25 cal_slope=0.81 brier=0.1439 logloss=0.4574
+  hold-6: n=  624 obs=0.058 pred=0.102 AUC=0.753 AUC_in_run=0.662 cal_int=-1.23 cal_slope=0.70 brier=0.0569 logloss=0.2116
+  pooled: n= 5951 obs=0.168 pred=0.153 AUC=0.842 AUC_in_run=0.763 cal_int=+0.11 cal_slope=0.96 brier=0.1021 logloss=0.3339
+- F compact
+  hold-1: n= 1280 obs=0.210 pred=0.166 AUC=0.848 AUC_in_run=0.800 cal_int=+0.51 cal_slope=1.07 brier=0.1179 logloss=0.3783
+  hold-2: n= 1501 obs=0.253 pred=0.221 AUC=0.830 AUC_in_run=0.799 cal_int=+0.22 cal_slope=0.97 brier=0.1363 logloss=0.4239
+  hold-3: n=  856 obs=0.069 pred=0.112 AUC=0.824 AUC_in_run=0.760 cal_int=-0.77 cal_slope=0.94 brier=0.0558 logloss=0.2072
+  hold-4: n=  733 obs=0.067 pred=0.081 AUC=0.829 AUC_in_run=0.749 cal_int=-0.50 cal_slope=0.87 brier=0.0532 logloss=0.1941
+  hold-5: n=  957 obs=0.215 pred=0.145 AUC=0.753 AUC_in_run=0.737 cal_int=+0.24 cal_slope=0.78 brier=0.1485 logloss=0.4746
+  hold-6: n=  624 obs=0.058 pred=0.097 AUC=0.763 AUC_in_run=0.683 cal_int=-1.10 cal_slope=0.74 brier=0.0555 logloss=0.2063
+  pooled: n= 5951 obs=0.168 pred=0.151 AUC=0.835 AUC_in_run=0.755 cal_int=+0.12 cal_slope=0.96 brier=0.1040 logloss=0.3399
+
+## S9 regime R, out-of-fold P(late) bands: realized margin per order and expected lateness cost
+  p 0.00-0.05: n  2206  late 0.033  price EUR   86.2  margin/order EUR   +25.7  of which refunds+penalty EUR   -0.6  model refund cost p*S*price EUR   0.8
+  p 0.05-0.10: n  1356  late 0.076  price EUR   97.6  margin/order EUR   +23.6  of which refunds+penalty EUR   -1.7  model refund cost p*S*price EUR   2.5
+  p 0.10-0.15: n   618  late 0.142  price EUR  109.1  margin/order EUR   +19.8  of which refunds+penalty EUR   -4.1  model refund cost p*S*price EUR   4.9
+  p 0.15-0.20: n   371  late 0.224  price EUR  114.2  margin/order EUR   +21.2  of which refunds+penalty EUR   -5.9  model refund cost p*S*price EUR   7.2
+  p 0.20-0.30: n   494  late 0.308  price EUR  125.4  margin/order EUR   +11.9  of which refunds+penalty EUR  -10.7  model refund cost p*S*price EUR  11.2
+  p 0.30-0.50: n   468  late 0.436  price EUR  134.1  margin/order EUR    -4.4  of which refunds+penalty EUR  -18.7  model refund cost p*S*price EUR  19.2
+  p 0.50-1.00: n   438  late 0.676  price EUR  194.7  margin/order EUR   -82.3  of which refunds+penalty EUR  -62.0  model refund cost p*S*price EUR  48.6
+
+## S10 offline decline sweep, dev regime R unfiltered runs, LOSO predictions: drop won orders with P(late) > p*; on-time share of the rest | margin EUR of the rest
+  run (seed)                     p*=0.10 p*=0.15 p*=0.20 p*=0.25 p*=0.30 p*=0.40 p*=0.50   keep all
+  w8f8b336210e98168f6c3 (dev-1) 0.959|   5902|244 0.962|   7000|291 0.945|   7186|327 0.934|   7200|347 0.925|   7045|359 0.897|   6573|388 0.877|   4337|405 0.818|   -456|439
+  w411c3eb3c674c9d1c3d3 (dev-2) 0.977|   4401|131 0.971|   4624|136 0.971|   4886|139 0.972|   5037|142 0.972|   5037|142 0.965|   4922|143 0.965|   4922|143 0.966|   4908|145
+  w9316f20563850d387071 (dev-3) 0.950|   2603|161 0.942|   3175|226 0.935|   3774|261 0.914|   4351|291 0.900|   4217|311 0.869|   2899|351 0.851|   1939|377 0.773|  -6124|444
+  w0de650a7c208a71eae79 (dev-4) 0.926|   2704|136 0.936|   3523|157 0.935|   3688|168 0.927|   4007|178 0.929|   4111|184 0.928|   4353|194 0.930|   4497|199 0.913|   4174|208
+
+## S10 offline decline sweep, hold unfiltered runs, fit on all dev: drop won orders with P(late) > p*; on-time share of the rest | margin EUR of the rest
+  run (seed)                     p*=0.10 p*=0.15 p*=0.20 p*=0.25 p*=0.30 p*=0.40 p*=0.50   keep all
+  wb1fd6f568123c7c17f54 (hold-1) 0.944|   3689|160 0.919|   4739|223 0.903|   5325|257 0.887|   4760|283 0.871|   4776|318 0.832|   4284|352 0.782|   2972|390 0.665|  -8828|495
+  w879a3d155f64e646d7d1 (hold-2) 0.918|   3196|122 0.921|   4317|177 0.874|   5022|238 0.846|   5514|286 0.837|   5988|319 0.801|   5733|372 0.784|   5768|408 0.624| -15943|588
+  wb9035c91670e517859d1 (hold-3) 0.980|   4462|150 0.970|   5768|202 0.969|   6776|224 0.962|   7226|239 0.957|   7749|254 0.948|   8032|270 0.918|   7868|291 0.878|   8090|329
+  wf275f9c05bf437789405 (hold-4) 0.987|   3727|153 0.966|   4024|179 0.950|   4350|200 0.940|   4289|215 0.928|   4265|223 0.918|   4346|233 0.898|   3889|245 0.873|   3090|267
+  wc69e73feb96e6f9072b2 (hold-5) 0.899|   3214|158 0.876|   3505|201 0.868|   3936|220 0.849|   4138|239 0.831|   4067|260 0.798|   3672|292 0.771|   3734|315 0.739|   1983|345
+  w052ee407759a6feff382 (hold-6) 0.971|   3566|137 0.953|   4270|169 0.951|   4858|184 0.940|   5466|200 0.933|   5798|209 0.930|   6706|230 0.926|   7157|244 0.907|   7165|258
+
+## S10b offline drop vs the real filtered runs (same seed). Rule slack<a or drive>5 applied to the unfiltered run, vs the run that played it
+  dev-1 min_slack 4 max_drive 5: real run on-time 0.919 won 397 margin EUR 6840 | offline drop from unfiltered: on-time 0.926 kept 340 margin EUR 5963 | model expected on-time of kept 0.902
+  dev-1 min_slack 4 max_drive 999: real run on-time 0.814 won 431 margin EUR -2546 | offline drop from unfiltered: on-time 0.859 kept 405 margin EUR 2012 | model expected on-time of kept 0.868
+  dev-1 min_slack 6 max_drive 5: real run on-time 0.948 won 364 margin EUR 6692 | offline drop from unfiltered: on-time 0.940 kept 318 margin EUR 5662 | model expected on-time of kept 0.916
+  dev-1 min_slack 6 max_drive 999: real run on-time 0.870 won 415 margin EUR 1908 | offline drop from unfiltered: on-time 0.885 kept 375 margin EUR 2832 | model expected on-time of kept 0.883
+  dev-2 min_slack 4 max_drive 5: real run on-time 0.973 won 113 margin EUR 3718 | offline drop from unfiltered: on-time 0.983 kept 120 margin EUR 3868 | model expected on-time of kept 0.977
+  dev-2 min_slack 4 max_drive 999: real run on-time 0.965 won 143 margin EUR 4632 | offline drop from unfiltered: on-time 0.972 kept 143 margin EUR 4817 | model expected on-time of kept 0.956
+  dev-2 min_slack 6 max_drive 5: real run on-time 1.000 won 122 margin EUR 3950 | offline drop from unfiltered: on-time 1.000 kept 112 margin EUR 3639 | model expected on-time of kept 0.981
+  dev-2 min_slack 6 max_drive 999: real run on-time 0.977 won 131 margin EUR 4259 | offline drop from unfiltered: on-time 0.985 kept 132 margin EUR 4446 | model expected on-time of kept 0.965
+  dev-3 min_slack 4 max_drive 5: real run on-time 0.901 won 373 margin EUR 5728 | offline drop from unfiltered: on-time 0.863 kept 336 margin EUR 2818 | model expected on-time of kept 0.844
+  dev-3 min_slack 4 max_drive 999: real run on-time 0.814 won 424 margin EUR -1072 | offline drop from unfiltered: on-time 0.819 kept 393 margin EUR -2352 | model expected on-time of kept 0.799
+  dev-3 min_slack 6 max_drive 5: real run on-time 0.912 won 340 margin EUR 5343 | offline drop from unfiltered: on-time 0.896 kept 299 margin EUR 2601 | model expected on-time of kept 0.872
+  dev-3 min_slack 6 max_drive 999: real run on-time 0.872 won 383 margin EUR 293 | offline drop from unfiltered: on-time 0.848 kept 348 margin EUR -2554 | model expected on-time of kept 0.823
+  dev-4 min_slack 4 max_drive 5: real run on-time 0.962 won 186 margin EUR 4594 | offline drop from unfiltered: on-time 0.927 kept 164 margin EUR 3144 | model expected on-time of kept 0.934
+  dev-4 min_slack 4 max_drive 999: real run on-time 0.937 won 207 margin EUR 4666 | offline drop from unfiltered: on-time 0.933 kept 178 margin EUR 3789 | model expected on-time of kept 0.923
+  dev-4 min_slack 6 max_drive 5: real run on-time 0.977 won 132 margin EUR 3531 | offline drop from unfiltered: on-time 0.934 kept 122 margin EUR 2091 | model expected on-time of kept 0.965
+  dev-4 min_slack 6 max_drive 999: real run on-time 0.948 won 154 margin EUR 3766 | offline drop from unfiltered: on-time 0.941 kept 136 margin EUR 2737 | model expected on-time of kept 0.948
+  hold-1 min_slack 4 max_drive 5: real run on-time 0.829 won 421 margin EUR 8054 | offline drop from unfiltered: on-time 0.766 kept 384 margin EUR 3312 | model expected on-time of kept 0.811
+  hold-1 min_slack 6 max_drive 5: real run on-time 0.915 won 364 margin EUR 9388 | offline drop from unfiltered: on-time 0.838 kept 320 margin EUR 5312 | model expected on-time of kept 0.859
+  hold-2 min_slack 4 max_drive 5: real run on-time 0.770 won 486 margin EUR 6669 | offline drop from unfiltered: on-time 0.712 kept 452 margin EUR 3606 | model expected on-time of kept 0.744
+  hold-2 min_slack 6 max_drive 5: real run on-time 0.890 won 427 margin EUR 8173 | offline drop from unfiltered: on-time 0.767 kept 378 margin EUR 3884 | model expected on-time of kept 0.808
+  hold-3 min_slack 4 max_drive 5: real run on-time 0.953 won 274 margin EUR 8261 | offline drop from unfiltered: on-time 0.953 kept 253 margin EUR 6605 | model expected on-time of kept 0.874
+  hold-3 min_slack 6 max_drive 5: real run on-time 0.976 won 253 margin EUR 8186 | offline drop from unfiltered: on-time 0.960 kept 224 margin EUR 6122 | model expected on-time of kept 0.898
+  hold-4 min_slack 4 max_drive 5: real run on-time 0.967 won 244 margin EUR 6138 | offline drop from unfiltered: on-time 0.948 kept 193 margin EUR 4288 | model expected on-time of kept 0.932
+  hold-4 min_slack 6 max_drive 5: real run on-time 0.968 won 222 margin EUR 5466 | offline drop from unfiltered: on-time 0.965 kept 170 margin EUR 3777 | model expected on-time of kept 0.943
+  hold-5 min_slack 4 max_drive 5: real run on-time 0.763 won 334 margin EUR 4650 | offline drop from unfiltered: on-time 0.772 kept 302 margin EUR 3478 | model expected on-time of kept 0.839
+  hold-5 min_slack 6 max_drive 5: real run on-time 0.867 won 278 margin EUR 4707 | offline drop from unfiltered: on-time 0.802 kept 252 margin EUR 3084 | model expected on-time of kept 0.872
+  hold-6 min_slack 4 max_drive 5: real run on-time 0.960 won 199 margin EUR 6192 | offline drop from unfiltered: on-time 0.943 kept 192 margin EUR 4921 | model expected on-time of kept 0.902
+  hold-6 min_slack 6 max_drive 5: real run on-time 0.976 won 167 margin EUR 5054 | offline drop from unfiltered: on-time 0.954 kept 173 margin EUR 4312 | model expected on-time of kept 0.920
+  real minus offline on-time over 28 pairs: mean +0.019 median +0.015 min -0.045 max +0.123; real minus offline margin EUR mean +1394
+
+## S12 gate inputs: per run in regime R (unfiltered), observed vs predicted late share of all won orders
+  dev OOF w8f8b336210e98168f6c3 (dev-1): n 439 obs 0.182 pred 0.165 diff +0.017 margin EUR -456
+  dev OOF w411c3eb3c674c9d1c3d3 (dev-2): n 145 obs 0.034 pred 0.046 diff -0.011 margin EUR 4908
+  dev OOF w9316f20563850d387071 (dev-3): n 444 obs 0.227 pred 0.242 diff -0.015 margin EUR -6124
+  dev OOF w0de650a7c208a71eae79 (dev-4): n 208 obs 0.087 pred 0.116 diff -0.029 margin EUR 4174
+  hold wb1fd6f568123c7c17f54 (hold-1): n 495 obs 0.335 pred 0.281 diff +0.054 margin EUR -8828
+  hold w879a3d155f64e646d7d1 (hold-2): n 588 obs 0.376 pred 0.353 diff +0.023 margin EUR -15943
+  hold wb9035c91670e517859d1 (hold-3): n 329 obs 0.122 pred 0.201 diff -0.080 margin EUR 8090
+  hold wf275f9c05bf437789405 (hold-4): n 267 obs 0.127 pred 0.158 diff -0.031 margin EUR 3090
+  hold wc69e73feb96e6f9072b2 (hold-5): n 345 obs 0.261 pred 0.196 diff +0.064 margin EUR 1983
+  hold w052ee407759a6feff382 (hold-6): n 258 obs 0.093 pred 0.161 diff -0.068 margin EUR 7165
+  run-level error obs-pred: mean -0.008 sd 0.045 max +0.064 over 10 runs
+
+## S13 online late-budget rule, dev regime R unfiltered runs, LOSO predictions (offline drop): on-time share | margin EUR | orders kept
+  run (seed)                    t=0.06       cap=0.30 t=0.06 recal cap=0.30 t=0.08       cap=0.30 t=0.08 recal cap=0.30
+  w8f8b336210e98168f6c3 (dev-1) 0.941|  5489|204           0.926|  5407|215           0.935|  7655|324           0.918|  6737|304          
+  w411c3eb3c674c9d1c3d3 (dev-2) 0.972|  5037|142           0.971|  4921|140           0.972|  5037|142           0.971|  4921|140          
+  w9316f20563850d387071 (dev-3) 0.929|  2368| 99           0.911|  1977| 79           0.918|  2949|146           0.917|  2819|121          
+  w0de650a7c208a71eae79 (dev-4) 0.919|  3588|161           0.924|  3809|157           0.929|  4111|184           0.928|  4353|194          
+
+## S13 online late-budget rule, hold unfiltered runs, fit on all dev (offline drop): on-time share | margin EUR | orders kept
+  run (seed)                    t=0.06       cap=0.30 t=0.06 recal cap=0.30 t=0.08       cap=0.30 t=0.08 recal cap=0.30
+  wb1fd6f568123c7c17f54 (hold-1) 0.919|  2741|136           0.922|  2327|115           0.902|  3639|193           0.890|  3364|200          
+  w879a3d155f64e646d7d1 (hold-2) 0.917|  3473|120           0.881|  3925|143           0.872|  4340|172           0.862|  5302|217          
+  wb9035c91670e517859d1 (hold-3) 0.950|  2951|100           0.956|  2893| 90           0.955|  5238|177           0.954|  4105|131          
+  wf275f9c05bf437789405 (hold-4) 0.931|  3963|217           0.898|  3446|236           0.928|  4265|223           0.899|  3649|238          
+  wc69e73feb96e6f9072b2 (hold-5) 0.890|  2955|136           0.889|  1933| 81           0.839|  3603|211           0.844|  3686|192          
+  w052ee407759a6feff382 (hold-6) 0.953|  3192|127           0.962|  3168|105           0.945|  4321|163           0.952|  3954|147          
+
+## S13b switch rule, dev regime R unfiltered runs (offline drop): decline above 0.20 or 0.15, tightened to 0.10 while the realized late share of matured accepted orders > 0.07
+  w8f8b336210e98168f6c3 (dev-1) loose 0.20: 0.944|  6936|322   loose 0.15: 0.962|  6776|287
+  w411c3eb3c674c9d1c3d3 (dev-2) loose 0.20: 0.971|  4886|139   loose 0.15: 0.971|  4624|136
+  w9316f20563850d387071 (dev-3) loose 0.20: 0.934|  3043|181   loose 0.15: 0.937|  2836|174
+  w0de650a7c208a71eae79 (dev-4) loose 0.20: 0.931|  3386|159   loose 0.15: 0.933|  3257|149
+
+## S13b switch rule, hold unfiltered runs (offline drop): decline above 0.20 or 0.15, tightened to 0.10 while the realized late share of matured accepted orders > 0.07
+  wb1fd6f568123c7c17f54 (hold-1) loose 0.20: 0.908|  4389|217   loose 0.15: 0.929|  4696|212
+  w879a3d155f64e646d7d1 (hold-2) loose 0.20: 0.915|  4748|201   loose 0.15: 0.923|  4241|169
+  wb9035c91670e517859d1 (hold-3) loose 0.20: 0.969|  6776|224   loose 0.15: 0.972|  5267|176
+  wf275f9c05bf437789405 (hold-4) loose 0.20: 0.950|  4350|200   loose 0.15: 0.966|  4024|179
+  wc69e73feb96e6f9072b2 (hold-5) loose 0.20: 0.869|  3458|176   loose 0.15: 0.877|  3316|171
+  w052ee407759a6feff382 (hold-6) loose 0.20: 0.954|  4385|173   loose 0.15: 0.957|  4109|164
+
+## S14 gate shadow price lambda (EUR per unit of P(late) above 0.10)
+  ranked filtered R runs 19: median margin EUR 5343 (range 3531-9388), median won orders 207
+  target late share 0.06: sd of late share 0.048, z 0.83, lambda EUR 151 (V range gives 100-266)
+  target late share 0.07: sd of late share 0.049, z 0.62, lambda EUR 175 (V range gives 116-307)
+  target late share 0.08: sd of late share 0.049, z 0.41, lambda EUR 193 (V range gives 128-339)
+
+## S15 realized margin per order minus the gate cost lambda*(p-0.10), lambda EUR 175, by P(late) band
+  dev R (LOSO): 0.00-0.05:  +37.8  0.05-0.10:  +23.7  0.10-0.15:   +7.7  0.15-0.20:   -1.6  0.20-0.30:  -32.1  0.30-0.50: -109.2  0.50-1.00: -221.0
+  hold (fit on dev): 0.00-0.05:  +38.4  0.05-0.10:  +28.8  0.10-0.15:  +15.8  0.15-0.20:   +8.4  0.20-0.30:  -13.4  0.30-0.50:  -55.6  0.50-1.00: -184.2
+
+## S10c offline drop, unfiltered R runs (dev LOSO + hold): P(late) > 0.15 vs the slack/drive filters
+  w8f8b336210e98168f6c3 (dev-1) P>0.15: 0.962|  7000|291   slack<6|drive>5: 0.940|  5662|318   slack<4|drive>5: 0.926|  5963|340
+  w411c3eb3c674c9d1c3d3 (dev-2) P>0.15: 0.971|  4624|136   slack<6|drive>5: 1.000|  3639|112   slack<4|drive>5: 0.983|  3868|120
+  w9316f20563850d387071 (dev-3) P>0.15: 0.942|  3175|226   slack<6|drive>5: 0.896|  2601|299   slack<4|drive>5: 0.863|  2818|336
+  w0de650a7c208a71eae79 (dev-4) P>0.15: 0.936|  3523|157   slack<6|drive>5: 0.934|  2091|122   slack<4|drive>5: 0.927|  3144|164
+  wb1fd6f568123c7c17f54 (hold-1) P>0.15: 0.919|  4739|223   slack<6|drive>5: 0.838|  5312|320   slack<4|drive>5: 0.766|  3312|384
+  w879a3d155f64e646d7d1 (hold-2) P>0.15: 0.921|  4317|177   slack<6|drive>5: 0.767|  3884|378   slack<4|drive>5: 0.712|  3606|452
+  wb9035c91670e517859d1 (hold-3) P>0.15: 0.970|  5768|202   slack<6|drive>5: 0.960|  6122|224   slack<4|drive>5: 0.953|  6605|253
+  wf275f9c05bf437789405 (hold-4) P>0.15: 0.966|  4024|179   slack<6|drive>5: 0.965|  3777|170   slack<4|drive>5: 0.948|  4288|193
+  wc69e73feb96e6f9072b2 (hold-5) P>0.15: 0.876|  3505|201   slack<6|drive>5: 0.802|  3084|252   slack<4|drive>5: 0.772|  3478|302
+  w052ee407759a6feff382 (hold-6) P>0.15: 0.953|  4270|169   slack<6|drive>5: 0.954|  4312|173   slack<4|drive>5: 0.943|  4921|192
+  P>0.15: total margin EUR 44945, runs >= 0.90 on time 9 of 10, worst on-time 0.876
+  slack<6|drive>5: total margin EUR 40484, runs >= 0.90 on time 6 of 10, worst on-time 0.767
+  slack<4|drive>5: total margin EUR 42002, runs >= 0.90 on time 6 of 10, worst on-time 0.712
+
+## S10c-real the slack/drive filters as actually played: on-time | margin EUR (per-order sum) | server margin EUR
+  slack<6|drive>5 dev-1 wfb8aafc722d369eb552a: 0.948 | 6692 | 6572
+  slack<6|drive>5 dev-2 wa403bf0a82f9bcf12409: 1.000 | 3950 | 3927
+  slack<6|drive>5 dev-3 w71910f9d1ce6008c1d19: 0.912 | 5343 | 5266
+  slack<6|drive>5 dev-4 w6d27b004ff2ea1ea3d8b: 0.977 | 3531 | 3428
+  slack<6|drive>5 hold-1 w8ca4f470083e84b2e71e: 0.915 | 9388 | 8994
+  slack<6|drive>5 hold-2 w3330bb6305399cfce674: 0.890 | 8173 | 8132
+  slack<6|drive>5 hold-3 w1e3bbbe2181bbab6b71e: 0.976 | 8186 | 7792
+  slack<6|drive>5 hold-4 w9092eceae0d66c1c9230: 0.968 | 5466 | 5387
+  slack<6|drive>5 hold-5 w2be6bf3133a7eb751f8e: 0.867 | 4707 | 4616
+  slack<6|drive>5 hold-6 w02aa24a2ae3cacf98273: 0.976 | 5054 | 4923
+  slack<6|drive>5 played: total margin EUR 60490 (server 59037), runs >= 0.90 on time 8 of 10, worst 0.867
+  slack<4|drive>5 dev-1 wcc6d7d0124ae31aecd0c: 0.919 | 6840 | 6719
+  slack<4|drive>5 dev-2 wa47c23779e51451adba4: 0.973 | 3718 | 3696
+  slack<4|drive>5 dev-3 wfd28315d1cd89e49a0e5: 0.901 | 5728 | 5694
+  slack<4|drive>5 dev-4 w8c295fc08c474469b96b: 0.962 | 4594 | 4390
+  slack<4|drive>5 hold-1 wbd2ee97d7536a679a5d8: 0.829 | 8054 | 7968
+  slack<4|drive>5 hold-2 w65b39bae2860de2bcb23: 0.770 | 6669 | 6296
+  slack<4|drive>5 hold-3 wf94c3a185b7c7edacfe3: 0.953 | 8261 | 8034
+  slack<4|drive>5 hold-4 wa0067bc996bb1b5b865b: 0.967 | 6138 | 5888
+  slack<4|drive>5 hold-5 w54f8eed3566b8f8d5c0c: 0.763 | 4650 | 4560
+  slack<4|drive>5 hold-6 w3141bd32f5c368ffb841: 0.960 | 6192 | 6096
+  slack<4|drive>5 played: total margin EUR 60843 (server 59342), runs >= 0.90 on time 7 of 10, worst 0.763
+
+## S10d state-consistent replay of P(late) > p*, F compact: dev weeks scored by their LOSO fold model, hold by the all-dev model
+  w8f8b336210e98168f6c3 (dev-1) 0.958| 5132 0.944| 6513 0.933| 6871 0.919| 6819 0.945| 5558 0.943| 5602 0.940| 5510 0.940| 5662
+  w411c3eb3c674c9d1c3d3 (dev-2) 0.992| 4032 0.977| 4505 0.971| 4624 0.971| 4886 1.000| 3639 1.000| 3639 1.000| 3639 1.000| 3639
+  w9316f20563850d387071 (dev-3) 0.957| 3392 0.933| 3191 0.898| 3308 0.883| 3217 0.930| 2714 0.910| 2741 0.906| 2602 0.896| 2601
+  w0de650a7c208a71eae79 (dev-4) 0.929| 2385 0.929| 3210 0.930| 3781 0.927| 3939 0.934| 2091 0.934| 2091 0.934| 2091 0.934| 2091
+  wb1fd6f568123c7c17f54 (hold-1) 0.919| 4468 0.886| 4906 0.857| 4845 0.841| 4622 0.886| 4978 0.855| 5077 0.844| 5376 0.838| 5312
+  w879a3d155f64e646d7d1 (hold-2) 0.855| 4124 0.837| 5041 0.822| 5205 0.805| 5518 0.838| 4516 0.820| 4830 0.804| 4729 0.767| 3884
+  wb9035c91670e517859d1 (hold-3) 0.973| 5181 0.968| 6591 0.967| 7453 0.961| 7651 0.970| 5703 0.968| 6014 0.968| 6068 0.960| 6122
+  wf275f9c05bf437789405 (hold-4) 0.976| 3589 0.948| 3806 0.934| 4076 0.924| 4088 0.969| 3588 0.964| 3757 0.964| 3757 0.965| 3777
+  wc69e73feb96e6f9072b2 (hold-5) 0.877| 3140 0.858| 3497 0.843| 3863 0.831| 3986 0.850| 3234 0.851| 3699 0.830| 3544 0.802| 3084
+  w052ee407759a6feff382 (hold-6) 0.974| 3772 0.949| 4489 0.947| 5174 0.946| 5634 0.958| 4150 0.953| 4241 0.953| 4228 0.954| 4312
+                        P>0.05: total margin EUR 39215, runs >= 0.90 on time 8 of 10, worst on-time 0.855
+                        P>0.10: total margin EUR 45750, runs >= 0.90 on time 7 of 10, worst on-time 0.837
+                        P>0.15: total margin EUR 49201, runs >= 0.90 on time 6 of 10, worst on-time 0.822
+                        P>0.20: total margin EUR 50360, runs >= 0.90 on time 6 of 10, worst on-time 0.805
+     P>0.10 or slack<6|drive>5: total margin EUR 40169, runs >= 0.90 on time 7 of 10, worst on-time 0.838
+     P>0.15 or slack<6|drive>5: total margin EUR 41690, runs >= 0.90 on time 7 of 10, worst on-time 0.820
+     P>0.20 or slack<6|drive>5: total margin EUR 41543, runs >= 0.90 on time 7 of 10, worst on-time 0.804
+     P>1.01 or slack<6|drive>5: total margin EUR 40484, runs >= 0.90 on time 6 of 10, worst on-time 0.767

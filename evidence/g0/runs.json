@@ -1,0 +1,18 @@
+{
+ "starter_L7": {
+  "exit": 1,
+  "elapsed_s": 31.3
+ },
+ "starter_L6": {
+  "exit": 1,
+  "elapsed_s": 31.3
+ },
+ "counted_L8": {
+  "exit": 1,
+  "elapsed_s": 31.7
+ },
+ "starter_L8": {
+  "exit": 0,
+  "elapsed_s": 79.0
+ }
+}

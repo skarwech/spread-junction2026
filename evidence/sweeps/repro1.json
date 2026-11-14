@@ -1,0 +1,68 @@
+{
+ "name": "repro1",
+ "level": 8,
+ "seeds": [
+  "dev-1"
+ ],
+ "settings": [
+  "priced price_mult=1.65"
+ ],
+ "rows": [
+  {
+   "setting": "priced price_mult=1.65",
+   "seed": "dev-1",
+   "level": 8,
+   "worldId": "w6e211bc95ce04cb74838",
+   "exit": 0,
+   "seconds": 71.1,
+   "score": {
+    "marginCents": 429377,
+    "revenueCents": 4151400,
+    "marginShare": 0.10342944548826902,
+    "wonOrders": 287,
+    "onTimeShare": 0.8362369337979094,
+    "undeliveredShare": 0.003484320557491289,
+    "ranked": false
+   },
+   "diag": {
+    "marginCents": 429377,
+    "lateCauses": {
+     "booked after lastPickupAt": 33,
+     "gig expired first": 8,
+     "booked in time, still late": 4,
+     "failed visit": 2
+    },
+    "requestIdsDigest": "19f2ed01ad16",
+    "requests": 1034,
+    "won": 287,
+    "winRate": 0.2775628626692456,
+    "outcomes": {
+     "on time": 240,
+     "late 2\u201324 h (25%)": 25,
+     "late \u22642 bd (50%)": 14,
+     "late \u22642 h (10%)": 5,
+     "late >2 bd (100%)": 2,
+     "undelivered": 1
+    },
+    "neverBooked": 0,
+    "hoursPostToBooking": {
+     "p50": 0.2,
+     "p75": 4.85,
+     "p90": 15.6
+    },
+    "lateOrdersThatGotDeadlineWarning": "42/46",
+    "ordersWithExpiredGig": 45,
+    "bookedFeeOverTypicalFee": {
+     "p50": 1.0,
+     "p90": 2.5000432488539053
+    },
+    "priceOverList": {
+     "p50": 1.65,
+     "max": 1.65
+    }
+   }
+  }
+ ],
+ "seconds": 71.3,
+ "deletedUnended": []
+}

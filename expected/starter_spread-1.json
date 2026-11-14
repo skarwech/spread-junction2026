@@ -1,0 +1,7 @@
+{
+  "seed": "spread-1",
+  "source": "docs/HANDBOOK.md lines 36-57 and 355",
+  "L8": {"transcript": "expected/handbook_L8_spread-1.txt", "requests": 1891},
+  "L7": {"end_margin_cents": -5044249},
+  "L6": {"end_margin_cents": -117251}
+}

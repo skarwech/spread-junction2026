@@ -1,0 +1,508 @@
+{
+ "seed": "spread-1",
+ "levels": {
+  "8": {
+   "ran": true,
+   "rows": [
+    {
+     "label": "Monday",
+     "actual_label": "Monday",
+     "expected": {
+      "label": "Monday",
+      "margin_cents": -2226,
+      "revenue_cents": 172100,
+      "orders": 213,
+      "on_time_permille": 702,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Monday",
+      "margin_cents": -2226,
+      "revenue_cents": 172100,
+      "orders": 213,
+      "on_time_permille": 702,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -2226,
+       -2226
+      ],
+      "revenue_cents": [
+       172100,
+       172100
+      ],
+      "orders": [
+       213,
+       213
+      ],
+      "on_time_permille": [
+       702,
+       702
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Tuesday",
+     "actual_label": "Tuesday",
+     "expected": {
+      "label": "Tuesday",
+      "margin_cents": -121229,
+      "revenue_cents": 1054600,
+      "orders": 413,
+      "on_time_permille": 626,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Tuesday",
+      "margin_cents": -121229,
+      "revenue_cents": 1054600,
+      "orders": 413,
+      "on_time_permille": 626,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -121229,
+       -121229
+      ],
+      "revenue_cents": [
+       1054600,
+       1054600
+      ],
+      "orders": [
+       413,
+       413
+      ],
+      "on_time_permille": [
+       626,
+       626
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Wednesday",
+     "actual_label": "Wednesday",
+     "expected": {
+      "label": "Wednesday",
+      "margin_cents": -628198,
+      "revenue_cents": 1958300,
+      "orders": 595,
+      "on_time_permille": 573,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Wednesday",
+      "margin_cents": -628198,
+      "revenue_cents": 1958300,
+      "orders": 595,
+      "on_time_permille": 573,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -628198,
+       -628198
+      ],
+      "revenue_cents": [
+       1958300,
+       1958300
+      ],
+      "orders": [
+       595,
+       595
+      ],
+      "on_time_permille": [
+       573,
+       573
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Thursday",
+     "actual_label": "Thursday",
+     "expected": {
+      "label": "Thursday",
+      "margin_cents": -1471424,
+      "revenue_cents": 3092900,
+      "orders": 818,
+      "on_time_permille": 506,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Thursday",
+      "margin_cents": -1471424,
+      "revenue_cents": 3092900,
+      "orders": 818,
+      "on_time_permille": 506,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -1471424,
+       -1471424
+      ],
+      "revenue_cents": [
+       3092900,
+       3092900
+      ],
+      "orders": [
+       818,
+       818
+      ],
+      "on_time_permille": [
+       506,
+       506
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Friday",
+     "actual_label": "Friday",
+     "expected": {
+      "label": "Friday",
+      "margin_cents": -2513854,
+      "revenue_cents": 4203700,
+      "orders": 950,
+      "on_time_permille": 442,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Friday",
+      "margin_cents": -2513854,
+      "revenue_cents": 4203700,
+      "orders": 950,
+      "on_time_permille": 442,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -2513854,
+       -2513854
+      ],
+      "revenue_cents": [
+       4203700,
+       4203700
+      ],
+      "orders": [
+       950,
+       950
+      ],
+      "on_time_permille": [
+       442,
+       442
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Saturday",
+     "actual_label": "Saturday",
+     "expected": {
+      "label": "Saturday",
+      "margin_cents": -3130492,
+      "revenue_cents": 4798000,
+      "orders": 949,
+      "on_time_permille": 448,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Saturday",
+      "margin_cents": -3130492,
+      "revenue_cents": 4798000,
+      "orders": 949,
+      "on_time_permille": 448,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -3130492,
+       -3130492
+      ],
+      "revenue_cents": [
+       4798000,
+       4798000
+      ],
+      "orders": [
+       949,
+       949
+      ],
+      "on_time_permille": [
+       448,
+       448
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Sunday",
+     "actual_label": "Sunday",
+     "expected": {
+      "label": "Sunday",
+      "margin_cents": -3130492,
+      "revenue_cents": 4798000,
+      "orders": 949,
+      "on_time_permille": 448,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Sunday",
+      "margin_cents": -3130492,
+      "revenue_cents": 4798000,
+      "orders": 949,
+      "on_time_permille": 448,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -3130492,
+       -3130492
+      ],
+      "revenue_cents": [
+       4798000,
+       4798000
+      ],
+      "orders": [
+       949,
+       949
+      ],
+      "on_time_permille": [
+       448,
+       448
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Monday",
+     "actual_label": "Monday",
+     "expected": {
+      "label": "Monday",
+      "margin_cents": -5237659,
+      "revenue_cents": 6257000,
+      "orders": 949,
+      "on_time_permille": 455,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Monday",
+      "margin_cents": -5237659,
+      "revenue_cents": 6257000,
+      "orders": 949,
+      "on_time_permille": 455,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -5237659,
+       -5237659
+      ],
+      "revenue_cents": [
+       6257000,
+       6257000
+      ],
+      "orders": [
+       949,
+       949
+      ],
+      "on_time_permille": [
+       455,
+       455
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "Tuesday",
+     "actual_label": "Tuesday",
+     "expected": {
+      "label": "Tuesday",
+      "margin_cents": -6131847,
+      "revenue_cents": 6772500,
+      "orders": 949,
+      "on_time_permille": 455,
+      "undelivered_permille": 0
+     },
+     "actual": {
+      "label": "Tuesday",
+      "margin_cents": -6131847,
+      "revenue_cents": 6772500,
+      "orders": 949,
+      "on_time_permille": 455,
+      "undelivered_permille": 0
+     },
+     "fields": {
+      "margin_cents": [
+       -6131847,
+       -6131847
+      ],
+      "revenue_cents": [
+       6772500,
+       6772500
+      ],
+      "orders": [
+       949,
+       949
+      ],
+      "on_time_permille": [
+       455,
+       455
+      ],
+      "undelivered_permille": [
+       0,
+       0
+      ]
+     },
+     "match": true
+    },
+    {
+     "label": "End",
+     "actual_label": "End",
+     "expected": {
+      "label": "End",
+      "margin_cents": -7261251,
+      "revenue_cents": 7133200,
+      "orders": 949,
+      "on_time_permille": 455,
+      "undelivered_permille": 13
+     },
+     "actual": {
+      "label": "End",
+      "margin_cents": -7261251,
+      "revenue_cents": 7133200,
+      "orders": 949,
+      "on_time_permille": 455,
+      "undelivered_permille": 13
+     },
+     "fields": {
+      "margin_cents": [
+       -7261251,
+       -7261251
+      ],
+      "revenue_cents": [
+       7133200,
+       7133200
+      ],
+      "orders": [
+       949,
+       949
+      ],
+      "on_time_permille": [
+       455,
+       455
+      ],
+      "undelivered_permille": [
+       13,
+       13
+      ]
+     },
+     "match": true
+    }
+   ],
+   "end": {
+    "expected": -7261251,
+    "actual": -7261251,
+    "match": true
+   },
+   "checks": {
+    "exit": true,
+    "practice": true,
+    "level": true,
+    "verdict": true
+   },
+   "match": true,
+   "world_id": "w331a9f630b300e8ccd72",
+   "verdict": "Not ranked: the delivery minimum is 90% of the orders on time.",
+   "exit": 0,
+   "elapsed_s": 79.0
+  },
+  "7": {
+   "ran": false,
+   "rows": [],
+   "end": {
+    "expected": -5044249,
+    "actual": null,
+    "match": false
+   },
+   "checks": {
+    "exit": false,
+    "practice": true,
+    "level": true,
+    "verdict": true
+   },
+   "match": false,
+   "world_id": "wd914195b61a1f33f0dd1",
+   "verdict": null,
+   "exit": 1,
+   "elapsed_s": 31.3
+  },
+  "6": {
+   "ran": false,
+   "rows": [],
+   "end": {
+    "expected": -117251,
+    "actual": null,
+    "match": false
+   },
+   "checks": {
+    "exit": false,
+    "practice": true,
+    "level": true,
+    "verdict": true
+   },
+   "match": false,
+   "world_id": "wc1e4d596ce6cb3883b8a",
+   "verdict": null,
+   "exit": 1,
+   "elapsed_s": 31.3
+  }
+ },
+ "counted": {
+  "ran": false,
+  "requests": null,
+  "advance_requests": null,
+  "by_route": {},
+  "expected_requests": 1891,
+  "same_as_cli": false,
+  "ok": false,
+  "exit": 1,
+  "elapsed_s": 31.7
+ },
+ "g0_pass": false
+}
