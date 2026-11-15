@@ -1,0 +1,30 @@
+{
+  "status": "ended",
+  "startsAt": "2026-11-14T23:00:00.000Z",
+  "now": 14280,
+  "endsAt": 14280,
+  "firstPlace": {
+    "rank": 1,
+    "team": "hackandseek",
+    "name": "HackandSeek",
+    "marginCents": 1411166,
+    "revenueCents": 3975800,
+    "marginShare": 0.35493888022536346,
+    "wonOrders": 445,
+    "onTimeShare": 0.9595505617977528,
+    "undeliveredShare": 0,
+    "ranked": true
+  },
+  "team": {
+    "rank": 36,
+    "team": "fluiidd",
+    "name": "Fluiidd",
+    "marginCents": 591257,
+    "revenueCents": 2477929,
+    "marginShare": 0.2386093386856524,
+    "wonOrders": 251,
+    "onTimeShare": 0.9442231075697212,
+    "undeliveredShare": 0,
+    "ranked": true
+  }
+}

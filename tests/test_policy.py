@@ -4,7 +4,7 @@ import pytest
 from desk.policy import Params, quote_prices
 
 LEG = {"pickup": {"placeId": "helsinki", "window": {"from": 600, "to": 1200}}, "delivery": {"placeId": "helsinki"}}
-REQUEST = {"id": "r1", "respondBy": 615, "legs": [LEG],
+REQUEST = {"id": "r1", "respondBy": 615, "referenceFeeCents": 5000, "note": None, "legs": [LEG],
            "options": [{"kind": "same_day", "deadline": 1200, "listPriceCents": 10001},
                        {"kind": "next_day", "deadline": 2640, "listPriceCents": 8000}]}
 
@@ -51,10 +51,92 @@ def test_deadline_schedule_goes_straight_to_the_cap_when_late_and_never_falls():
     assert [s["at"] for s in tight] == sorted(set(s["at"] for s in tight))
 
 
+def test_level_one_deadline_fee_uses_one_valid_opening_step():
+    from desk.policy import PricedDesk
+    p = Params(fee_mode="deadline", fee_open=0.9, fee_cap=1.85, fee_steps=6)
+    desk = PricedDesk(None, 1, 700, p)
+    order = _order("l1")
+    desk.requests["l1"] = {**REQUEST, "id": "l1", "referenceFeeCents": 5000}
+    schedule = desk.fees_for(order, 1)
+    assert schedule == [{"at": 700, "feeCents": 4500}]
+    from desk import actions as A
+    assert A.errors({"type": "post", "stops": [{"orderId": "l1", "leg": 0, "kind": "pickup"},
+                                                  {"orderId": "l1", "leg": 0, "kind": "delivery"}],
+                     "audience": {"experienced": False, "manualLicence": False}, "schedule": schedule}) == []
+
+
+def test_rank_all_uses_a_level_one_profile_and_keeps_cli_overrides():
+    from tools.rank_all import params_for_level
+    assert params_for_level(1).fee_open == 0.85
+    assert params_for_level(1).max_drive_h == 4
+    assert params_for_level(1).min_slack_h == 7
+    assert params_for_level(8).fee_open == 0.9 and params_for_level(8).max_drive_h == 6
+    assert params_for_level(1, ["fee_open=0.9"]).fee_open == 0.9
+
+
 def test_params_parse_and_reject_unknown_keys():
     assert Params.parse(["price_mult=1.35", "options=all"]) == Params(price_mult=1.35, options="all")
     with pytest.raises(ValueError):
         Params.parse(["pricemult=1.3"])
+
+
+def test_low_level_declines_send_no_quote_because_price_is_ignored():
+    from desk.policy import PricedDesk
+    for level in (1, 2, 3):
+        desk = PricedDesk(None, level, 0, Params(open_order_cap=1))
+        desk.quote({**REQUEST, "id": f"q{level}-1", "arrivedAt": 600, "dealerId": "D"})
+        assert len(desk.outbox) == 1
+        desk.outbox.clear()
+        desk.quote({**REQUEST, "id": f"q{level}-2", "arrivedAt": 601, "dealerId": "D"})
+        assert desk.outbox == []
+
+
+def test_open_order_cap_reserves_pending_quotes_and_releases_after_delivery():
+    from desk.policy import PricedDesk
+    desk = PricedDesk(None, 1, 0, Params(open_order_cap=1))
+    first = {**REQUEST, "id": "first", "arrivedAt": 600, "dealerId": "D"}
+    desk.quote(first)
+    assert desk.outbox[-1]["type"] == "quote" and desk.pending_capacity == {"first"}
+    desk.outbox.clear()
+    desk.quote({**REQUEST, "id": "second", "arrivedAt": 601, "dealerId": "D"})
+    assert desk.outbox == []  # the first response is still pending
+
+    desk.handle({"seq": 1, "at": 615, "kind": "order_won", "order": _order("first")})
+    desk.outbox.clear()
+    assert desk.pending_capacity == set() and set(desk.open_capacity) == {"first"}
+    desk.quote({**REQUEST, "id": "third", "arrivedAt": 620, "dealerId": "D"})
+    assert desk.outbox == []  # a won, undelivered order still consumes capacity
+
+    desk.handle({"seq": 2, "at": 700, "kind": "delivered", "orderId": "first", "leg": 0})
+    desk.outbox.clear()
+    desk.quote({**REQUEST, "id": "fourth", "arrivedAt": 701, "dealerId": "D"})
+    assert desk.outbox[-1]["type"] == "quote"
+
+
+def test_open_order_capacity_rebuilds_through_rejoin_history():
+    from desk.policy import PricedDesk
+    p = Params(open_order_cap=1)
+    first = {**REQUEST, "id": "first", "arrivedAt": 600, "dealerId": "D"}
+    second = {**REQUEST, "id": "second", "arrivedAt": 620, "dealerId": "D"}
+    won = _order("first")
+    history = [
+        {"seq": 1, "at": 600, "kind": "price_request", "request": first},
+        {"seq": 2, "at": 615, "kind": "order_won", "order": won},
+        {"seq": 3, "at": 620, "kind": "price_request", "request": second},
+    ]
+    desk = PricedDesk(None, 1, 620, p)
+    desk.rejoin({"gigs": [], "orders": [won], "openRequests": [second]}, history)
+    assert desk.open_capacity == {"first": [None]}
+    assert desk.decided == {"first": True, "second": False}
+    assert all(action["type"] != "quote" for action in desk.outbox)
+
+
+def test_low_level_high_price_declines_remain_quotes_above_level_three():
+    from desk.policy import PricedDesk
+    desk = PricedDesk(None, 4, 0, Params(open_order_cap=1))
+    desk.quote({**REQUEST, "id": "q4-1", "arrivedAt": 600, "dealerId": "D"})
+    desk.quote({**REQUEST, "id": "q4-2", "arrivedAt": 601, "dealerId": "D"})
+    assert len(desk.outbox) == 2 and desk.outbox[-1]["prices"] == {"same_day": 40004}
 
 
 def _req(rid, dealer, at=100):

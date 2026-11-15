@@ -1,0 +1,68 @@
+{
+  "level": 8,
+  "season": 10,
+  "board": "Sunday 00:00",
+  "startedAt": "2026-11-14T22:00:17.097Z",
+  "teamCount": 240,
+  "leader": {
+    "rank": 1,
+    "team": "juhus",
+    "name": "Juhus",
+    "played": 5,
+    "ranked": true,
+    "marginCents": 10258193,
+    "onTimeShare": 0.9729615547106042,
+    "runs": [
+      {
+        "run": 1,
+        "marginCents": 2027584,
+        "onTimeShare": 0.9670781893004116,
+        "wonOrders": 486,
+        "ranked": true,
+        "deletedAt": null
+      },
+      {
+        "run": 2,
+        "marginCents": 2085270,
+        "onTimeShare": 0.9830866807610994,
+        "wonOrders": 473,
+        "ranked": true,
+        "deletedAt": null
+      },
+      {
+        "run": 3,
+        "marginCents": 1889766,
+        "onTimeShare": 0.9757709251101322,
+        "wonOrders": 454,
+        "ranked": true,
+        "deletedAt": null
+      },
+      {
+        "run": 4,
+        "marginCents": 2308744,
+        "onTimeShare": 0.9678068410462777,
+        "wonOrders": 497,
+        "ranked": true,
+        "deletedAt": null
+      },
+      {
+        "run": 5,
+        "marginCents": 1946829,
+        "onTimeShare": 0.9715536105032823,
+        "wonOrders": 457,
+        "ranked": true,
+        "deletedAt": null
+      }
+    ]
+  },
+  "ourTeam": {
+    "rank": null,
+    "team": "fluiidd",
+    "name": "Fluiidd",
+    "played": 0,
+    "ranked": false,
+    "marginCents": null,
+    "onTimeShare": null,
+    "runs": []
+  }
+}

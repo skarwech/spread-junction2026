@@ -1,0 +1,1489 @@
+{
+  "status": "completed",
+  "season": 10,
+  "board": "Sunday 00:00",
+  "team": "fluiidd",
+  "policy": "priced",
+  "params": {
+    "price_mult": 1.5,
+    "options": "safe",
+    "fee_mode": "deadline",
+    "fee_open": 0.9,
+    "fee_cap": 1.85,
+    "fee_lead_h": 2.0,
+    "fee_steps": 6,
+    "min_slack_h": 7.0,
+    "max_drive_h": 6.0,
+    "long_slack_h": 999.0,
+    "decline_mult": 4.0,
+    "trust_markup": 0.01,
+    "ladder_step": 0.15,
+    "ladder_up": 999.0,
+    "ladder_down": -1.0,
+    "ladder_n": 40,
+    "brake_dc": 999.0,
+    "target_win": 0.4,
+    "adapt_k": 0.6,
+    "adapt_alpha": 0.1,
+    "adapt_every": 30,
+    "adapt_min_new": 5,
+    "adapt_max_step": 0.04,
+    "m_min": 1.0,
+    "m_max": 1.9,
+    "intake_cap": 80.0,
+    "cost_floor": 1.15,
+    "start_minute": 0,
+    "night_hold": 1.0,
+    "batch_cap": 999,
+    "long_drive_h": 999,
+    "long_lead_h": 2.0,
+    "long_cap": 0
+  },
+  "levels": [
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "weeksRequested": 5,
+  "runs": [
+    {
+      "level": 8,
+      "week": 1,
+      "season": 10,
+      "worldId": "wa34ac17e4954258df1c7",
+      "score": {
+        "marginCents": 1063585,
+        "revenueCents": 3218547,
+        "marginShare": 0.33045501588139,
+        "wonOrders": 312,
+        "onTimeShare": 0.9807692307692307,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 24.6,
+      "log": "evidence/ranking_current/L8_week1.log"
+    },
+    {
+      "level": 8,
+      "week": 2,
+      "season": 10,
+      "worldId": "w2bb6a53bd1bf1a84e4ee",
+      "score": {
+        "marginCents": 1065465,
+        "revenueCents": 3756084,
+        "marginShare": 0.2836637838770379,
+        "wonOrders": 330,
+        "onTimeShare": 0.9575757575757575,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 21.4,
+      "log": "evidence/ranking_current/L8_week2.log"
+    },
+    {
+      "level": 8,
+      "week": 3,
+      "season": 10,
+      "worldId": "w3d43d6d3cff9c389071f",
+      "score": {
+        "marginCents": 834372,
+        "revenueCents": 3345596,
+        "marginShare": 0.24939412887868112,
+        "wonOrders": 329,
+        "onTimeShare": 0.9604863221884499,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 23.7,
+      "log": "evidence/ranking_current/L8_week3.log"
+    },
+    {
+      "level": 8,
+      "week": 4,
+      "season": 10,
+      "worldId": "w974feea099b5debeace7",
+      "score": {
+        "marginCents": 1093906,
+        "revenueCents": 3226612,
+        "marginShare": 0.3390261983777411,
+        "wonOrders": 301,
+        "onTimeShare": 0.9634551495016611,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 27.3,
+      "log": "evidence/ranking_current/L8_week4.log"
+    },
+    {
+      "level": 8,
+      "week": 5,
+      "season": 10,
+      "worldId": "w2776591c2f0bb8b0d84e",
+      "score": {
+        "marginCents": 964672,
+        "revenueCents": 3094217,
+        "marginShare": 0.31176611078020705,
+        "wonOrders": 302,
+        "onTimeShare": 0.9602649006622517,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 20.9,
+      "log": "evidence/ranking_current/L8_week5.log"
+    },
+    {
+      "level": 7,
+      "week": 1,
+      "season": 10,
+      "worldId": "w4920ef6d594c9d725733",
+      "score": {
+        "marginCents": 711098,
+        "revenueCents": 3194724,
+        "marginShare": 0.22258511220374594,
+        "wonOrders": 342,
+        "onTimeShare": 0.9766081871345029,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 24.2,
+      "log": "evidence/ranking_current/L7_week1.log"
+    },
+    {
+      "level": 7,
+      "week": 2,
+      "season": 10,
+      "worldId": "wc45b7623f5f28a2b6379",
+      "score": {
+        "marginCents": 675110,
+        "revenueCents": 2761154,
+        "marginShare": 0.24450284192768676,
+        "wonOrders": 304,
+        "onTimeShare": 0.9769736842105263,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 25.5,
+      "log": "evidence/ranking_current/L7_week2.log"
+    },
+    {
+      "level": 7,
+      "week": 3,
+      "season": 10,
+      "worldId": "wf7d8cef90e24aded8940",
+      "score": {
+        "marginCents": 906942,
+        "revenueCents": 3094471,
+        "marginShare": 0.2930846661674968,
+        "wonOrders": 310,
+        "onTimeShare": 0.9838709677419355,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 24.2,
+      "log": "evidence/ranking_current/L7_week3.log"
+    },
+    {
+      "level": 7,
+      "week": 4,
+      "season": 10,
+      "worldId": "w404de845cbaa157338ae",
+      "score": {
+        "marginCents": 271561,
+        "revenueCents": 3246173,
+        "marginShare": 0.08365573861898302,
+        "wonOrders": 342,
+        "onTimeShare": 0.9122807017543859,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 24.9,
+      "log": "evidence/ranking_current/L7_week4.log"
+    },
+    {
+      "level": 7,
+      "week": 5,
+      "season": 10,
+      "worldId": "w5972af29ffb3b7a0c4b6",
+      "score": {
+        "marginCents": 772915,
+        "revenueCents": 3103363,
+        "marginShare": 0.2490572324281755,
+        "wonOrders": 310,
+        "onTimeShare": 0.9838709677419355,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 24.5,
+      "log": "evidence/ranking_current/L7_week5.log"
+    },
+    {
+      "level": 6,
+      "week": 1,
+      "season": 10,
+      "worldId": "w9fcf722f77067d8ec1e5",
+      "score": {
+        "marginCents": 366563,
+        "revenueCents": 1433437,
+        "marginShare": 0.25572313258273643,
+        "wonOrders": 195,
+        "onTimeShare": 1,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 22.1,
+      "log": "evidence/ranking_current/L6_week1.log"
+    },
+    {
+      "level": 6,
+      "week": 2,
+      "season": 10,
+      "worldId": "w2c4ca35749b5b3c6ec27",
+      "score": {
+        "marginCents": 262292,
+        "revenueCents": 1352386,
+        "marginShare": 0.19394758597027772,
+        "wonOrders": 184,
+        "onTimeShare": 0.9836956521739131,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 19.5,
+      "log": "evidence/ranking_current/L6_week2.log"
+    },
+    {
+      "level": 6,
+      "week": 3,
+      "season": 10,
+      "worldId": "w2ac91b1efa5b7b83397c",
+      "score": {
+        "marginCents": 63030,
+        "revenueCents": 523254,
+        "marginShare": 0.1204577509202032,
+        "wonOrders": 72,
+        "onTimeShare": 0.9722222222222222,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 15.1,
+      "log": "evidence/ranking_current/L6_week3.log"
+    },
+    {
+      "level": 6,
+      "week": 4,
+      "season": 10,
+      "worldId": "w9c3034179604b70e3eb4",
+      "score": {
+        "marginCents": 524035,
+        "revenueCents": 2087468,
+        "marginShare": 0.2510385787949803,
+        "wonOrders": 275,
+        "onTimeShare": 0.9963636363636363,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 18.2,
+      "log": "evidence/ranking_current/L6_week4.log"
+    },
+    {
+      "level": 6,
+      "week": 5,
+      "season": 10,
+      "worldId": "w9c7413408a260e0add5b",
+      "score": {
+        "marginCents": 588612,
+        "revenueCents": 2370593,
+        "marginShare": 0.2482973669457389,
+        "wonOrders": 252,
+        "onTimeShare": 0.996031746031746,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 25.3,
+      "log": "evidence/ranking_current/L6_week5.log"
+    },
+    {
+      "level": 5,
+      "week": 1,
+      "season": 10,
+      "worldId": "w246c4895dc0c1dcfa7d5",
+      "score": {
+        "marginCents": 381829,
+        "revenueCents": 1992374,
+        "marginShare": 0.1916452433127515,
+        "wonOrders": 228,
+        "onTimeShare": 0.9824561403508771,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 19.1,
+      "log": "evidence/ranking_current/L5_week1.log"
+    },
+    {
+      "level": 5,
+      "week": 2,
+      "season": 10,
+      "worldId": "w16acb58a89a1c6330b4d",
+      "score": {
+        "marginCents": 176973,
+        "revenueCents": 922239,
+        "marginShare": 0.19189494263417617,
+        "wonOrders": 124,
+        "onTimeShare": 0.9838709677419355,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 19.0,
+      "log": "evidence/ranking_current/L5_week2.log"
+    },
+    {
+      "level": 5,
+      "week": 3,
+      "season": 10,
+      "worldId": "w85b2cfeaeae1646e3094",
+      "score": {
+        "marginCents": 251957,
+        "revenueCents": 1365054,
+        "marginShare": 0.18457658085321166,
+        "wonOrders": 193,
+        "onTimeShare": 0.9896373056994818,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 19.8,
+      "log": "evidence/ranking_current/L5_week3.log"
+    },
+    {
+      "level": 5,
+      "week": 4,
+      "season": 10,
+      "worldId": "w0b5182b99cd53a481149",
+      "score": {
+        "marginCents": 393964,
+        "revenueCents": 1911431,
+        "marginShare": 0.2061094541210224,
+        "wonOrders": 223,
+        "onTimeShare": 0.9865470852017937,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 26.9,
+      "log": "evidence/ranking_current/L5_week4.log"
+    },
+    {
+      "level": 5,
+      "week": 5,
+      "season": 10,
+      "worldId": "w4223756226632109a21e",
+      "score": {
+        "marginCents": 312020,
+        "revenueCents": 1598656,
+        "marginShare": 0.19517644821650187,
+        "wonOrders": 201,
+        "onTimeShare": 0.9850746268656716,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 21.2,
+      "log": "evidence/ranking_current/L5_week5.log"
+    },
+    {
+      "level": 4,
+      "week": 1,
+      "season": 10,
+      "worldId": "w9b00496bf56cead9ecb7",
+      "score": {
+        "marginCents": 272245,
+        "revenueCents": 1132172,
+        "marginShare": 0.24046257989068798,
+        "wonOrders": 172,
+        "onTimeShare": 1,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 21.2,
+      "log": "evidence/ranking_current/L4_week1.log"
+    },
+    {
+      "level": 4,
+      "week": 2,
+      "season": 10,
+      "worldId": "wa3dd71f035d1ca63088c",
+      "score": {
+        "marginCents": 500225,
+        "revenueCents": 2010334,
+        "marginShare": 0.24882681186310335,
+        "wonOrders": 243,
+        "onTimeShare": 0.9958847736625515,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 32.7,
+      "log": "evidence/ranking_current/L4_week2.log"
+    },
+    {
+      "level": 4,
+      "week": 3,
+      "season": 10,
+      "worldId": "w905ad5e98362b13fc80d",
+      "score": {
+        "marginCents": 419956,
+        "revenueCents": 1676916,
+        "marginShare": 0.25043353393968454,
+        "wonOrders": 211,
+        "onTimeShare": 0.995260663507109,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 18.4,
+      "log": "evidence/ranking_current/L4_week3.log"
+    },
+    {
+      "level": 4,
+      "week": 4,
+      "season": 10,
+      "worldId": "wadb71ad5098b4294e581",
+      "score": {
+        "marginCents": 131593,
+        "revenueCents": 596763,
+        "marginShare": 0.22051132526647932,
+        "wonOrders": 85,
+        "onTimeShare": 0.9882352941176471,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 19.3,
+      "log": "evidence/ranking_current/L4_week4.log"
+    },
+    {
+      "level": 4,
+      "week": 5,
+      "season": 10,
+      "worldId": "wad85ea8ad7614f74e596",
+      "score": {
+        "marginCents": 120163,
+        "revenueCents": 475740,
+        "marginShare": 0.25258124185479464,
+        "wonOrders": 85,
+        "onTimeShare": 1,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 18.2,
+      "log": "evidence/ranking_current/L4_week5.log"
+    },
+    {
+      "level": 3,
+      "week": 1,
+      "season": 10,
+      "worldId": "w101b7c0990170625f650",
+      "score": {
+        "marginCents": -356553,
+        "revenueCents": 8557000,
+        "marginShare": -0.04166799111838261,
+        "wonOrders": 989,
+        "onTimeShare": 0.9241658240647118,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 40.0,
+      "log": "evidence/ranking_current/L3_week1.log"
+    },
+    {
+      "level": 3,
+      "week": 2,
+      "season": 10,
+      "worldId": "w76ee999ec3bb7bccf771",
+      "score": {
+        "marginCents": 173247,
+        "revenueCents": 8321500,
+        "marginShare": 0.02081920326864147,
+        "wonOrders": 986,
+        "onTimeShare": 0.9482758620689655,
+        "undeliveredShare": 0.0010141987829614604,
+        "ranked": true
+      },
+      "seconds": 40.1,
+      "log": "evidence/ranking_current/L3_week2.log"
+    },
+    {
+      "level": 3,
+      "week": 3,
+      "season": 10,
+      "worldId": "wbbe7eb175166acb3be51",
+      "score": {
+        "marginCents": -504415,
+        "revenueCents": 8067500,
+        "marginShare": -0.06252432599938022,
+        "wonOrders": 981,
+        "onTimeShare": 0.9255861365953109,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 36.3,
+      "log": "evidence/ranking_current/L3_week3.log"
+    },
+    {
+      "level": 3,
+      "week": 4,
+      "season": 10,
+      "worldId": "w63c0738cf7852f35842d",
+      "score": {
+        "marginCents": -325019,
+        "revenueCents": 7473400,
+        "marginShare": -0.04349011159579308,
+        "wonOrders": 986,
+        "onTimeShare": 0.9198782961460447,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 40.0,
+      "log": "evidence/ranking_current/L3_week4.log"
+    },
+    {
+      "level": 3,
+      "week": 5,
+      "season": 10,
+      "worldId": "we74561944b3bf1c9dc03",
+      "score": {
+        "marginCents": 83673,
+        "revenueCents": 7813100,
+        "marginShare": 0.010709321524106948,
+        "wonOrders": 989,
+        "onTimeShare": 0.9494438827098078,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 35.5,
+      "log": "evidence/ranking_current/L3_week5.log"
+    },
+    {
+      "level": 2,
+      "week": 1,
+      "season": 10,
+      "worldId": "wb4f9f94dea66b5f8d009",
+      "score": {
+        "marginCents": -103823,
+        "revenueCents": 7954700,
+        "marginShare": -0.013051780708260526,
+        "wonOrders": 996,
+        "onTimeShare": 0.9367469879518072,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 33.6,
+      "log": "evidence/ranking_current/L2_week1.log"
+    },
+    {
+      "level": 2,
+      "week": 2,
+      "season": 10,
+      "worldId": "w804baabcb31f5788ec02",
+      "score": {
+        "marginCents": 39226,
+        "revenueCents": 8024300,
+        "marginShare": 0.004888401480502972,
+        "wonOrders": 990,
+        "onTimeShare": 0.9333333333333333,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 35.0,
+      "log": "evidence/ranking_current/L2_week2.log"
+    },
+    {
+      "level": 2,
+      "week": 3,
+      "season": 10,
+      "worldId": "wf2f7ba389dc58a97023e",
+      "score": {
+        "marginCents": 99714,
+        "revenueCents": 7690900,
+        "marginShare": 0.012965192630251336,
+        "wonOrders": 985,
+        "onTimeShare": 0.949238578680203,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 34.8,
+      "log": "evidence/ranking_current/L2_week3.log"
+    },
+    {
+      "level": 2,
+      "week": 4,
+      "season": 10,
+      "worldId": "w3ebf9d3d594dfc95602a",
+      "score": {
+        "marginCents": 102225,
+        "revenueCents": 7896400,
+        "marginShare": 0.012945772757205815,
+        "wonOrders": 991,
+        "onTimeShare": 0.9556004036326943,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 31.1,
+      "log": "evidence/ranking_current/L2_week4.log"
+    },
+    {
+      "level": 2,
+      "week": 5,
+      "season": 10,
+      "worldId": "wee2eb4d28cbd4b062dbc",
+      "score": {
+        "marginCents": 138280,
+        "revenueCents": 7976100,
+        "marginShare": 0.01733679367109239,
+        "wonOrders": 992,
+        "onTimeShare": 0.9415322580645161,
+        "undeliveredShare": 0,
+        "ranked": true
+      },
+      "seconds": 37.8,
+      "log": "evidence/ranking_current/L2_week5.log"
+    },
+    {
+      "level": 1,
+      "week": 1,
+      "season": 10,
+      "worldId": "w3a26cf26f10967e00aab",
+      "score": {
+        "marginCents": -14936374,
+        "revenueCents": 692500,
+        "marginShare": -21.568771119133572,
+        "wonOrders": 980,
+        "onTimeShare": 0.01020408163265306,
+        "undeliveredShare": 0.9193877551020408,
+        "ranked": false
+      },
+      "seconds": 40.2,
+      "log": "evidence/ranking_current/L1_week1.log"
+    },
+    {
+      "level": 1,
+      "week": 2,
+      "season": 10,
+      "worldId": "wbb888aa4bae63b24acf0",
+      "score": {
+        "marginCents": -15011787,
+        "revenueCents": 1049500,
+        "marginShare": -14.303751310147689,
+        "wonOrders": 981,
+        "onTimeShare": 0.022426095820591234,
+        "undeliveredShare": 0.8878695208970439,
+        "ranked": false
+      },
+      "seconds": 36.0,
+      "log": "evidence/ranking_current/L1_week2.log"
+    },
+    {
+      "level": 1,
+      "week": 3,
+      "season": 10,
+      "worldId": "w6e345f26179d4f3e8c18",
+      "score": {
+        "marginCents": -14415923,
+        "revenueCents": 730200,
+        "marginShare": -19.742430840865516,
+        "wonOrders": 987,
+        "onTimeShare": 0.017223910840932118,
+        "undeliveredShare": 0.9078014184397163,
+        "ranked": false
+      },
+      "seconds": 29.4,
+      "log": "evidence/ranking_current/L1_week3.log"
+    },
+    {
+      "level": 1,
+      "week": 4,
+      "season": 10,
+      "worldId": "w1796677a37913a93392c",
+      "score": {
+        "marginCents": -13982301,
+        "revenueCents": 789800,
+        "marginShare": -17.703597113193215,
+        "wonOrders": 988,
+        "onTimeShare": 0.011133603238866396,
+        "undeliveredShare": 0.9109311740890689,
+        "ranked": false
+      },
+      "seconds": 28.8,
+      "log": "evidence/ranking_current/L1_week4.log"
+    },
+    {
+      "level": 1,
+      "week": 5,
+      "season": 10,
+      "worldId": "we3f829c32a65c4de0513",
+      "score": {
+        "marginCents": -14711903,
+        "revenueCents": 837600,
+        "marginShare": -17.564354106972303,
+        "wonOrders": 989,
+        "onTimeShare": 0.01314459049544995,
+        "undeliveredShare": 0.9039433771486349,
+        "ranked": false
+      },
+      "seconds": 31.3,
+      "log": "evidence/ranking_current/L1_week5.log"
+    }
+  ],
+  "levelsResult": {
+    "8": {
+      "played": 5,
+      "ranked": true,
+      "rank": 52,
+      "marginCents": 5022000,
+      "onTimeShare": 0.9644218551461246,
+      "weeks": [
+        {
+          "level": 8,
+          "week": 1,
+          "season": 10,
+          "worldId": "wa34ac17e4954258df1c7",
+          "score": {
+            "marginCents": 1063585,
+            "revenueCents": 3218547,
+            "marginShare": 0.33045501588139,
+            "wonOrders": 312,
+            "onTimeShare": 0.9807692307692307,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 24.6,
+          "log": "evidence/ranking_current/L8_week1.log"
+        },
+        {
+          "level": 8,
+          "week": 2,
+          "season": 10,
+          "worldId": "w2bb6a53bd1bf1a84e4ee",
+          "score": {
+            "marginCents": 1065465,
+            "revenueCents": 3756084,
+            "marginShare": 0.2836637838770379,
+            "wonOrders": 330,
+            "onTimeShare": 0.9575757575757575,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 21.4,
+          "log": "evidence/ranking_current/L8_week2.log"
+        },
+        {
+          "level": 8,
+          "week": 3,
+          "season": 10,
+          "worldId": "w3d43d6d3cff9c389071f",
+          "score": {
+            "marginCents": 834372,
+            "revenueCents": 3345596,
+            "marginShare": 0.24939412887868112,
+            "wonOrders": 329,
+            "onTimeShare": 0.9604863221884499,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 23.7,
+          "log": "evidence/ranking_current/L8_week3.log"
+        },
+        {
+          "level": 8,
+          "week": 4,
+          "season": 10,
+          "worldId": "w974feea099b5debeace7",
+          "score": {
+            "marginCents": 1093906,
+            "revenueCents": 3226612,
+            "marginShare": 0.3390261983777411,
+            "wonOrders": 301,
+            "onTimeShare": 0.9634551495016611,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 27.3,
+          "log": "evidence/ranking_current/L8_week4.log"
+        },
+        {
+          "level": 8,
+          "week": 5,
+          "season": 10,
+          "worldId": "w2776591c2f0bb8b0d84e",
+          "score": {
+            "marginCents": 964672,
+            "revenueCents": 3094217,
+            "marginShare": 0.31176611078020705,
+            "wonOrders": 302,
+            "onTimeShare": 0.9602649006622517,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 20.9,
+          "log": "evidence/ranking_current/L8_week5.log"
+        }
+      ]
+    },
+    "7": {
+      "played": 5,
+      "ranked": true,
+      "rank": 14,
+      "marginCents": 3337626,
+      "onTimeShare": 0.9657960199004975,
+      "weeks": [
+        {
+          "level": 7,
+          "week": 1,
+          "season": 10,
+          "worldId": "w4920ef6d594c9d725733",
+          "score": {
+            "marginCents": 711098,
+            "revenueCents": 3194724,
+            "marginShare": 0.22258511220374594,
+            "wonOrders": 342,
+            "onTimeShare": 0.9766081871345029,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 24.2,
+          "log": "evidence/ranking_current/L7_week1.log"
+        },
+        {
+          "level": 7,
+          "week": 2,
+          "season": 10,
+          "worldId": "wc45b7623f5f28a2b6379",
+          "score": {
+            "marginCents": 675110,
+            "revenueCents": 2761154,
+            "marginShare": 0.24450284192768676,
+            "wonOrders": 304,
+            "onTimeShare": 0.9769736842105263,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 25.5,
+          "log": "evidence/ranking_current/L7_week2.log"
+        },
+        {
+          "level": 7,
+          "week": 3,
+          "season": 10,
+          "worldId": "wf7d8cef90e24aded8940",
+          "score": {
+            "marginCents": 906942,
+            "revenueCents": 3094471,
+            "marginShare": 0.2930846661674968,
+            "wonOrders": 310,
+            "onTimeShare": 0.9838709677419355,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 24.2,
+          "log": "evidence/ranking_current/L7_week3.log"
+        },
+        {
+          "level": 7,
+          "week": 4,
+          "season": 10,
+          "worldId": "w404de845cbaa157338ae",
+          "score": {
+            "marginCents": 271561,
+            "revenueCents": 3246173,
+            "marginShare": 0.08365573861898302,
+            "wonOrders": 342,
+            "onTimeShare": 0.9122807017543859,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 24.9,
+          "log": "evidence/ranking_current/L7_week4.log"
+        },
+        {
+          "level": 7,
+          "week": 5,
+          "season": 10,
+          "worldId": "w5972af29ffb3b7a0c4b6",
+          "score": {
+            "marginCents": 772915,
+            "revenueCents": 3103363,
+            "marginShare": 0.2490572324281755,
+            "wonOrders": 310,
+            "onTimeShare": 0.9838709677419355,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 24.5,
+          "log": "evidence/ranking_current/L7_week5.log"
+        }
+      ]
+    },
+    "6": {
+      "played": 5,
+      "ranked": true,
+      "rank": 15,
+      "marginCents": 1804532,
+      "onTimeShare": 0.9928425357873211,
+      "weeks": [
+        {
+          "level": 6,
+          "week": 1,
+          "season": 10,
+          "worldId": "w9fcf722f77067d8ec1e5",
+          "score": {
+            "marginCents": 366563,
+            "revenueCents": 1433437,
+            "marginShare": 0.25572313258273643,
+            "wonOrders": 195,
+            "onTimeShare": 1,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 22.1,
+          "log": "evidence/ranking_current/L6_week1.log"
+        },
+        {
+          "level": 6,
+          "week": 2,
+          "season": 10,
+          "worldId": "w2c4ca35749b5b3c6ec27",
+          "score": {
+            "marginCents": 262292,
+            "revenueCents": 1352386,
+            "marginShare": 0.19394758597027772,
+            "wonOrders": 184,
+            "onTimeShare": 0.9836956521739131,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 19.5,
+          "log": "evidence/ranking_current/L6_week2.log"
+        },
+        {
+          "level": 6,
+          "week": 3,
+          "season": 10,
+          "worldId": "w2ac91b1efa5b7b83397c",
+          "score": {
+            "marginCents": 63030,
+            "revenueCents": 523254,
+            "marginShare": 0.1204577509202032,
+            "wonOrders": 72,
+            "onTimeShare": 0.9722222222222222,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 15.1,
+          "log": "evidence/ranking_current/L6_week3.log"
+        },
+        {
+          "level": 6,
+          "week": 4,
+          "season": 10,
+          "worldId": "w9c3034179604b70e3eb4",
+          "score": {
+            "marginCents": 524035,
+            "revenueCents": 2087468,
+            "marginShare": 0.2510385787949803,
+            "wonOrders": 275,
+            "onTimeShare": 0.9963636363636363,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 18.2,
+          "log": "evidence/ranking_current/L6_week4.log"
+        },
+        {
+          "level": 6,
+          "week": 5,
+          "season": 10,
+          "worldId": "w9c7413408a260e0add5b",
+          "score": {
+            "marginCents": 588612,
+            "revenueCents": 2370593,
+            "marginShare": 0.2482973669457389,
+            "wonOrders": 252,
+            "onTimeShare": 0.996031746031746,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 25.3,
+          "log": "evidence/ranking_current/L6_week5.log"
+        }
+      ]
+    },
+    "5": {
+      "played": 5,
+      "ranked": true,
+      "rank": 3,
+      "marginCents": 1516743,
+      "onTimeShare": 0.9855521155830753,
+      "weeks": [
+        {
+          "level": 5,
+          "week": 1,
+          "season": 10,
+          "worldId": "w246c4895dc0c1dcfa7d5",
+          "score": {
+            "marginCents": 381829,
+            "revenueCents": 1992374,
+            "marginShare": 0.1916452433127515,
+            "wonOrders": 228,
+            "onTimeShare": 0.9824561403508771,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 19.1,
+          "log": "evidence/ranking_current/L5_week1.log"
+        },
+        {
+          "level": 5,
+          "week": 2,
+          "season": 10,
+          "worldId": "w16acb58a89a1c6330b4d",
+          "score": {
+            "marginCents": 176973,
+            "revenueCents": 922239,
+            "marginShare": 0.19189494263417617,
+            "wonOrders": 124,
+            "onTimeShare": 0.9838709677419355,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 19.0,
+          "log": "evidence/ranking_current/L5_week2.log"
+        },
+        {
+          "level": 5,
+          "week": 3,
+          "season": 10,
+          "worldId": "w85b2cfeaeae1646e3094",
+          "score": {
+            "marginCents": 251957,
+            "revenueCents": 1365054,
+            "marginShare": 0.18457658085321166,
+            "wonOrders": 193,
+            "onTimeShare": 0.9896373056994818,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 19.8,
+          "log": "evidence/ranking_current/L5_week3.log"
+        },
+        {
+          "level": 5,
+          "week": 4,
+          "season": 10,
+          "worldId": "w0b5182b99cd53a481149",
+          "score": {
+            "marginCents": 393964,
+            "revenueCents": 1911431,
+            "marginShare": 0.2061094541210224,
+            "wonOrders": 223,
+            "onTimeShare": 0.9865470852017937,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 26.9,
+          "log": "evidence/ranking_current/L5_week4.log"
+        },
+        {
+          "level": 5,
+          "week": 5,
+          "season": 10,
+          "worldId": "w4223756226632109a21e",
+          "score": {
+            "marginCents": 312020,
+            "revenueCents": 1598656,
+            "marginShare": 0.19517644821650187,
+            "wonOrders": 201,
+            "onTimeShare": 0.9850746268656716,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 21.2,
+          "log": "evidence/ranking_current/L5_week5.log"
+        }
+      ]
+    },
+    "4": {
+      "played": 5,
+      "ranked": true,
+      "rank": 3,
+      "marginCents": 1444182,
+      "onTimeShare": 0.9962311557788944,
+      "weeks": [
+        {
+          "level": 4,
+          "week": 1,
+          "season": 10,
+          "worldId": "w9b00496bf56cead9ecb7",
+          "score": {
+            "marginCents": 272245,
+            "revenueCents": 1132172,
+            "marginShare": 0.24046257989068798,
+            "wonOrders": 172,
+            "onTimeShare": 1,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 21.2,
+          "log": "evidence/ranking_current/L4_week1.log"
+        },
+        {
+          "level": 4,
+          "week": 2,
+          "season": 10,
+          "worldId": "wa3dd71f035d1ca63088c",
+          "score": {
+            "marginCents": 500225,
+            "revenueCents": 2010334,
+            "marginShare": 0.24882681186310335,
+            "wonOrders": 243,
+            "onTimeShare": 0.9958847736625515,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 32.7,
+          "log": "evidence/ranking_current/L4_week2.log"
+        },
+        {
+          "level": 4,
+          "week": 3,
+          "season": 10,
+          "worldId": "w905ad5e98362b13fc80d",
+          "score": {
+            "marginCents": 419956,
+            "revenueCents": 1676916,
+            "marginShare": 0.25043353393968454,
+            "wonOrders": 211,
+            "onTimeShare": 0.995260663507109,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 18.4,
+          "log": "evidence/ranking_current/L4_week3.log"
+        },
+        {
+          "level": 4,
+          "week": 4,
+          "season": 10,
+          "worldId": "wadb71ad5098b4294e581",
+          "score": {
+            "marginCents": 131593,
+            "revenueCents": 596763,
+            "marginShare": 0.22051132526647932,
+            "wonOrders": 85,
+            "onTimeShare": 0.9882352941176471,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 19.3,
+          "log": "evidence/ranking_current/L4_week4.log"
+        },
+        {
+          "level": 4,
+          "week": 5,
+          "season": 10,
+          "worldId": "wad85ea8ad7614f74e596",
+          "score": {
+            "marginCents": 120163,
+            "revenueCents": 475740,
+            "marginShare": 0.25258124185479464,
+            "wonOrders": 85,
+            "onTimeShare": 1,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 18.2,
+          "log": "evidence/ranking_current/L4_week5.log"
+        }
+      ]
+    },
+    "3": {
+      "played": 5,
+      "ranked": true,
+      "rank": 2,
+      "marginCents": -929067,
+      "onTimeShare": 0.9334820523220442,
+      "weeks": [
+        {
+          "level": 3,
+          "week": 1,
+          "season": 10,
+          "worldId": "w101b7c0990170625f650",
+          "score": {
+            "marginCents": -356553,
+            "revenueCents": 8557000,
+            "marginShare": -0.04166799111838261,
+            "wonOrders": 989,
+            "onTimeShare": 0.9241658240647118,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 40.0,
+          "log": "evidence/ranking_current/L3_week1.log"
+        },
+        {
+          "level": 3,
+          "week": 2,
+          "season": 10,
+          "worldId": "w76ee999ec3bb7bccf771",
+          "score": {
+            "marginCents": 173247,
+            "revenueCents": 8321500,
+            "marginShare": 0.02081920326864147,
+            "wonOrders": 986,
+            "onTimeShare": 0.9482758620689655,
+            "undeliveredShare": 0.0010141987829614604,
+            "ranked": true
+          },
+          "seconds": 40.1,
+          "log": "evidence/ranking_current/L3_week2.log"
+        },
+        {
+          "level": 3,
+          "week": 3,
+          "season": 10,
+          "worldId": "wbbe7eb175166acb3be51",
+          "score": {
+            "marginCents": -504415,
+            "revenueCents": 8067500,
+            "marginShare": -0.06252432599938022,
+            "wonOrders": 981,
+            "onTimeShare": 0.9255861365953109,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 36.3,
+          "log": "evidence/ranking_current/L3_week3.log"
+        },
+        {
+          "level": 3,
+          "week": 4,
+          "season": 10,
+          "worldId": "w63c0738cf7852f35842d",
+          "score": {
+            "marginCents": -325019,
+            "revenueCents": 7473400,
+            "marginShare": -0.04349011159579308,
+            "wonOrders": 986,
+            "onTimeShare": 0.9198782961460447,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 40.0,
+          "log": "evidence/ranking_current/L3_week4.log"
+        },
+        {
+          "level": 3,
+          "week": 5,
+          "season": 10,
+          "worldId": "we74561944b3bf1c9dc03",
+          "score": {
+            "marginCents": 83673,
+            "revenueCents": 7813100,
+            "marginShare": 0.010709321524106948,
+            "wonOrders": 989,
+            "onTimeShare": 0.9494438827098078,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 35.5,
+          "log": "evidence/ranking_current/L3_week5.log"
+        }
+      ]
+    },
+    "2": {
+      "played": 5,
+      "ranked": true,
+      "rank": 2,
+      "marginCents": 275622,
+      "onTimeShare": 0.9432781590633831,
+      "weeks": [
+        {
+          "level": 2,
+          "week": 1,
+          "season": 10,
+          "worldId": "wb4f9f94dea66b5f8d009",
+          "score": {
+            "marginCents": -103823,
+            "revenueCents": 7954700,
+            "marginShare": -0.013051780708260526,
+            "wonOrders": 996,
+            "onTimeShare": 0.9367469879518072,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 33.6,
+          "log": "evidence/ranking_current/L2_week1.log"
+        },
+        {
+          "level": 2,
+          "week": 2,
+          "season": 10,
+          "worldId": "w804baabcb31f5788ec02",
+          "score": {
+            "marginCents": 39226,
+            "revenueCents": 8024300,
+            "marginShare": 0.004888401480502972,
+            "wonOrders": 990,
+            "onTimeShare": 0.9333333333333333,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 35.0,
+          "log": "evidence/ranking_current/L2_week2.log"
+        },
+        {
+          "level": 2,
+          "week": 3,
+          "season": 10,
+          "worldId": "wf2f7ba389dc58a97023e",
+          "score": {
+            "marginCents": 99714,
+            "revenueCents": 7690900,
+            "marginShare": 0.012965192630251336,
+            "wonOrders": 985,
+            "onTimeShare": 0.949238578680203,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 34.8,
+          "log": "evidence/ranking_current/L2_week3.log"
+        },
+        {
+          "level": 2,
+          "week": 4,
+          "season": 10,
+          "worldId": "w3ebf9d3d594dfc95602a",
+          "score": {
+            "marginCents": 102225,
+            "revenueCents": 7896400,
+            "marginShare": 0.012945772757205815,
+            "wonOrders": 991,
+            "onTimeShare": 0.9556004036326943,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 31.1,
+          "log": "evidence/ranking_current/L2_week4.log"
+        },
+        {
+          "level": 2,
+          "week": 5,
+          "season": 10,
+          "worldId": "wee2eb4d28cbd4b062dbc",
+          "score": {
+            "marginCents": 138280,
+            "revenueCents": 7976100,
+            "marginShare": 0.01733679367109239,
+            "wonOrders": 992,
+            "onTimeShare": 0.9415322580645161,
+            "undeliveredShare": 0,
+            "ranked": true
+          },
+          "seconds": 37.8,
+          "log": "evidence/ranking_current/L2_week5.log"
+        }
+      ]
+    },
+    "1": {
+      "played": 5,
+      "ranked": false,
+      "rank": null,
+      "marginCents": -73058288,
+      "onTimeShare": 0.01482233502538071,
+      "weeks": [
+        {
+          "level": 1,
+          "week": 1,
+          "season": 10,
+          "worldId": "w3a26cf26f10967e00aab",
+          "score": {
+            "marginCents": -14936374,
+            "revenueCents": 692500,
+            "marginShare": -21.568771119133572,
+            "wonOrders": 980,
+            "onTimeShare": 0.01020408163265306,
+            "undeliveredShare": 0.9193877551020408,
+            "ranked": false
+          },
+          "seconds": 40.2,
+          "log": "evidence/ranking_current/L1_week1.log"
+        },
+        {
+          "level": 1,
+          "week": 2,
+          "season": 10,
+          "worldId": "wbb888aa4bae63b24acf0",
+          "score": {
+            "marginCents": -15011787,
+            "revenueCents": 1049500,
+            "marginShare": -14.303751310147689,
+            "wonOrders": 981,
+            "onTimeShare": 0.022426095820591234,
+            "undeliveredShare": 0.8878695208970439,
+            "ranked": false
+          },
+          "seconds": 36.0,
+          "log": "evidence/ranking_current/L1_week2.log"
+        },
+        {
+          "level": 1,
+          "week": 3,
+          "season": 10,
+          "worldId": "w6e345f26179d4f3e8c18",
+          "score": {
+            "marginCents": -14415923,
+            "revenueCents": 730200,
+            "marginShare": -19.742430840865516,
+            "wonOrders": 987,
+            "onTimeShare": 0.017223910840932118,
+            "undeliveredShare": 0.9078014184397163,
+            "ranked": false
+          },
+          "seconds": 29.4,
+          "log": "evidence/ranking_current/L1_week3.log"
+        },
+        {
+          "level": 1,
+          "week": 4,
+          "season": 10,
+          "worldId": "w1796677a37913a93392c",
+          "score": {
+            "marginCents": -13982301,
+            "revenueCents": 789800,
+            "marginShare": -17.703597113193215,
+            "wonOrders": 988,
+            "onTimeShare": 0.011133603238866396,
+            "undeliveredShare": 0.9109311740890689,
+            "ranked": false
+          },
+          "seconds": 28.8,
+          "log": "evidence/ranking_current/L1_week4.log"
+        },
+        {
+          "level": 1,
+          "week": 5,
+          "season": 10,
+          "worldId": "we3f829c32a65c4de0513",
+          "score": {
+            "marginCents": -14711903,
+            "revenueCents": 837600,
+            "marginShare": -17.564354106972303,
+            "wonOrders": 989,
+            "onTimeShare": 0.01314459049544995,
+            "undeliveredShare": 0.9039433771486349,
+            "ranked": false
+          },
+          "seconds": 31.3,
+          "log": "evidence/ranking_current/L1_week5.log"
+        }
+      ]
+    }
+  }
+}

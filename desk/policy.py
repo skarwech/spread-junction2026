@@ -54,6 +54,7 @@ class Params:
     start_minute: float = 0      # no quote before this minute (emulates a final that starts on Thursday)
     night_hold: float = 0        # 1: fee raises only between 07:00 and 22:00 (no driver reads the app at night)
     batch_cap: float = 999       # at most this many real quotes per bulk batch (batchId); the rest are declined
+    open_order_cap: float = 0    # at most this many won + unanswered accepted quotes at once (0: off)
     long_drive_h: float = 999    # an order whose cars drive at least this long ...
     long_lead_h: float = 2.0     # ... reaches its fee cap this many hours before lastPickupAt ...
     long_cap: float = 0          # ... and that cap is this × the typical fee (0: fee_cap)
@@ -282,10 +283,43 @@ class PricedDesk(Desk):
         self.learning = Learning(params)
         self.decided: dict[str, bool] = {}      # request id -> quoted at a real price (decided once, in arrival order)
         self.batch_real: dict[str, int] = {}    # batchId -> real quotes so far
+        self.pending_capacity: set[str] = set() # real quotes awaiting order_won/order_lost
+        self.open_capacity: dict[str, list] = {} # order id -> deliveredAt, while any leg remains open
 
     def handle(self, event: dict) -> None:
         self.learning.see(event)
+        self._capacity_event(event)
         super().handle(event)
+
+    def _capacity_event(self, event: dict) -> None:
+        """Fold outstanding orders from events so a cap is stable across restarts and replays."""
+        kind = event["kind"]
+        if kind == "order_won":
+            order = event["order"]
+            oid = order["id"]
+            self.pending_capacity.discard(oid)
+            delivered = list(order["deliveredAt"])
+            if any(at is None for at in delivered):
+                self.open_capacity[oid] = delivered
+        elif kind == "order_lost":
+            self.pending_capacity.discard(event["requestId"])
+        elif kind == "delivered":
+            oid = event["orderId"]
+            delivered = self.open_capacity.get(oid)
+            if delivered is not None:
+                delivered[event["leg"]] = event["at"]
+                if all(at is not None for at in delivered):
+                    self.open_capacity.pop(oid, None)
+        elif kind == "order_changed":
+            order = event["order"]
+            oid = order["id"]
+            delivered = list(order["deliveredAt"])
+            if any(at is None for at in delivered):
+                self.open_capacity[oid] = delivered
+            else:
+                self.open_capacity.pop(oid, None)
+        elif kind == "order_cancelled":
+            self.open_capacity.pop(event["orderId"], None)
 
     def rejoin(self, snapshot: dict, history: list) -> None:
         """After a restart: relearn from the whole history first, so the re-quotes of open requests use it. Which
@@ -294,6 +328,7 @@ class PricedDesk(Desk):
             if event["kind"] == "price_request" and self.real_quote(event["request"]):
                 self.learning.quoted.add(event["request"]["id"])
             self.learning.see(event)
+            self._capacity_event(event)
         for request in snapshot["openRequests"]:
             self.learning.dealer_of[request["id"]] = request["dealerId"]
         super().rejoin(snapshot, history)
@@ -323,10 +358,15 @@ class PricedDesk(Desk):
         rid = request["id"]
         if rid not in self.decided:
             real = request["arrivedAt"] >= self.params.start_minute and not declined(request, self.params)
+            cap = int(self.params.open_order_cap)
+            if real and cap > 0 and len(self.open_capacity) + len(self.pending_capacity) >= cap:
+                real = False
             batch = request.get("batchId")
             if real and batch:
                 real = self.batch_real.get(batch, 0) < self.params.batch_cap
                 self.batch_real[batch] = self.batch_real.get(batch, 0) + (1 if real else 0)
+            if real:
+                self.pending_capacity.add(rid)
             self.decided[rid] = real
         return self.decided[rid]
 
@@ -341,6 +381,8 @@ class PricedDesk(Desk):
             floor = int(request["referenceFeeCents"] * self.params.cost_floor + 0.999)
             prices = {kind: max(cents, floor) for kind, cents in quote_prices(request, self.params, mult).items()}
         else:
+            if self.level <= 3:
+                return  # dealers at these levels ignore price; a high quote still wins
             prices = decline_prices(request, self.params)
         self.outbox.append(A.quote(request["id"], prices))
 
@@ -348,6 +390,10 @@ class PricedDesk(Desk):
         if self.params.fee_mode != "deadline" or order["id"] in self.urgent:
             return super().fees_for(order, cars)  # after the deadline warning: the starter's steep fees
         base = self.requests[order["id"]]["referenceFeeCents"] * cars / len(order["legs"])
+        if self.level == 1:
+            # L1 permits one fee step. Keep the deadline schedule's opening fee, rather than sending the
+            # multi-step schedule tuned for L8 (which the world rejects at this level).
+            return [A.fee_step(self.now, max(1, int(base * self.params.fee_open + 0.5)))]
         return deadline_schedule(self.now, base, order["lastPickupAt"], self.fee_params(order))
 
     def fee_params(self, order: dict) -> Params:

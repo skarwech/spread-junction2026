@@ -72,7 +72,7 @@ def run(world_id: str, client: Client, level: int, resumed: bool) -> dict:
     summary = {
         **meta,
         "days": days,
-        "transcript": [f"Practice world {world_id}, level {level}."] + [score_line(d["label"], d["score"]) for d in days],
+        "transcript": [f"{'Ranking run' if meta.get('board') else 'Practice world'} {world_id}, level {level}."] + [score_line(d["label"], d["score"]) for d in days],
         "stats": io.stats,
         "journalCalls": len(journal.calls),
         "fingerprint": state.fingerprint(),

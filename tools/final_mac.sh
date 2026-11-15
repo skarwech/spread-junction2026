@@ -1,6 +1,7 @@
 #!/bin/sh
-# Sunday final on this Mac: keeps the Mac awake (caffeinate) and restarts the desk if its process ever dies.
-# Start before 07:30 (the final is set at 07:30, starts 08:00, ends ~08:35). Stop with Ctrl-C after the end.
+# Final supervisor on this Mac: keeps it awake (caffeinate) and restarts the desk if its process dies.
+# Start before the live final window; consult the server's current /v1/final status instead of a stale clock estimate.
+# Stop with Ctrl-C after the final ends.
 cd "$(dirname "$0")/.." || exit 1
 while true; do
   caffeinate -dimsu sh tools/start_final.sh
