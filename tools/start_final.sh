@@ -1,6 +1,6 @@
 #!/bin/sh
 # Starts the live desk for an L8 final with the validated follow-up policy:
-# safe options, drive ≤ 6 h, slack ≥ 8 h, and night hold (the scored 15 Nov final's setting; 8 h ranked 8/8 on the nx sweep, 7 h missed the gate on one week).
+# safe options, drive ≤ 6 h, slack ≥ 8 h, and night hold (the setting test final 3 ran with; 8 h ranked 8/8 on the nx sweep, 7 h missed the gate on one week).
 # Safe to start early: it waits until a final is set and never joins one that has ended.
 # Safe to restart at any time: it rebuilds from the world.
 # Keep this machine awake (lid open, no sleep) until the week ends; if it stops, run this again at once.

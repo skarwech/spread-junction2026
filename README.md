@@ -11,7 +11,7 @@ drivers, and keeps at least 90% of won orders on time. Built step by step, each 
 | Step 8 policy, 16 fresh L8 weeks | **16/16 ranked**, worst 93.2% on time | **+€143,934** (+€8,996 a week) |
 | Final fee cap 1.85× vs 2× control, 16 new paired weeks | **16/16 ranked**; worst 92.4% vs 93.0% on time | **+€148,177 vs +€140,585** (+€475/week) |
 | Follow-up slack limit, 7 h vs 8 h, 16 fresh paired L8 weeks | **16/16 vs 15/16 ranked**; worst 92.62% vs 88.93% on time | **+€169,285 vs +€165,592** (+€231/week) |
-| Junction final (`f88a11d932a63ddb3f413`) | **36th**, ranked; 94.42% on time; 251 won orders; 0 undelivered | **+€5,912.57** |
+| Test final 3, Sun 01:00 (`f88a11d932a63ddb3f413`) | **36th**, ranked; 94.42% on time; 251 won orders; 0 undelivered | **+€5,912.57** |
 | Previous policy, same original 16 weeks | 16/16 ranked, worst 90.6% on time | +€123,805 |
 | Test final 2 (before step 8) | ranked, 97.5% on time; 62nd of 75 ranked teams | +€7,796.59 |
 | Prior live rehearsal (fee cap 2×, 2 runs with SIGKILL) | 1,015/1,015 requests quoted in time; 96.9% on time | +€16,428 |
@@ -25,11 +25,11 @@ we won 1,574 (315/week) at 96.44%. Margin per order was €43.34 for Juhus and �
 mainly from order volume and margin per order, not from the ranking threshold. See the [five-week result
 artifact](evidence/ranking_current/season10.json) and [public leaderboard snapshot](evidence/l8_season10_top.json).
 
-The final gives a same-world comparison: first place earned €14,111.66 on 445 orders (95.96% on time); we
+Test final 3 gives a same-world comparison: first place earned €14,111.66 on 445 orders (95.96% on time); we
 earned €5,912.57 on 251 orders (94.42%). We attached at world minute 1205, after 212 requests had closed;
 all 824 requests we saw were quoted quickly. Startup cost us market coverage, but order volume and margin
 per order also lagged, so fixing startup alone would not close the whole gap. See
-[the final results snapshot](evidence/final_leaderboard.json).
+[the test final 3 results snapshot](evidence/final_leaderboard.json).
 
 ## Season 10 results across all levels
 
@@ -71,18 +71,17 @@ risk sweep](evidence/sweeps/l1_margin_v2.json), [L1 holdout](evidence/sweeps/l1_
    never below the typical fee × 1.15, and rises when intake is high (`desk/policy.py`, `Learning`).
 2. **Fees to the deadline**: open at 0.9× the typical fee and rise to 1.85× by the last pickup time − 2 h;
    fee increases pause overnight from 22:00 to 07:00.
-3. **Quote a safe slower option**: the final used at least 8 h of slack and no more than 6 h of driving.
+3. **Quote a safe slower option**: test final 3 used at least 8 h of slack and no more than 6 h of driving.
    A fresh 16-week follow-up validated 7 h of slack for future launches, with a 92.62% worst week.
 4. **A desk that can't lose its week**: every call journaled and replayed exactly after a crash
    (`desk/journal.py`, `desk/worldio.py`); a client that never sends a POST twice (`desk/client.py`);
    a live desk with a supervised stream and its own quote thread (`desk/live.py`).
 
-The final used an 8-hour slack limit; the current launch script has the independently validated 7-hour
-follow-up setting. The final's actual score is recorded above. The public feed shows that it started at
-01:00 Helsinki time, not the planned 08:00. The desk attached at world minute 1205: it saw and quoted 824
+Test final 3 (Sunday 01:00) ran with the same policy as the current launch script (8 h slack). Its score
+is recorded above; the real final is Sunday 09:00. In test final 3 the desk attached at world minute 1205: it saw and quoted 824
 of 1,036 requests, while 212 had already closed. Every request it saw was quoted, with 0.096 s p99 quote
 latency. See [the runbook](docs/RUNBOOK.md) for the startup lesson and
-[the sweep evidence](evidence/sweeps/) for policy validation. Practice results are not the final score.
+[the sweep evidence](evidence/sweeps/) for policy validation. Practice results are not a final score.
 
 ## Run it
 
@@ -110,6 +109,6 @@ the game server or change results; use **Refresh evidence** after running more w
 
 - `proof/*.html`: one page per step (G0 reproduction, core, policy, live desk, adaptive price, margin pushes).
 - `evidence/`: the sweeps, restart tests and rehearsals each page is built from (`tools/proof_*.py`).
-- [`docs/PITCH.md`](docs/PITCH.md): seven-slide jury pitch, with the final score and operational finding.
+- [`docs/PITCH.md`](docs/PITCH.md): seven-slide jury pitch, with the test final 3 score and operational finding.
 - `docs/spread_spec.md`: the plan and the decision log (every decision with its seeds and run ids);
   `docs/spec_delta.md`: the plan checked line by line against the challenge's rules.

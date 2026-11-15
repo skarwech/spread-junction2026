@@ -27,7 +27,7 @@
 - [x] Final-day fee-cap retune (Sun): `fee_cap=1.85`, validated on 16 fresh paired L8 weeks. 16/16 ranked; margin €148,177 vs €140,585 at 2.0× (+€475/week); worst on-time 92.41% vs 93.01%; 14/16 paired weeks higher; canary clean. Lower 1.75× cap missed the 92% buffer (91.97%).
 - [x] Post-final risk retune: `min_slack_h=7`, independently validated on 16 fresh paired L8 weeks. 16/16 ranked vs 15/16 at 8 h; worst on-time 92.62% vs 88.93%; +€230.81/week; canary clean. Adopted for future runs. `max_drive_h=6.5` rejected after a holdout rank failure. The completed final used the 8 h setting.
 - [x] Code freeze (Sun, after fee-cap retune and 100 passing regression tests)
-- [x] Final ran: 36th, ranked, €5,912.57, 94.42% on time, 251 won orders, 0 undelivered. Reveal: 824/824 seen requests quoted; 212/1,036 requests had passed before attachment at world minute 1205. p99 quote latency 0.096 s; no stream errors, gaps, or drops. `evidence/final.json`, `runs/f88a11d932a63ddb3f413/live_summary.json`, public `/v1/leaderboard`
+- [x] Test final 3 ran (Sun 01:00): 36th, ranked, €5,912.57, 94.42% on time, 251 won orders, 0 undelivered. Reveal: 824/824 seen requests quoted; 212/1,036 requests had passed before attachment at world minute 1205. p99 quote latency 0.096 s; no stream errors, gaps, or drops. `evidence/final.json`, `runs/f88a11d932a63ddb3f413/live_summary.json`, public `/v1/leaderboard`
 - [x] Season 10 board evaluation: 40 ranked runs, five weeks per level L1–L8, using the current L8 policy. L2–L8 ranked 5/5 each; L1 ranked 0/5 (1.48% aggregate on time, −€730,582.88). L8 placed 52nd at €50,220 vs Juhus at €102,581.93 on the same five weeks. `tools/rank_all.py`, `evidence/ranking_current/season10.json`
 - [ ] Final submission (Sun 10:00)
 
@@ -38,7 +38,7 @@
 ### 1.1 Scoring and ranking
 - **Score** = sum of the account: prices in; driver fees, refunds, penalties, fines out. Amounts are whole cents, times are whole world minutes.
 - **Ranked** = at least 1 won order and at least 90% of won orders on time. *On time* = every leg delivered by its deadline. Cancelled orders do not count. A car undelivered at the end counts as late.
-- **Final:** one secret level-8 week. The published plan listed Sun 15 Nov 08:00, but the public feed recorded the actual start at `2026-11-14T23:00:00Z` (01:00 Helsinki); the final ended around 01:34. The 10 ranked teams with the highest margin present to the jury. Same margin to the cent shares a rank. For the actual result and timing, see `evidence/final_leaderboard.json`.
+- **Final:** one secret level-8 week, Sun 15 Nov 09:00 Helsinki (moved from 08:00; registration closes 08:30; ends about 09:35; submissions close 10:00; <https://spread.bahnexpress.com/judging>). The 01:00 event recorded in `evidence/final_leaderboard.json` (`2026-11-14T23:00:00Z`) was test final 3. The 10 ranked teams with the highest margin present to the jury. Same margin to the cent shares a rank. For the actual result and timing, see `evidence/final_leaderboard.json`.
 - **Ranking rounds** (practice): 5 secret worlds per level, identical for all teams. A team is ranked in a round when it has played all five and each run meets the 90% minimum; its margin is the sum. Rounds do not count for the final. `house-…` teams (House starter, House best) play every round.
 
 ### 1.2 The week and requests
@@ -323,7 +323,7 @@ Each module lists **Does / Checks / Expect / Valid when**. Thresholds are target
 | **G3** adaptivity | M7–M11 and M13 each win their ablation (paired, CI above 0) |
 | **G4** hold-out | 20/20 ranked; 20th-percentile margin at target; compared with House best on ranking rounds |
 | **G5** live | both test finals: 0 missed quotes, 0 invariant violations, dashboard reconciles |
-| **G6** final | actual run recorded and ranked; see the timing postmortem (the final began at 01:00 EET, not the planned 08:00) |
+| **G6** final | not yet run: Sun 15 Nov 09:00. Test final 3 (01:00) ranked 36th; see the timing postmortem |
 
 ---
 
@@ -343,8 +343,8 @@ Assumption **[verify via `client.board`]**: a ranking round stays playable until
 | Sat 19:45–20:00 | Registration pauses | **Test final 2**: rehearsal with the frozen candidate |
 | Sat 21:00 | Round 7 | release candidate; code freeze about 22:00; write slides |
 | Sun 00:00 / 03:00 / 06:00 | Rounds 8–10 | soak only; bug fixes only. Sleep about 02:30–06:30 |
-| Sun 15 Nov 01:00 EET | **Final actually started** (`startsAt=2026-11-14T23:00:00Z`) | official `/v1/leaderboard`; old planned 08:00 time was stale |
-| Sun 15 Nov ~01:34 EET | Final ended (`now=endsAt=14280`) | ranked 36th; 212 requests had closed before attachment |
+| Sun 15 Nov 01:00 EET | **Test final 3 started** (`startsAt=2026-11-14T23:00:00Z`) | official `/v1/leaderboard`; /judging lists a test final at 01:00 and the final at 09:00 |
+| Sun 15 Nov ~01:34 EET | Test final 3 ended (`now=endsAt=14280`) | ranked 36th; 212 requests had closed before attachment |
 | Sun 10:00 | Submissions close | hash, code link, deck. Every team submits |
 | Sun 10:30–14:00 | Jury meets the top 10 | present |
 | Sun 14:00 / 15:10 | Ceremony / winners | |
@@ -353,7 +353,7 @@ Assumption **[verify via `client.board`]**: a ranking round stays playable until
 
 ## 7. Final-day runbook
 
-The planned 07:30/08:00 schedule was stale: the official final feed reported a 01:00 EET start. For any live event, start the supervisor before the announced window and verify the actual world from `/v1/final` and the live board; do not wait for a hard-coded clock time.
+The 01:00 event was test final 3, not the final (final: 09:00, per /judging). For any live event, start the supervisor before the announced window and verify the actual world from `/v1/final` and the live board; do not wait for a hard-coded clock time.
 
 **Pre-flight (before the live final window)**
 1. VM up, clock synced, `.env` present, LLM key valid, disk free.
@@ -432,7 +432,7 @@ Rules from the judging page: use the challenge's words (dealer, request, gig, fe
 | 14 Nov 2026 | **Adopt the adaptive price (C)**: start at 1.5×, steer toward 40% of real quotes won (±4% per update, every 30 min, ≥ 5 new outcomes), floor at typical fee × 1.15, push up at ≥ 80 wins in 24 h. 8 full weeks incl. the 4 hardest seeds: C 8/8 ranked, +€68,183, worst 94.8%; fixed 1.5× 8/8, +€66,209, worst 93.3%. 4 Thursday-start weeks: C +€9,738 vs +€7,724. Rejected E (slack 4 h): +€70,033 but hold-5 87.8%. Trust markup is a trade (less margin, more buffer at the 30% target). Holdout1's failures were artefacts (hold-2/5 ranked now). Live rehearsal (2×, kill): 126 orders, 98.4%, +€2,620; 9 of 10 unanswered requests fell in the kill's downtime, 1 quote waited 1.39 s behind a slow answer (2.25 s window at 2×). | evidence/sweeps/adapt1.json, adapt1_thu.json, evidence/rehearsal/wa00509102ad30f053b32.json, proof/adapt.html |
 | 14 Nov 2026 | **Final candidate (user's choice): C with opening fee 0.9× typical.** Same 8 weeks: +€74,009 vs C +€68,183 (+8.5%), 8/8 ranked, worst week 92.5% vs 94.8%. Pre-registered rule: worst ≥ 92%, then margin. Safer alternative kept on file: 0.9× + intake cap 70 (+€72,289, worst 92.8%). Live rehearsal (tf-9, 2×, kill): 128 orders, 99.2%, +€3,151 vs C +€2,620. In tools/start_final.sh for test final 2 and the final. | evidence/sweeps/push1.json, push2.json, evidence/rehearsal/w86c69515c211d2cace4c.json, proof/push.html |
 | 15 Nov 2026 | **Final-day fee-cap update: use `fee_cap=1.85`.** Paired fee-cap sweep on six seeds; independent validation on 16 new L8 weeks: cap 1.85 ranked 16/16, worst 92.41%, margin €148,177; cap 2.0 ranked 16/16, worst 93.01%, margin €140,585. The 1.85 cap gained €474.55/week and won 14/16 paired seeds; canary clean. A 1.75 cap gained €336.20/week across 24 fresh seeds but dipped to 91.97%, so it did not meet the 92% buffer. Adaptive-controller response retunes also failed independent validation and remain at their original values. | `tools/sweep_feecap2.sh`, `tools/sweep_feecap_hold3.sh`, `evidence/sweeps/feecap2.json`, `feecap_hold3.json`, `feeprice_hold1.json`, `feeprice_hold2.json`, `response1.json`, `response_hold1.json` |
-| 15 Nov 2026 | Final placed 36th; ranked at €5,912.57 and 94.42% on time (251 won orders, none undelivered). 212 of 1,036 requests had passed before desk attachment at world minute 1205; all 824 seen requests were quoted at 0.096 s p99. Operational priority for any rerun: attach before the first requests close. | final `f88a11d932a63ddb3f413`; `evidence/final.json`, `runs/f88a11d932a63ddb3f413/live_summary.json`, public `/v1/leaderboard` |
+| 15 Nov 2026 | Test final 3 placed 36th; ranked at €5,912.57 and 94.42% on time (251 won orders, none undelivered). 212 of 1,036 requests had passed before desk attachment at world minute 1205; all 824 seen requests were quoted at 0.096 s p99. Operational priority for any rerun: attach before the first requests close. | final `f88a11d932a63ddb3f413`; `evidence/final.json`, `runs/f88a11d932a63ddb3f413/live_summary.json`, public `/v1/leaderboard` |
 | 15 Nov 2026 | Reject `max_drive_h=6.5` for future runs. Eight-seed screening gained €375.96/week, but fresh 16-seed paired validation gained only €196.73/week, won 9/16 pairs, ranked 15/16 (87.33% worst); the baseline ranked 16/16. Keep the 6 h limit. | `tools/sweep_safety1.sh`, `evidence/sweeps/safety1.json`, `tools/sweep_safety_hold1.sh`, `evidence/sweeps/safety_hold1.json` |
 | 15 Nov 2026 | **Adopt `min_slack_h=7` for future runs.** Fresh paired validation: 16/16 ranked, worst 92.62% on time, €169,285 total margin; the 8 h control was 15/16 ranked, worst 88.93%, €165,592. Gain €230.81/week, 10/16 paired weeks higher; canary clean. The completed final used 8 h. | `tools/sweep_safety1.sh`, `evidence/sweeps/safety1.json`, `tools/sweep_safety_hold2.sh`, `evidence/sweeps/safety_hold2.json` |
 | 15 Nov 2026 | Ran Season 10's five ranking worlds at every level with the same L8 policy (40 runs). L8: €50,220, rank 52 vs Juhus at €102,581.93 on the same seeds; order volume was 1,574 vs 2,367 and on-time 96.44% vs 97.30%. L2–L8 ranked 5/5. L1 was unranked 0/5; the first week won 980 orders but delivered only 79, generating 901 undelivered and −€149,363.74. At that time, the next step was to build level-specific handling before another L1 ranked run. | `tools/rank_all.py`, `evidence/ranking_current/season10.json`, `evidence/l8_season10_top.json` |

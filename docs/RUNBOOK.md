@@ -1,15 +1,14 @@
-# Final runbook and postmortem (Sunday 15 November, Helsinki time)
+# Final runbook (Sunday 15 November, Helsinki time)
 
-The runbook was written for a planned **08:00** start. The public final feed instead recorded
-`startsAt=2026-11-14T23:00:00Z`, which is **01:00 Helsinki time** on 15 Nov; the final ended around 01:34.
-The desk attached at world minute 1205, after 212 of 1,036 requests had already closed. Submissions closed
-at **10:00**. For any rerun, trust `/v1/final` and `/v1/leaderboard` over the planned clock time, and start
-the supervisor before the world begins.
+Schedule from <https://spread.bahnexpress.com/judging> (it moved from 08:00): the final starts **09:00**, registration closes at 08:30, and the
+week ends at about **09:35**. Submissions close at **10:00**. The 01:00 event was a *test final* (test final 3), not the final; see the
+post-run finding below. The server sets the final about 30 minutes before its start: trust `/v1/final` and `/v1/leaderboard`, and start the
+supervisor well before 09:00.
 
 ## The night before
 
 - Freeze the code after the final green test run. Do not run sweeps or change the launch policy once the live final window begins.
-- Check the policy in `tools/start_final.sh`: `fee_open=0.9`, `fee_cap=1.85`, `target_win=0.4`, `intake_cap=80`, `trust_markup=0.01`, `options=safe`, `max_drive_h=6`, `min_slack_h=7`, `night_hold=1`. The fee cap and slack limit were each checked on 16 fresh paired L8 weeks; see the decision log. The completed 15 Nov final used `min_slack_h=8`. Once the desk has joined, `runs/<world>/live_meta.json` shows the params it actually loaded.
+- Check the policy in `tools/start_final.sh`: `fee_open=0.9`, `fee_cap=1.85`, `target_win=0.4`, `intake_cap=80`, `trust_markup=0.01`, `options=safe`, `max_drive_h=6`, `min_slack_h=8`, `night_hold=1`. The fee cap and slack limit were each checked on 16 fresh paired L8 weeks; see the decision log. The completed 15 Nov final used `min_slack_h=8`. Once the desk has joined, `runs/<world>/live_meta.json` shows the params it actually loaded.
 - Fallback (only if the step 8 desk misbehaves): the step 7 policy is `options=first min_slack_h=6 max_drive_h=5` without `night_hold` (git history of `tools/start_final.sh`, commit 104ef90).
 - Plug the Mac into power. Note the Wi-Fi or use a wired connection.
 
@@ -49,7 +48,7 @@ sh tools/final_mac.sh
 - The terminal prints `End  margin €…`. Copy that line.
 - `runs/<final world id>/live_summary.json` holds the score.
 - The reveal opens after the end: `.venv/bin/python -m tools.rehearse --analyse <final world id> 0 > evidence/final.json` (unquoted requests, quote latency, rejoins).
-- Put the result on the deck's first slide.
+- Put the result on the deck's first slide (the pill with the `[€__ margin …]` placeholder).
 
 ## By 10:00 submit on the Junction platform
 
@@ -57,14 +56,14 @@ sh tools/final_mac.sh
 - The link to the code repository.
 - The presentation (5–10 slides).
 
-## Post-run finding
+## Post-run finding: test final 3 (Sunday 01:00)
 
-The final world `f88a11d932a63ddb3f413` placed **36th** and ended ranked at **€5,912.57**, 94.42% on time, with 251 won orders
+The test final world `f88a11d932a63ddb3f413` (`startsAt=2026-11-14T23:00:00Z`, 01:00 Helsinki) placed **36th** and ended ranked at **€5,912.57**, 94.42% on time, with 251 won orders
 and no undelivered orders. The reveal recorded 1,036 requests total: the desk saw and quoted 824, while 212
 had already passed before it attached. At attachment, the world was at minute 1205 with no open requests.
 Quote handling itself was fast (p99 0.096 s), with no stream errors, sequence gaps, or dropped events.
 
-For a future run, launch as soon as the final world becomes available and confirm the live desk is attached
+For the real final, launch as soon as its world becomes available and confirm the live desk is attached
 while requests are still arriving. The desk behaved correctly after attachment, but reconnection cannot
 quote requests that have already closed. See [`evidence/final.json`](../evidence/final.json), the official
 [`final_leaderboard.json`](../evidence/final_leaderboard.json), and the final's

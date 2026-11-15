@@ -6,13 +6,13 @@ Seven slides, ready to transfer into the submission deck. All money values are g
 
 **Spread: a dispatch desk built to earn margin and stay above the 90% on-time gate.**
 
-- Final margin: **€5,912.57**
+- Test final 3 (Sun 01:00) margin: **€5,912.57**; the real final is Sun 09:00, add its result here
 - Won orders on time: **94.42%** · ranked: **yes** · 251 won orders, 0 undelivered
-- Final leaderboard position: **36th**
-- The final started at 01:00 Helsinki time; the desk attached at world minute 1205. It quoted 824/824 requests it saw (p99 0.096 s); 212/1,036 had already closed.
+- Test final 3 leaderboard position: **36th**
+- Test final 3 started at 01:00 Helsinki time; the desk attached at world minute 1205. It quoted 824/824 requests it saw (p99 0.096 s); 212/1,036 had already closed.
 - Before the final: the 1.85× fee-cap policy ranked all 16 fresh L8 holdout weeks; its worst week was 92.41% on time.
 
-*Speaker note:* The 1.85× cap is practice evidence; the headline above is the actual final result.
+*Speaker note:* The 1.85× cap is practice evidence; the headline above is the test final 3 result; replace it with the real final's.
 
 ## Slide 2 — One desk, three linked decisions
 
@@ -62,7 +62,7 @@ On 16 fresh weeks, the step 8 policy earned **€143,934** versus **€123,805**
 
 *Evidence:* [`proof/push8.html`](../proof/push8.html), [`evidence/sweeps/holdout9.json`](../evidence/sweeps/holdout9.json), [`evidence/rehearsal/tf2_leaderboard.json`](../evidence/rehearsal/tf2_leaderboard.json).
 
-*Follow-up validation:* After the final, 16 fresh paired weeks supported lowering the slack threshold to 7 hours for future runs: 16/16 ranked, worst 92.62% on time, and +€231/week over the 8-hour setting. The scored final still used 8 hours.
+*Follow-up validation:* After test final 3, 16 fresh paired weeks supported lowering the slack threshold to 7 hours for future runs: 16/16 ranked, worst 92.62% on time, and +€231/week over the 8-hour setting. Test final 3 used 8 hours, and a later 8-seed sweep (next1) favoured 8 h again, so the launch script uses 8.
 
 ## Slide 6 — Recover without repeating actions
 
@@ -81,7 +81,7 @@ In the rehearsal of the previous launch config (fee cap 2×), the desk quoted **
 - Raising the drive limit to 7+ hours reduced the worst-week safety margin to about 90.5–90.7%; the final cap stays at 6 hours.
 - Earlier, higher fees for long drives, a per-batch quote cap, and lower opening fees lost margin in the sweeps.
 - Changes to the adaptive controller did not repeat their tuning gains on fresh seeds; its 40% target and 30-minute, ±4% updates stayed unchanged.
-- The final is one secret week. The 16 holdouts and live rehearsal did not predict its margin. The actual result was ranked at 94.42%, with €5,912.57 margin.
+- The final is one secret week. In test final 3 the 16 holdouts and live rehearsal did not predict its margin: ranked at 94.42%, €5,912.57.
 
 *Evidence:* [`proof/push8.html`](../proof/push8.html), [`docs/spread_spec.md`](spread_spec.md#10-changelog-and-decision-log).
 
